@@ -214,6 +214,25 @@ function PL(n,p,f,u,tg,dest=false){
 // ── KNOWLEDGE BASE ──
 const R = {};
 
+// ── COMANDOS E RESPOSTAS SOCIAIS ──
+R.oi = {
+html:`<p class="r-p">Oi! 👋 Pronto e por aqui.</p>
+<p class="r-p">Me conta — você tá em qual etapa da conversa com o cliente agora? É só digitar ou escolher um tópico.</p>`,
+chips:['📋 Pipeline completo','🛡️ Objeções','📦 Planos','🔍 SPIN Selling','📊 Follow-up']
+};
+
+R.obrigado = {
+html:`<p class="r-p">Boa! 🎯 Fico feliz que tenha ajudado.</p>
+<p class="r-p">Se surgir mais alguma dúvida durante a negociação — objeção, plano, follow-up, o que for — é só chamar. Tô aqui!</p>`,
+chips:['🏆 Técnica de fechamento','📊 Follow-up','🛡️ Objeções','📋 Pipeline']
+};
+
+R.tchau = {
+html:`<p class="r-p">Boa sorte na negociação! 🏆</p>
+<p class="r-p">Se precisar de apoio em algum momento — mesmo durante a ligação — é só voltar aqui. Vai com tudo!</p>`,
+chips:['🏆 Técnica de fechamento','📊 Follow-up']
+};
+
 R.welcome = {
 html:`<div class="r-t">Oi! Sou o LCI Consultor 🤝</div>
 <p class="r-p">Tô aqui pra te ajudar em tempo real — seja durante uma abordagem, na hora de contornar uma objeção ou pra escolher o plano certo pro cliente.</p>
@@ -230,8 +249,8 @@ chips:['📋 Pipeline completo','🛡️ Objeções','📦 Planos residenciais',
 };
 
 R.pipeline_overview = {
-html:`<div class="r-t">Pipeline de Venda Consultiva — 8 Etapas</div>
-<p class="r-s">Pule qualquer etapa e o cliente decide pelo preço, não pelo valor.</p>
+html:`<div class="r-t">Pipeline de Venda Consultiva — 8 Etapas 🗺️</div>
+<p class="r-p">Cada etapa constrói a percepção de valor. Pule uma — qualquer uma — e o cliente vai decidir pelo preço em vez de pelo que você tem de diferente.</p>
 <ul class="r-list">
   <li><strong>1. Prospecção</strong> — Defina o ICP antes de abordar</li>
   <li><strong>2. Abordagem</strong> — Regra dos 4×20, rapport</li>
@@ -277,8 +296,8 @@ chips:['🤝 Etapa 2: Abordagem','🔍 Etapa 3: Sondagem','📦 Planos residenci
 };
 
 R.abordagem = {
-html:`<div class="r-t">🤝 Etapa 2 — Abordagem / Rapport</div>
-<p class="r-s">Os primeiros 20 gestos, 20 cm, 20 palavras e 20 segundos definem se o cliente vai ouvir ou fechar a porta.</p>
+html:`<div class="r-t">🤝 Etapa 2 — Abordagem e Rapport</div>
+<p class="r-p">Você tem 20 segundos. Os primeiros 20 gestos, 20 cm de distância, 20 palavras — tudo isso define se o cliente vai ouvir ou fechar a porta.</p>
 <div class="avoid-box"><span class="al">❌ Evite</span>"Olá, somos a LCI Telecom e temos os melhores planos do mercado, posso apresentar?"</div>
 <div class="script-box"><span class="sl">✅ Use isso</span>"<em>[Nome], você mora no bairro [X]? Nossa rede é a que tem maior cobertura ali agora. Como tem sido a experiência com o provedor atual?</em>"</div>
 <div class="r-cols">
@@ -306,8 +325,8 @@ chips:['🔍 Etapa 3: Sondagem','🛡️ Objeção apareceu','📦 Planos reside
 };
 
 R.sondagem = {
-html:`<div class="r-t">🔍 Etapa 3 — Sondagem / SPIN Selling</div>
-<p class="r-s">SPIN Selling: 35.000 vendas analisadas. O cliente que verbaliza a própria necessidade se convence sozinho.</p>
+html:`<div class="r-t">🔍 Etapa 3 — Sondagem SPIN</div>
+<p class="r-p">Quem faz as perguntas certas controla a conversa — sem parecer controlador. O cliente que verbaliza a própria necessidade se convence sozinho. Isso foi validado em 35.000 vendas reais.</p>
 <div class="spin-grid">
   <div class="sb sb-s"><span class="sb-l">S — Situação</span><ul>
     <li>"Quantas pessoas usam a internet?"</li>
@@ -336,8 +355,8 @@ chips:['💡 Etapa 4: Conscientização','📦 Etapa 5: Apresentação','🛡️
 };
 
 R.conscientizacao = {
-html:`<div class="r-t">💡 Etapa 4 — Conscientização / Valor Percebido</div>
-<p class="r-s">Apresentar o plano antes dessa etapa é o erro mais caro da venda.</p>
+html:`<div class="r-t">💡 Etapa 4 — Conscientização</div>
+<p class="r-p">Apresentar o plano antes dessa etapa é o erro mais caro da venda. O cliente precisa sentir a dor antes de ver a solução — senão qualquer preço vai parecer alto.</p>
 <div class="info-box"><strong>Fórmula de Kotler:</strong><br>Valor Percebido = Benefícios Percebidos − Custos Percebidos<br>Se o cliente não vê os benefícios antes do preço, qualquer número parece caro.</div>
 <div class="r-p">🗣️ <em>Cliente:</em> "Minha internet é ok... só cai de vez em quando."</div>
 <div class="script-box"><span class="sl">✅ Responda com implicação</span>"Ok. Mas você me disse que a reunião travou semana passada e o Netflix trava à noite. 'De vez em quando' tá custando quanto de estresse e produtividade?"</div>
@@ -348,8 +367,8 @@ chips:['📦 Etapa 5: Apresentação','🛡️ Objeção apareceu','📦 Planos 
 };
 
 R.apresentacao = {
-html:`<div class="r-t">📦 Etapa 5 — Apresentação / Solution Selling</div>
-<p class="r-s">Mais de 3 opções aumenta a desistência. Apresente o plano certo + 1 alternativa — nunca o catálogo.</p>
+html:`<div class="r-t">📦 Etapa 5 — Apresentação</div>
+<p class="r-p">Mais de 3 opções paralisa a decisão. Apresente <strong>1 plano certo</strong> baseado na sondagem + <strong>1 alternativa</strong> — nunca o catálogo inteiro.</p>
 <div class="script-box"><span class="sl">✅ Modelo de apresentação</span>"Com base no que você me contou — home office, 2 filhos no Netflix e você jogando online — o plano certo é o <strong>Combo Nitro 1000 Mega a R$ 249,90</strong>. Ele comporta todo mundo sem degradar."</div>
 <div class="r-p">Se pedir algo mais em conta:</div>
 <div class="script-box"><span class="sl">✅ Alternativa com âncora</span>"O Combo Entretenimento 600 Mega a R$ 179,90 funciona — mas em horário de pico com todo mundo online você vai sentir. O Nitro foi feito pra esse perfil."</div>
@@ -401,20 +420,20 @@ chips:['💸 "Tá caro"','⏳ "Vou pensar"','🔄 Já usa concorrente','❌ "Nã
 };
 
 R.obj_preco = {
-html:`<div class="r-t">💸 Objeção: "Tá caro" / "Muito caro"</div>
-<p class="r-s">Técnica ACE + Feel-Felt-Found + reframe de custo real.</p>
-<div class="script-box"><span class="sl">ACE — Acknowledge (Reconheça)</span>"Entendo. Preço é um fator importante, faz sentido considerar."</div>
-<div class="script-box"><span class="sl">ACE — Clarify (Clarifique)</span>"Caro comparado com o quê, exatamente? Com o que você paga hoje somando o plano atual mais os extras quando estoura?"</div>
-<div class="script-box"><span class="sl">Feel-Felt-Found (Sentiu · Sentiram · Descobriram)</span>"Muitos clientes <strong>sentiam</strong> o mesmo no começo. Quando compararam o total — plano + chip + instabilidade perdida em produtividade — <strong>descobriram</strong> que a LCI saía igual ou abaixo."</div>
-<div class="script-box"><span class="sl">Reframe: custo de não ter</span>"Quanto custa quando a internet cai durante uma reunião importante? Quanto vale não perder esse momento?"</div>
-${TIP('🧠','Se o cliente não passou pela Conscientização (etapa 4), qualquer preço parecerá caro. <strong>Volte ao diagnóstico</strong> antes de justificar o valor.')}
+html:`<div class="r-t">💸 "Tá caro" — a mais clássica</div>
+<p class="r-p">Quase sempre não é sobre preço — é porque o valor ainda não ficou claro. Antes de rebater, identifique o que ele está comparando.</p>
+${S('"Entendo, preço é um fator importante. Mas me diz — caro comparado com o quê? Com o que você paga hoje somando o plano atual mais os extras quando estoura?"')}
+${S('"Muitos clientes <strong>sentiram</strong> o mesmo no início. Quando compararam o total — plano + chip + o custo das quedas — <strong>descobriram</strong> que a LCI saía igual ou abaixo do que pagavam antes."')}
+${S('"Quanto custa quando a internet cai durante uma reunião importante? Esse é o custo real que a gente tá eliminando."')}
+${AV('"Mas a LCI oferece qualidade!" — Argumentar direto no preço sem perguntar o que ele está comparando é um erro que piora a situação.')}
+${TIP('🧠','Se o cliente não passou pela Conscientização (etapa 4), qualquer preço vai parecer caro. <strong>Volte ao diagnóstico</strong> antes de justificar o valor.')}
 <div class="fonte">Ref: ACE Framework (saleshive.com) · Feel-Felt-Found (changingminds.org)</div>`,
 chips:['⏳ "Vou pensar"','📦 Ver planos em conta','🔄 Concorrente mais barato','💡 Voltar à conscientização']
 };
 
 R.obj_pensar = {
-html:`<div class="r-t">⏳ Objeção: "Vou pensar" / "Preciso ver"</div>
-<p class="r-s">Técnica JOLT: reduza o FOMU (Fear of Messing Up — medo de errar).</p>
+html:`<div class="r-t">⏳ "Vou pensar" — medo disfarçado de reflexão</div>
+<p class="r-p">56% das perdas por "vou pensar" são por FOMU — medo de errar a decisão, não por preferência do concorrente. Não aumente a pressão — reduza o risco percebido.</p>
 <div class="script-box"><span class="sl">✅ Identifique o medo real</span>"Claro, sem problema. Me diz: o que falta pra você se sentir seguro pra decidir hoje?"</div>
 <div class="script-box"><span class="sl">✅ Reduza a percepção de risco</span>"A instalação é grátis, o Clube de Benefícios entra no primeiro mês e nosso suporte funciona até meia-noite. Você não assume nenhum risco."</div>
 <div class="script-box"><span class="sl">✅ Urgência real (não forçada)</span>"Só um detalhe: os slots de instalação no seu bairro essa semana estão acabando. Garantindo hoje, agendamos amanhã."</div>
@@ -425,8 +444,8 @@ chips:['💸 "Tá caro"','🔄 Concorrente mais barato','🏆 Técnica de fecham
 };
 
 R.obj_concorrente = {
-html:`<div class="r-t">🔄 Objeção: "Outro provedor é mais barato"</div>
-<p class="r-s">Não discuta o preço do concorrente — reframe para custo real e diferenciais da LCI.</p>
+html:`<div class="r-t">🔄 "Concorrente é mais barato" — muda o terreno</div>
+<p class="r-p">Não discuta preço — você perde nesse campo. Mude o critério da comparação pro que realmente importa no dia a dia: suporte, estabilidade, rede própria.</p>
 <div class="script-box"><span class="sl">✅ Reframe: custo x qualidade</span>"Pode ser. Mas barato que cai não é barato. Você me disse que a reunião travou semana passada — qual é o custo real de cada interrupção?"</div>
 <div class="script-box"><span class="sl">✅ Diferenciais LCI</span>"A LCI tem rede própria, suporte local até meia-noite e Clube de Benefícios. Outros provedores terceirizam a manutenção — quando cai, a fila de espera é longa."</div>
 <div class="script-box"><span class="sl">✅ Feel-Felt-Found</span>"Muitos clientes <strong>sentiram</strong> o mesmo. Foram pro concorrente, <strong>sentiram</strong> as quedas e o suporte demorado e <strong>descobriram</strong> que economizaram no plano mas perderam muito mais."</div>
@@ -435,8 +454,8 @@ chips:['💸 "Tá caro"','📦 Planos residenciais','🏆 Fechamento']
 };
 
 R.obj_fidelidade = {
-html:`<div class="r-t">📋 Objeção: "Não quero fidelidade / Não quero me prender"</div>
-<p class="r-s">Reframe: fidelidade é compromisso mútuo, não prisão.</p>
+html:`<div class="r-t">📋 "Não quero fidelidade" — autonomia, não objeção</div>
+<p class="r-p">O cliente quer sentir que está no controle. Mostre que a fidelidade existe por ele, não contra ele.</p>
 <div class="script-box"><span class="sl">✅ Resposta direta e transparente</span>"Entendo o receio. A fidelidade existe porque a gente banca a <strong>instalação grátis</strong> e o <strong>Clube de Benefícios</strong> com desconto desde o primeiro mês. É compromisso mútuo — garantimos que você fica satisfeito."</div>
 <div class="script-box"><span class="sl">✅ O que o cliente ganha</span>"No período de fidelidade você tem: instalação grátis, suporte premium, benefícios do Clube LCI e upgrade de velocidade ao final. Não é prisão — é parceria."</div>
 <div class="script-box"><span class="sl">✅ Reduza o medo com garantia</span>"Se em qualquer momento você tiver um problema de qualidade que a gente não consiga resolver, a gente não vai te segurar. Nosso compromisso é com a experiência."</div>
@@ -445,8 +464,8 @@ chips:['💸 "Tá caro"','🏆 Fechamento','📊 Follow-up']
 };
 
 R.obj_satisfeito = {
-html:`<div class="r-t">✅ Objeção: "Já tenho provedor e estou bem"</div>
-<p class="r-s">Reabra com SPIN — problema e implicação. Satisfação declarada raramente é satisfação real.</p>
+html:`<div class="r-t">✅ "Estou satisfeito" — ou será que não?</div>
+<p class="r-p">Satisfação declarada raramente é satisfação real. 95% dos insatisfeitos não reclamam — simplesmente vão embora um dia. Use o SPIN pra revelar a dor que ele normalizou.</p>
 <div class="script-box"><span class="sl">✅ Problema: plante a dúvida</span>"Que bom! Mas me conta — tem alguma hora do dia que a velocidade cai, ou algum cômodo que o sinal não chega direito?"</div>
 <div class="script-box"><span class="sl">✅ Implicação: amplifique</span>"E quando cai em horário de pico — tipo à noite com todo mundo em casa — o que costuma acontecer?"</div>
 <div class="script-box"><span class="sl">✅ Necessidade: faça verbalizar</span>"Se você tivesse uma internet que não cai nunca, com suporte local quando precisar, o que mudaria no dia a dia da sua família?"</div>
@@ -457,7 +476,7 @@ chips:['🔍 SPIN Selling completo','💡 Conscientização','📦 Planos reside
 
 R.fechamento = {
 html:`<div class="r-t">🏆 Etapa 7 — Fechamento</div>
-<p class="r-s">O fechamento é a consequência do ciclo bem executado — nunca de pressão.</p>
+<p class="r-p">Fechamento é a consequência natural de um ciclo bem executado — nunca de pressão. Se chegou aqui com diagnóstico e valor construídos, o "sim" já está no caminho.</p>
 <div class="script-box"><span class="sl">✅ Fechamento Alternativo (pressupõe o sim)</span>"Confirma o endereço — prefere instalação de manhã ou à tarde?"</div>
 <div class="script-box"><span class="sl">✅ Fechamento com Concessão</span>"Fechando hoje, isento a taxa de instalação e te coloco na agenda de amanhã."</div>
 <div class="script-box"><span class="sl">✅ Assumir o avanço</span>"Vou gerar a proposta agora — você consegue confirmar até o fim do dia?"</div>
@@ -485,8 +504,8 @@ chips:['⭐ Pós-venda','📊 Follow-up','🛡️ Ainda tem objeção']
 };
 
 R.posvenda = {
-html:`<div class="r-t">⭐ Etapa 8 — Pós-venda / Fidelização</div>
-<p class="r-s">O pós-venda bem feito gera o próximo ciclo de vendas. Uma indicação tem conversão 3× maior que prospecção fria.</p>
+html:`<div class="r-t">⭐ Etapa 8 — Pós-venda</div>
+<p class="r-p">O pós-venda bem feito gera o próximo ciclo de vendas automaticamente. Uma indicação converte 3× mais que prospecção fria — e custa quase zero.</p>
 <div class="script-box"><span class="sl">📅 Dia da instalação</span>"Oi [Nome]! Tudo certinho com a instalação? Qualquer dúvida sobre o roteador ou os apps, pode me chamar aqui 😊"</div>
 <div class="script-box"><span class="sl">📅 30 dias após — check-in real</span>"[Nome], faz um mês que você tá com a LCI — como tá sendo a experiência? Alguma coisa que posso ajudar a ajustar?"</div>
 <div class="script-box"><span class="sl">🤝 Abertura para indicação (no check-in)</span>"Você conhece alguém que paga caro por uma internet que cai direto? Tenho um benefício especial pra indicações do seu bairro."</div>
@@ -1005,6 +1024,23 @@ function detect(msg) {
   const t = msg.toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g,'');
   const has = (...ws) => ws.some(w => t.includes(w));
+  const exact = t.trim();
+
+  // ── Comandos básicos (prioridade máxima) ──
+  if(has('voltar ao inicio','voltar pro inicio','comecar de novo','recomecar tudo','ir pro menu','tela inicial','pagina inicial')) return 'welcome';
+  if(exact==='inicio'||exact==='menu'||exact==='recomecar'||exact==='comecar'||exact==='home'||exact==='reiniciar') return 'welcome';
+
+  // ── Saudações ──
+  if(exact==='oi'||exact==='ola'||exact==='ei'||exact==='e ai'||exact==='iae'||exact==='opa') return 'oi';
+  if(has('bom dia','boa tarde','boa noite','tudo bem','tudo certo','como voce vai','como vc vai','oi tudo','ola tudo','oi, tudo')) return 'oi';
+
+  // ── Agradecimentos e confirmações ──
+  if(has('obrigado','obrigada','muito obrigado','muito obrigada','agradeco','agradecida')) return 'obrigado';
+  if((exact==='valeu'||exact==='otimo'||exact==='perfeito'||exact==='show'||exact==='legal'||exact==='massa'||exact==='incrivel'||exact==='excelente'||exact==='entendi'||exact==='ok')) return 'obrigado';
+  if(exact.length<20 && has('valeu demais','foi otimo','foi util','me ajudou','top demais','gostei muito')) return 'obrigado';
+
+  // ── Despedidas ──
+  if(has('tchau','ate mais','ate logo','xau','bye','de nada ate')) return 'tchau';
 
   // ── Perguntas vagas sobre objeções → pede o texto do cliente primeiro ──
   // Requer palavras interrogativas/vagas (não captura chips como "🛡️ Objeções")
