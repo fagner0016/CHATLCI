@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
   LCI Consultor · Assistente de Vendas Consultiva
@@ -133,10 +134,8 @@ body{
 .b-b{background:var(--blt);color:var(--blue)}.b-y{background:var(--ylt);color:#92400E}
 .b-k{background:var(--gl);color:var(--gd)}
 
-/* ── QUICK REPLIES ── */
-.qr-bar{padding:7px 14px;display:flex;gap:5px;flex-wrap:wrap;border-top:1px solid var(--gl);background:var(--white);flex-shrink:0;min-height:38px;align-items:center}
-.qr-chip{background:var(--white);border:1.5px solid var(--gl);border-radius:20px;padding:5px 11px;font-family:var(--fh);font-size:11px;font-weight:700;color:var(--gd);cursor:pointer;transition:all 0.13s;white-space:nowrap}
-.qr-chip:hover{background:var(--red);border-color:var(--red);color:#fff}
+/* ── QUICK REPLIES — removidos a pedido ── */
+.qr-bar{display:none}
 
 /* ── INPUT BAR ── */
 .input-bar{background:var(--white);border-top:1px solid var(--gl);padding:10px 14px;display:flex;gap:7px;align-items:center;flex-shrink:0}
@@ -994,6 +993,46 @@ ${TIP('🌐','Tenha casos de resolução de problema na manga. Uma boa história
 chips:['📦 Ver planos','🔍 SPIN Selling','🏆 Fechamento']
 };
 
+// ── CLUBE DE BENEFÍCIOS ──
+R.clube_beneficios = {
+html:`<div class="r-t">🎁 Clube de Benefícios LCI</div>
+<p class="r-p">Ao contratar com a LCI, o cliente entra automaticamente no programa — vantagens que crescem com o tempo de fidelidade.</p>
+<div class="r-sec">
+  <div class="info-box" style="margin-bottom:8px">
+    <strong>🎰 Sorteios Trimestrais</strong><br>
+    Realizados a cada 3 meses. Participação automática quando o cliente tiver <strong>≥ 3 meses de contrato ativo</strong>, mensalidades em dia e fidelidade vigente.
+  </div>
+  <div class="plan-mini" style="border-left-color:var(--blue)">
+    <div class="pm-n">📺 Com 6 meses de contrato</div>
+    <div class="pm-f">3 meses <strong>grátis</strong> de app premium à escolha: <strong>Disney+, Sky+ ou MAX</strong></div>
+  </div>
+  <div class="plan-mini dest" style="margin-top:5px">
+    <div class="pm-n">⚡ Com 1 ano + Refidelização</div>
+    <div class="pm-f"><strong>Upgrade de velocidade grátis</strong> por 12 meses consecutivos<br>
+    Já no plano máximo? → 12 meses de <strong>Disney+ ou MAX</strong> grátis<br>
+    Plano empresarial? → <strong>Backup em dobro</strong> no lugar dos apps</div>
+  </div>
+</div>
+${TIP('⚠️','<strong>Condições importantes:</strong> o benefício é por 12 meses contínuos, sem pausa ou extensão. Downgrade de velocidade ou nova refidelização durante o período = perde o benefício imediatamente.')}
+${S('"Ao contratar, você já entra nos sorteios trimestrais. Com 6 meses ganha 3 meses grátis de streaming. Ao renovar a fidelidade com 1 ano, sobe de velocidade sem pagar nada a mais — por 12 meses inteiros."')}`
+};
+
+// ── VANTAGENS LCI ──
+R.vantagens_lci = {
+html:`<div class="r-t">⭐ Por que escolher a LCI Telecom?</div>
+<p class="r-p">Aqui estão os diferenciais concretos pra usar com o cliente — cada um com prova real:</p>
+<ul class="r-list">
+  <li>🔌 <strong>Instalação gratuita</strong> — equipamentos fornecidos em comodato, sem custo de entrada</li>
+  <li>🌐 <strong>Rede própria monitorada 24h</strong> — maior cobertura nas cidades que atua, sem terceirização de infraestrutura</li>
+  <li>🛠️ <strong>Suporte humano até meia-noite</strong> — seg a sex, atendimento remoto real, sem robô</li>
+  <li>🎁 <strong>Clube de Benefícios exclusivo</strong> — sorteios trimestrais, 3 meses de streaming grátis (6 meses de contrato), upgrade de velocidade ao refidelizar</li>
+  <li>👥 <strong>Indique e Ganhe</strong> — 1 indicação que assina = 50% na fatura; 2 indicações no mesmo mês = fatura <strong>zerada</strong></li>
+  <li>🏆 <strong>20 anos premiado</strong> pelo melhorplano.net — reconhecimento contínuo de qualidade</li>
+</ul>
+${TIP('💬','Use esses diferenciais em ordem: primeiro resolva a dor do cliente (Sondagem), depois apresente os benefícios conectados à dor dele — não todos de uma vez.')}
+${S('"A LCI tem rede própria monitorada 24h, suporte humano até meia-noite e um Clube de Benefícios que nenhum provedor da região oferece — sorteios, streaming grátis e upgrade de velocidade ao renovar."')}`
+};
+
 R.obj_caixa_postal = {
 html:`<div class="r-t">📞 Caiu na caixa postal / Não atendeu</div>
 <p class="r-p">Não deixe mensagem genérica — e não ligue de volta imediatamente. Siga a cadência.</p>
@@ -1072,6 +1111,8 @@ function detect(msg) {
   if(has('reclamacao','avaliacao negativa','reclame aqui','falaram mal da lci','ouvi falar mal','vi comentario negativo','vi review ruim','pesquisei e vi')) return 'obj_avaliacao_negativa';
   if(has('roi','retorno sobre investimento','nao vejo valor','nao vejo retorno','qual o retorno nisso','vale a pena mesmo','custo beneficio')) return 'obj_sem_roi';
   if(has('sete passos','7 passos','como superar objecao','processo de objecao','metodo para objecao','passos pra contornar')) return 'sete_passos';
+  if(has('clube de beneficio','clube beneficio','programa de beneficio','sorteio','sorteios','app gratis','streaming gratis','upgrade de velocidade','degustacao','refidelizar','vantagem de fidelidade','beneficios lci','premio lci','premio trimestral')) return 'clube_beneficios';
+  if(has('vantagem da lci','vantagens da lci','vantagem lci','por que lci','por que escolher lci','por que a lci','diferencial lci','diferenciais lci','indique e ganhe','indica e ganha','zerar fatura','indicar e ganhar','20 anos lci','melhorplano','rede propria lci','suporte lci','instalacao gratis lci','por que contratar lci')) return 'vantagens_lci';
 
   // ── Planos ──
   if(has('gamer','exitlag','ping baixo','streamer','e-sport','esport','ip publico residencial')) return 'plano_gamer';
@@ -1158,29 +1199,11 @@ function showTyping() {
 }
 function hideTyping() { const el = document.getElementById('typingEl'); if(el) el.remove(); }
 
-function setChips(chips) {
-  const bar = document.getElementById('qrBar');
-  bar.innerHTML = '';
-  (chips || []).forEach(c => {
-    const btn = document.createElement('div');
-    btn.className = 'qr-chip';
-    btn.textContent = c;
-    btn.onclick = () => sendChip(c);
-    bar.appendChild(btn);
-  });
-}
-
-function sendChip(text) {
-  document.getElementById('chatInput').value = text;
-  sendMessage();
-}
-
 function sendMessage() {
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
   if (!text) return;
   input.value = '';
-  setChips([]);
 
   renderMsg('user', text);
   showTyping();
@@ -1189,7 +1212,6 @@ function sendMessage() {
     hideTyping();
     const res = getResponse(text);
     renderMsg('bot', res.html);
-    setChips(res.chips || []);
   }, 500 + Math.random() * 350);
 }
 
@@ -1200,7 +1222,6 @@ document.getElementById('chatInput').addEventListener('keydown', e => {
 // ── INIT ──
 setTimeout(() => {
   renderMsg('bot', R.welcome.html);
-  setChips(R.welcome.chips);
 }, 350);
 </script>
 </body>
