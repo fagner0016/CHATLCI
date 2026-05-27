@@ -152,6 +152,23 @@ body{
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gm);animation:bounce 1.2s infinite}
 .dot:nth-child(2){animation-delay:0.2s}.dot:nth-child(3){animation-delay:0.4s}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+
+/* ── GEMINI AI BADGE ── */
+.gemini-badge{
+  background:rgba(245,158,11,0.12);
+  border:1px solid rgba(245,158,11,0.35);
+  border-left:3px solid var(--yellow);
+  border-radius:7px;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:700;
+  color:#78350F;
+  margin-bottom:10px;
+  line-height:1.4;
+  letter-spacing:0.01em;
+}
+.gemini-badge strong{color:#92400E}
+.gemini-typing-label{font-size:11px;color:var(--gm);font-style:italic;margin-left:4px}
 </style>
 </head>
 <body>
@@ -585,8 +602,79 @@ ${PL('Combo EPP — 500 Mega','R$ 299,90','250 Mega Upload · Kaspersky 3 lic. �
 ${PL('Combo ME — 600 Mega','R$ 379,90','300 Mega Upload · Kaspersky 3 lic. · Alta performance contínua','Médio porte, operações 24h, câmeras de segurança','Corporativo')}
 ${PL('Combo SA — 1000 Mega','R$ 599,90','500 Mega Upload · Acronis Backup 30GB · Suporte premium','Grandes operações, servidores, múltiplas filiais','Operações Críticas',true)}
 ${PL('IP Dedicado','Sob consulta','Simétrico dedicado · Anti-DDoS · Bloco /30 IPv4 + /48 IPv6 · SLA garantido','Missão crítica, link exclusivo, latência garantida','Dedicado')}
-${TIP('🏢','Para empresa que precisa de câmeras remotas ou servidor: recomende <strong>IP Fixo</strong> como upsell. Pergunte: "Você precisa acessar as câmeras de fora do estabelecimento?"')}`,
+${TIP('🏢','Para empresa que precisa de câmeras remotas ou servidor: recomende <strong>IP Fixo</strong> como upsell. Pergunte: "Você precisa acessar as câmeras de fora do estabelecimento?"')}
+${INFO('<strong>📦 Serviços adicionais disponíveis para empresas:</strong> Backup na Nuvem · Clear Channel (Lan to Lan) · Colocation · Hospedagem e E-mail. Pergunte sobre cada um para detalhes.')}`,
 chips:['🔌 IP Fixo vs Dinâmico','📱 Chips para equipe de campo','🛡️ Objeção de preço empresarial','🔍 SPIN para empresas']
+};
+
+// ── SERVIÇOS EMPRESARIAIS ADICIONAIS ──
+
+R.servicos_empresariais = {
+html:`<div class="r-t">📦 Soluções Empresariais LCI — Portfólio Completo</div>
+<p class="r-p">Além dos planos de conectividade, a LCI oferece serviços gerenciados para suportar toda a operação da empresa:</p>
+<ul class="r-list">
+  <li>☁️ <strong>Backup na Nuvem</strong> — Backup de servidores e dispositivos para a nuvem via parceiro líder mundial</li>
+  <li>🔗 <strong>Clear Channel (Lan to Lan)</strong> — Interligação de filiais em rede privativa usando a infraestrutura de fibra da LCI</li>
+  <li>🏗️ <strong>Colocation</strong> — Hospedagem de ativos de rede em DC com SLA ≥ 99,8% e conexão ao IX de Cuiabá-MT e SP</li>
+  <li>🌐 <strong>Hospedagem e E-mail</strong> — Hospedagem de sites e contas de e-mail corporativo</li>
+  <li>⚙️ <strong>Modo Bridge</strong> — O cliente gerencia a própria rede; suporte configura após ativação do plano</li>
+</ul>
+${TIP('💡','Use o portfólio completo como diferencial de vendas: <strong>"A LCI não vende só internet — resolve toda a infraestrutura digital da sua empresa em um único fornecedor."</strong>')}
+${S('"Além do link de fibra, a LCI oferece backup na nuvem, interligação de unidades, hospedagem e colocation — tudo com suporte próprio. Posso detalhar qual desses faz mais sentido pro seu cenário?"')}`,
+chips:[]
+};
+
+R.backup_nuvem = {
+html:`<div class="r-t">☁️ Backup na Nuvem — LCI Business</div>
+<p class="r-p">Serviço de backup gerenciado para servidores e dispositivos corporativos, operado via <strong>parceiro líder mundial</strong> neste segmento.</p>
+${INFO('<strong>O que está incluído:</strong><br>• Backup automático de servidores físicos e virtuais<br>• Backup de dispositivos (notebooks, desktops)<br>• Armazenamento seguro em nuvem<br>• Recuperação de dados (disaster recovery)')}
+${TIP('🎯','Gatilho de venda: pergunte <em>"Sua empresa já passou por perda de dados?"</em> ou <em>"Se o servidor falhar amanhã, quanto tempo leva pra restaurar tudo?"</em>. O medo de downtime e perda de dados fecha essa conversa.')}
+${S('"A LCI oferece backup na nuvem com um dos maiores provedores do mundo — seus servidores e computadores ficam protegidos automaticamente. Se o HD queimar ou o sistema travar, você recupera tudo em horas, não em dias. Faz sentido pra vocês?"')}
+${AV('"Vocês nunca precisaram de backup até hoje." — Não minimize o risco. Use a estatística: mais de 60% das empresas que perdem dados críticos fecham em 6 meses.')}`,
+chips:[]
+};
+
+R.clear_channel = {
+html:`<div class="r-t">🔗 Clear Channel — Lan to Lan (Rede Privativa)</div>
+<p class="r-p">Interligação de unidades empresariais em <strong>rede privativa</strong> usando a infraestrutura de fibra óptica própria da LCI — sem passar pela internet pública.</p>
+${INFO('<strong>Como funciona:</strong><br>• Conecta filiais, depósitos e unidades como se fossem uma só rede local<br>• Tráfego circula pela infraestrutura privada da LCI (não pela internet)<br>• Menor latência e maior segurança que VPN sobre internet<br>• Ideal para ERP compartilhado, câmeras entre unidades, PABX centralizado')}
+${TIP('🏢','Perguntas qualificadoras: <em>"Vocês têm mais de uma unidade?"</em> / <em>"As filiais acessam o mesmo sistema ou servidor?"</em> / <em>"Hoje como os sistemas são sincronizados entre as unidades?"</em>')}
+${S('"Se a empresa tem mais de uma unidade, a LCI consegue interligar tudo em rede privativa — é como se todas as filiais estivessem no mesmo escritório, mas cada uma na sua cidade. Mais rápido, mais seguro e mais barato que contratar VPN de terceiros."')}`,
+chips:[]
+};
+
+R.colocation = {
+html:`<div class="r-t">🏗️ Colocation — Data Center LCI</div>
+<p class="r-p">Hospedagem de ativos de rede (servidores, switches, storages) dentro da infraestrutura de <strong>Data Center da LCI</strong>.</p>
+${INFO('<strong>Diferenciais técnicos:</strong><br>• SLA ≥ <strong>99,8%</strong> de disponibilidade<br>• Múltiplos upstream (redundância de conexão)<br>• Conectividade ao <strong>IX Cuiabá-MT</strong> e ao <strong>IX São Paulo-SP</strong><br>• Ambiente físico controlado (energia, refrigeração, segurança)')}
+<div class="r-sec">
+  <div class="plan-mini dest">
+    <div class="pm-n">🌐 IX — Internet Exchange</div>
+    <div class="pm-f">Ponto de troca de tráfego que conecta diretamente provedores e grandes empresas, reduzindo latência e custo de tráfego. Clientes no DC da LCI se beneficiam dessa conexão direta.</div>
+  </div>
+</div>
+${TIP('🎯','Perfil ideal: empresas com infraestrutura própria de TI que precisam de espaço físico seguro, link redundante e acesso ao IX. Pergunte: <em>"Vocês têm servidores próprios? Onde estão hospedados hoje?"</em>')}
+${S('"A LCI tem Data Center próprio com SLA de 99,8% e conexão direta ao Internet Exchange — isso significa latência menor para acessar os maiores sites e serviços do Brasil. Para quem tem servidor próprio, é muito melhor que manter on-premise."')}`,
+chips:[]
+};
+
+R.hospedagem_email = {
+html:`<div class="r-t">🌐 Hospedagem de Sites e E-mail Corporativo</div>
+<p class="r-p">Serviços de hospedagem web e e-mail profissional para empresas que precisam de presença digital com suporte local.</p>
+${INFO('<strong>Serviços disponíveis:</strong><br>• Hospedagem de sites (domínios, painéis de controle)<br>• Contas de e-mail corporativo (ex: contato@suaempresa.com.br)<br>• Indicado para pequenas e médias empresas que querem centralizar fornecedores')}
+${TIP('💡','Ótimo para upsell em clientes MEI e EPP que ainda usam Gmail ou Hotmail para comunicações empresariais. Pergunte: <em>"Vocês têm e-mail com o domínio da empresa ou usam Gmail?"</em>. Um e-mail @nomedarempresa passa muito mais credibilidade para os clientes deles.')}
+${S('"A LCI também oferece hospedagem de site e e-mail com o nome da empresa — sai de contato@gmail.com para contato@suaempresa.com.br. Para quem está formalizando o negócio, faz muita diferença na percepção dos clientes."')}`,
+chips:[]
+};
+
+R.modo_bridge = {
+html:`<div class="r-t">⚙️ Modo Bridge — Gerenciamento Próprio da Rede</div>
+<p class="r-p">No <strong>Modo Bridge</strong>, o equipamento da LCI passa a funcionar como modem puro — o cliente usa o próprio roteador e gerencia toda a configuração da rede.</p>
+${INFO('<strong>Como solicitar:</strong><br>1. O plano precisa estar <strong>ativo</strong><br>2. O cliente entra em contato pelo e-mail: <strong>gruposuporte@lcitelecom.com.br</strong><br>3. O suporte configura o modo bridge remotamente<br><br><strong>Importante:</strong> Após a configuração, o suporte de rede passa a ser de responsabilidade do cliente — a LCI garante o link, não a configuração interna.')}
+${TIP('🏢','Perfil que solicita bridge: empresas com equipe de TI própria, MSPs (provedores de serviço gerenciado), clientes que usam firewall Mikrotik, Fortinet, Cisco ou pfSense. É um sinal de cliente técnico avançado — trate como tal.')}
+${S('"Se você tem roteador próprio e quer gerenciar a rede, a LCI configura o equipamento em modo bridge sem custo extra. Só precisa acionar pelo gruposuporte@lcitelecom.com.br após a instalação — o link fica com a gente, a rede interna fica com você."')}
+${AV('"Ah, é fácil, você mesmo pode fazer." — Não oriente o cliente a alterar configurações sem passar pelo suporte. Pode derrubar o link e gerar chamado desnecessário.')}`,
+chips:[]
 };
 
 R.planos_movel = {
@@ -1119,6 +1207,14 @@ function detect(msg) {
   if(has('nitro','1000 mega','mil mega','mais veloz','mais rapido','plano top','melhor plano')) return 'plano_nitro';
   if(has('entretenimento','streaming','netflix','disney','amazon prime','filmes','series')) return 'plano_entretenimento';
   if(has('chip','movel','celular','plano celular','dados moveis','telefonia','tim','gb')) return 'planos_movel';
+  // Serviços empresariais específicos — verificar ANTES do catch geral de empresa
+  if(has('backup nuvem','backup de servidor','backup servidor','backup dispositivo','backup automatico','backup corporativo','disaster recovery','recuperar dados','perda de dados')) return 'backup_nuvem';
+  if(has('clear channel','lan to lan','lan2lan','rede privativa','interligar filiais','interligar unidades','interligar lojas','rede entre filiais','rede entre unidades')) return 'clear_channel';
+  if(has('colocation','data center lci','datacenter lci','hospedar servidor','colocar servidor','servidor no dc','servidor no datacenter','ix cuiaba','internet exchange')) return 'colocation';
+  if(has('hospedagem de site','hospedagem site','hospedar site','hospedagem web','email corporativo','e-mail corporativo','email empresa','dominio empresa','@empresa','criar site')) return 'hospedagem_email';
+  if(has('modo bridge','mode bridge','bridge mode','gerenciar minha rede','roteador proprio','mikrotik','fortinet','pfsense','configurar bridge','gerenciamento da rede')) return 'modo_bridge';
+  if(has('solucoes empresariais','servicos empresariais','o que oferece para empresa','o que tem para empresa','servicos para empresa','portfolio empresarial','solucoes para empresa')) return 'servicos_empresariais';
+  // Catch geral de empresa → planos
   if(has('empresarial','empresa','mei','epp','cnpj','kaspersky','negocio','comercio','escritorio','pj')) return 'planos_empresarial';
   if(has('residencial','internet residencial','planos residencial','ver planos','todos planos','combo start','combo conecta')) return 'planos_residencial';
 
@@ -1161,6 +1257,89 @@ function getResponse(msg) {
   return R[key] || R.fallback;
 }
 
+// ── GEMINI AI ──
+// ⚠️ CHAVE EXPIROU? Gere uma nova grátis em: https://aistudio.google.com/apikey
+// Depois troque só o valor abaixo e salve o arquivo.
+const _GK = 'AIzaSyCrDwvyOj_OoHYVyZmXgP-bbJoMAinm_oQ';
+// Modelos disponíveis confirmados (v1beta, maio 2026)
+const _MODELS = ['gemini-2.5-flash','gemini-2.0-flash','gemini-2.0-flash-lite'];
+const _GBase = `https://generativelanguage.googleapis.com/v1beta/models/`;
+const _GSYS = `Você é um assistente especializado para consultores de vendas da LCI Telecom, provedor de internet fibra óptica com 20 anos de mercado.
+
+CONTEXTO LCI TELECOM:
+- Planos residenciais: 200Mbps a 1Gbps, faixa R$69–R$149/mês
+- Planos empresariais: MEI R$229,90 (400M) · EPP R$299,90 (500M) · ME R$379,90 (600M) · SA R$599,90 (1G) · IP Dedicado (sob consulta)
+- Serviços empresariais adicionais: Backup na Nuvem (parceiro líder mundial), Clear Channel/Lan to Lan (rede privativa entre filiais), Colocation (DC com SLA 99,8% e IX Cuiabá-MT e SP), Hospedagem de Sites e E-mail, Modo Bridge (gruposuporte@lcitelecom.com.br)
+- Clube de Benefícios: sorteios trimestrais, 3 meses de streaming grátis (6 meses de contrato), upgrade de velocidade ao refidelizar
+- Indique e Ganhe: 1 indicação = 50% desconto; 2 indicações = fatura zerada
+- Instalação e equipamentos gratuitos (comodato); suporte humano seg–sex até meia-noite; rede própria monitorada 24h
+
+COMO RESPONDER:
+1. Se a pergunta for vaga ou incompleta, peça ao vendedor que especifique melhor — ex: "Qual foi a frase exata do cliente?" ou "Você pode detalhar em qual etapa do pipeline isso acontece?"
+2. Se você não souber a resposta com certeza, diga claramente que não tem essa informação específica e sugira onde verificar
+3. Seja direto e prático — sem introduções, sem enrolação
+4. Use marcadores quando listar mais de 2 itens
+5. Máximo 150 palavras. Português brasileiro. Tom de colega de trabalho experiente.`;
+
+async function callGeminiModel(model, userMsg) {
+  const url = `${_GBase}${model}:generateContent?key=${_GK}`;
+  const body = {
+    contents:[{parts:[{text:`${_GSYS}\n\nPergunta do vendedor: ${userMsg}`}]}],
+    generationConfig:{maxOutputTokens:350,temperature:0.65}
+  };
+  let res;
+  try {
+    res = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'omit'});
+  } catch(netErr) {
+    throw new Error(`Falha de rede: ${netErr.message}`);
+  }
+  if(!res.ok) {
+    let detail = `HTTP ${res.status}`;
+    try { const e = await res.json(); detail += ` — ${e.error?.message||''}`; } catch(x){}
+    throw new Error(detail);
+  }
+  const data = await res.json();
+  const txt = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if(!txt) {
+    const blocked = data.promptFeedback?.blockReason;
+    throw new Error(blocked ? `Bloqueado pela API: ${blocked}` : 'Resposta vazia da API');
+  }
+  return txt;
+}
+
+async function callGemini(userMsg) {
+  // Tenta cada modelo em ordem até um funcionar
+  const erros = [];
+  for(const m of _MODELS){
+    try { return await callGeminiModel(m, userMsg); }
+    catch(e){ erros.push(`[${m}] ${e.message}`); }
+  }
+  throw new Error(erros.join(' | '));
+}
+
+function fmtGemini(text) {
+  // Converte markdown básico para HTML
+  let h = text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,'<em>$1</em>');
+  // Listas: linhas começando com - ou •
+  const lines = h.split('\n');
+  const out = []; let inList = false;
+  for(const ln of lines){
+    const li = ln.match(/^[-•]\s+(.+)/);
+    if(li){
+      if(!inList){out.push('<ul class="r-list">');inList=true;}
+      out.push(`<li>${li[1]}</li>`);
+    } else {
+      if(inList){out.push('</ul>');inList=false;}
+      if(ln.trim()) out.push(`<p class="r-p">${ln}</p>`);
+    }
+  }
+  if(inList) out.push('</ul>');
+  return `<div class="gemini-badge">🤖 <strong>Resposta gerada pelo Gemini AI</strong> — verifique em outras fontes antes de aplicar com o cliente</div>${out.join('')}`;
+}
+
 // ── CHAT ENGINE ──
 function tstamp(){ return new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
 
@@ -1188,31 +1367,51 @@ function renderMsg(role, html) {
   area.scrollTop = area.scrollHeight;
 }
 
-function showTyping() {
+function showTyping(label) {
   const area = document.getElementById('chatArea');
   const row = document.createElement('div');
   row.className = 'typing-row';
   row.id = 'typingEl';
-  row.innerHTML = `<div class="msg-av bot">🤖</div><div class="typing-bub"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  const lbl = label ? `<span class="gemini-typing-label">${label}</span>` : '';
+  row.innerHTML = `<div class="msg-av bot">🤖</div><div class="typing-bub"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>${lbl}`;
   area.appendChild(row);
   area.scrollTop = area.scrollHeight;
 }
 function hideTyping() { const el = document.getElementById('typingEl'); if(el) el.remove(); }
 
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
   if (!text) return;
   input.value = '';
 
   renderMsg('user', text);
-  showTyping();
 
-  setTimeout(() => {
-    hideTyping();
-    const res = getResponse(text);
-    renderMsg('bot', res.html);
-  }, 500 + Math.random() * 350);
+  const key = detect(text);
+
+  if (key !== 'fallback') {
+    // Caminho rápido: base de conhecimento local
+    showTyping();
+    setTimeout(() => {
+      hideTyping();
+      renderMsg('bot', (R[key] || R.fallback).html);
+    }, 500 + Math.random() * 350);
+  } else {
+    // Caminho Gemini: chamada assíncrona à API
+    showTyping('consultando Gemini…');
+    try {
+      const geminiText = await callGemini(text);
+      hideTyping();
+      renderMsg('bot', fmtGemini(geminiText));
+    } catch(err) {
+      hideTyping();
+      const errHtml = `<div class="gemini-badge" style="border-left-color:#E60000;background:rgba(230,0,0,0.08);color:#7f1d1d">
+        ⚠️ <strong>Gemini indisponível</strong><br>
+        <span style="font-weight:400;font-size:10.5px">${err.message}</span>
+      </div>${R.fallback.html}`;
+      renderMsg('bot', errHtml);
+    }
+  }
 }
 
 document.getElementById('chatInput').addEventListener('keydown', e => {
