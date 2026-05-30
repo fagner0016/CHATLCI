@@ -1,22 +1,10 @@
 
 <!DOCTYPE html>
-<!--
-  LCI Consultor · Assistente de Vendas Consultiva
-  ─────────────────────────────────────────────────
-  COMO INSERIR NO GOOGLE SITES:
-  1. Abra o Google Sites e vá em Inserir → Incorporar
-  2. Escolha "Por URL" e cole o link deste arquivo
-     (ou hospede no GitHub Pages / Google Drive público)
-  3. Altura recomendada no iframe: 680px ou mais
-  4. Se usar "Incorporar código": cole o HTML completo
-     em Inserir → Incorporar → Código
-  ─────────────────────────────────────────────────
--->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>LCI Consultor · Assistente de Vendas Consultiva</title>
+<title>LCI Telecom — Catálogo & Assistente de Vendas</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -31,16 +19,63 @@
   --fb:'Open Sans',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-/* Google Sites iframe: usa altura fixa no wrapper para garantir preenchimento correto */
-html{height:100%;overflow-x:hidden}
-body{
-  font-family:var(--fb);background:var(--off);color:var(--black);
-  display:flex;flex-direction:column;
-  height:100%;min-height:520px;
-  overflow:hidden;max-width:100%;
-}
+html{height:auto;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--off);color:var(--black);max-width:100%}
 
-/* ── HEADER ── */
+/* CATALOG */
+.catalog-wrap{background:#fff}
+.catalog-hdr{background:var(--black);border-bottom:3px solid var(--red);padding:18px 16px 14px;text-align:center}
+.catalog-hdr h1{font-family:var(--fh);font-size:17px;font-weight:900;color:#fff;margin:2px 0}
+.catalog-hdr p{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px}
+.cat-tabs{display:flex;border-bottom:2px solid var(--gl);background:var(--off);overflow-x:auto;scrollbar-width:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{flex:1;padding:11px 4px;border:none;background:transparent;font-family:var(--fh);font-size:12px;font-weight:700;color:var(--gm);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+.cat-tab.active{color:var(--red);border-bottom-color:var(--red);background:#fff}
+.cat-pane{padding:14px 12px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+.pl-card{background:#fff;border:1.5px solid var(--gl);border-top:3px solid var(--red);border-radius:11px;padding:12px 10px;transition:box-shadow .2s}
+.pl-card:hover{box-shadow:0 3px 14px rgba(230,0,0,.09);border-color:rgba(230,0,0,.3)}
+.pl-card.dest{border-top-color:var(--green);background:#f0fdf4}
+.pl-badge{font-family:var(--fh);font-size:9px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.pl-card.dest .pl-badge{color:var(--green)}
+.pl-name{font-family:var(--fh);font-size:12.5px;font-weight:900;color:var(--black);line-height:1.2;margin-bottom:4px}
+.pl-price{font-family:var(--fh);font-size:18px;font-weight:900;color:var(--red);line-height:1;margin-bottom:2px}
+.pl-price sub{font-size:9px;font-weight:600;color:var(--gm)}
+.pl-speed{font-size:10.5px;color:var(--gm);font-weight:600;margin-bottom:6px;font-family:var(--fh)}
+.pl-feats{list-style:none;padding:0;font-size:11px;color:var(--gd);line-height:1.45}
+.pl-feats li{padding-left:11px;position:relative;margin-bottom:2px}
+.pl-feats li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:900;font-size:8.5px;top:2px}
+.pl-card.dest .pl-feats li::before{color:var(--green)}
+.chip-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.chip-table th{background:var(--black);color:#fff;padding:6px 8px;font-family:var(--fh);font-size:10px;font-weight:700;text-align:center}
+.chip-table th:first-child{text-align:left}
+.chip-table td{padding:7px 8px;border-bottom:1px solid var(--gl);text-align:center}
+.chip-table td:first-child{text-align:left;font-weight:600}
+.chip-table tr:nth-child(even) td{background:var(--off)}
+.chip-table tr.new-row td{background:rgba(21,101,192,.08)}
+.chip-disc-a{color:var(--green);font-weight:700}
+.chip-disc-n{color:var(--red);font-weight:700}
+.chip-note{font-size:10.5px;color:var(--gm);margin-top:8px;padding:8px 10px;background:var(--blt);border:1px solid rgba(0,102,204,.15);border-radius:7px;line-height:1.45}
+.emp-table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:4px}
+.emp-table th{background:var(--black);color:#fff;padding:6px 8px;font-family:var(--fh);font-size:10px;font-weight:700;text-align:left}
+.emp-table td{padding:7px 8px;border-bottom:1px solid var(--gl);vertical-align:top}
+.emp-table tr:nth-child(even) td{background:var(--off)}
+.emp-table tr.emp-dest td{background:rgba(27,154,89,.06)}
+.emp-nm{font-family:var(--fh);font-weight:800;font-size:12px;color:var(--black)}
+.emp-speed{font-size:10px;color:var(--gm)}
+.emp-price{font-family:var(--fh);font-weight:900;font-size:13px;color:var(--red);white-space:nowrap}
+.emp-feats{font-size:10.5px;color:var(--gd);line-height:1.4;margin-top:2px}
+
+/* DIVIDER */
+.sec-divider{background:var(--black);padding:18px 16px}
+.sd-inner{max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:5px}
+.sd-row{display:flex;align-items:center;gap:10px;width:100%}
+.sd-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
+.sd-title{font-family:var(--fh);font-size:14px;font-weight:900;color:#fff;white-space:nowrap}
+.sd-sub{font-size:10.5px;color:rgba(255,255,255,.42);text-align:center}
+
+/* CHAT WRAP */
+.chat-wrap{display:flex;flex-direction:column;height:80vh;min-height:520px;max-height:840px;overflow:hidden}
 .chat-hdr{background:var(--black);border-bottom:3px solid var(--red);padding:0 18px;height:58px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .ch-left{display:flex;align-items:center;gap:11px}
 .ch-av{width:36px;height:36px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;border:2px solid rgba(255,255,255,0.15)}
@@ -48,42 +83,29 @@ body{
 .ch-info small{display:block;font-size:10px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.04em}
 .ch-online{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,0.45)}
 .online-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80}
-
-/* ── PIPELINE BAR ── */
 .pip-bar{background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);padding:7px 12px;display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none;flex-shrink:0;-webkit-overflow-scrolling:touch}
 .pip-bar::-webkit-scrollbar{display:none}
 .pip-label{font-family:var(--fh);font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;flex-shrink:0;margin-right:3px}
-.pip-step{display:flex;align-items:center;gap:3px;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:4px 8px;white-space:nowrap;font-family:var(--fh);font-size:11px;color:rgba(255,255,255,0.55);transition:all 0.15s;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.pip-step{display:flex;align-items:center;gap:3px;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:4px 8px;white-space:nowrap;font-family:var(--fh);font-size:11px;color:rgba(255,255,255,0.55);transition:all 0.15s;flex-shrink:0}
 .pip-step:hover,.pip-step:active{background:var(--red);border-color:var(--red);color:#fff}
 .pip-step .ps-n{font-weight:800;font-size:10px;background:rgba(255,255,255,0.12);border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-/* Em telas menores, esconde o texto e mostra só emoji+número */
-@media(max-width:500px){
-  .pip-step .pip-em{display:none}
-  .pip-label{display:none}
-}
-
-/* ── CHAT AREA ── */
+@media(max-width:500px){.pip-step .pip-em{display:none}.pip-label{display:none}}
 .chat-area{flex:1;overflow-y:auto;padding:18px 14px 6px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
 .chat-area::-webkit-scrollbar{width:3px}
 .chat-area::-webkit-scrollbar-thumb{background:var(--gl);border-radius:3px}
-
-/* ── MESSAGES ── */
 .msg-row{display:flex;align-items:flex-end;gap:7px;max-width:100%}
 .msg-row.user{flex-direction:row-reverse}
 .msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:var(--gl);border:1.5px solid var(--white)}
 .msg-av.bot{background:var(--red)}
 .msg-bub{max-width:calc(100% - 70px);padding:11px 13px;border-radius:15px 15px 15px 3px;background:var(--white);border:1px solid var(--gl);font-size:13px;line-height:1.55;color:var(--gd);box-shadow:0 2px 6px rgba(0,0,0,0.04)}
-.msg-row.user .msg-bub{background:var(--red);color:#fff;border:none;border-radius:15px 15px 3px 15px;box-shadow:0 2px 8px rgba(230,0,0,0.18)}
+.msg-row.user .msg-bub{background:var(--red);color:#fff;border:none;border-radius:15px 15px 3px 15px}
 .msg-time{font-size:10px;color:var(--gm);margin-top:5px;display:block}
 .msg-row.user .msg-time{color:rgba(255,255,255,0.55)}
-
-/* ── RESPONSE ELEMENTS ── */
 .r-t{font-family:var(--fh);font-weight:800;font-size:14px;color:var(--black);margin-bottom:7px}
 .r-s{font-size:12px;color:var(--gm);margin-bottom:9px;font-weight:600}
 .r-sec{margin-bottom:11px}.r-sec:last-child{margin-bottom:0}
 .r-p{font-size:13px;line-height:1.55;margin-bottom:8px}
 .r-p:last-child{margin-bottom:0}
-
 .script-box{background:var(--glt);border:1px solid rgba(27,154,89,0.28);border-left:3px solid var(--green);border-radius:0 7px 7px 0;padding:9px 11px;margin:5px 0;font-size:13px;line-height:1.55}
 .script-box .sl{font-family:var(--fh);font-size:10px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:0.07em;display:block;margin-bottom:3px}
 .avoid-box{background:var(--red-lt);border:1px solid rgba(230,0,0,0.18);border-left:3px solid var(--red);border-radius:0 7px 7px 0;padding:9px 11px;margin:5px 0;font-size:13px;line-height:1.55}
@@ -92,11 +114,9 @@ body{
 .tip-box .tic{flex-shrink:0;font-size:14px;margin-top:1px}
 .info-box{background:var(--blt);border:1px solid rgba(0,102,204,0.18);border-radius:7px;padding:9px 11px;margin:5px 0;font-size:13px;line-height:1.55}
 .fonte{font-size:10px;color:var(--gm);font-style:italic;margin-top:5px;padding-top:4px;border-top:1px solid var(--gl)}
-
 .r-list{list-style:none;padding:0;margin:6px 0}
 .r-list li{font-size:13px;padding-left:15px;position:relative;margin-bottom:4px;line-height:1.5;color:var(--gd)}
 .r-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:900;font-family:var(--fh)}
-
 .r-cols{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:7px 0}
 @media(max-width:380px){.r-cols{grid-template-columns:1fr}}
 .col-g{background:var(--glt);border:1px solid rgba(27,154,89,0.22);border-radius:7px;padding:8px 10px}
@@ -107,8 +127,6 @@ body{
 .col-list li{font-size:11px;color:var(--gd);margin-bottom:3px;padding-left:9px;position:relative}
 .col-list li::before{content:'·';position:absolute;left:0;font-weight:900}
 .col-g .col-list li::before{color:var(--green)}.col-r .col-list li::before{color:var(--red)}
-
-/* PLAN CARD */
 .plan-mini{background:var(--off);border:1px solid var(--gl);border-radius:8px;padding:9px 11px;margin:4px 0;border-left:3px solid var(--red)}
 .plan-mini.dest{border-left-color:var(--black);background:#F0FDF4;border-color:rgba(27,154,89,0.25)}
 .pm-n{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--black)}
@@ -116,8 +134,6 @@ body{
 .pm-f{font-size:11px;color:var(--gm);line-height:1.4}
 .pm-u{font-size:11px;color:var(--gd);font-weight:600;margin-top:3px}
 .pm-tag{display:inline-block;background:var(--gl);border-radius:10px;font-size:10px;font-weight:700;padding:2px 8px;color:var(--gd);margin-top:3px;font-family:var(--fh)}
-
-/* SPIN */
 .spin-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:7px 0}
 @media(max-width:440px){.spin-grid{grid-template-columns:1fr}}
 .sb{border-radius:7px;padding:8px 10px;border:1px solid}
@@ -127,1301 +143,339 @@ body{
 .sb-s .sb-l{color:#1D4ED8}.sb-p .sb-l{color:#C2410C}.sb-i .sb-l{color:#DC2626}.sb-n .sb-l{color:#059669}
 .sb ul{list-style:none;padding:0}.sb li{font-size:11px;color:#374151;margin-bottom:2px;padding-left:9px;position:relative}
 .sb li::before{content:'•';position:absolute;left:0;color:var(--gm)}
-
-/* BADGE */
-.badge{display:inline-block;border-radius:4px;font-size:10px;font-weight:800;padding:2px 7px;font-family:var(--fh);text-transform:uppercase;letter-spacing:0.04em;margin-right:4px}
-.b-r{background:var(--red-lt);color:var(--red)}.b-g{background:var(--glt);color:var(--green)}
-.b-b{background:var(--blt);color:var(--blue)}.b-y{background:var(--ylt);color:#92400E}
-.b-k{background:var(--gl);color:var(--gd)}
-
-/* ── QUICK REPLIES — removidos a pedido ── */
 .qr-bar{display:none}
-
-/* ── INPUT BAR ── */
 .input-bar{background:var(--white);border-top:1px solid var(--gl);padding:10px 14px;display:flex;gap:7px;align-items:center;flex-shrink:0}
-.input-bar input{flex:1;border:1.5px solid var(--gl);border-radius:22px;padding:9px 14px;font-family:var(--fb);font-size:16px;/* 16px evita zoom automático no iOS */color:var(--black);background:var(--off);outline:none;transition:border 0.13s;-webkit-appearance:none;appearance:none}
+.input-bar input{flex:1;border:1.5px solid var(--gl);border-radius:22px;padding:9px 14px;font-family:var(--fb);font-size:16px;color:var(--black);background:var(--off);outline:none;transition:border 0.13s;-webkit-appearance:none}
 .input-bar input:focus{border-color:var(--red);background:#fff}
 .input-bar input::placeholder{color:var(--gm);font-size:13px}
-.send-btn{width:40px;height:40px;border-radius:50%;background:var(--red);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.13s;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.send-btn{width:40px;height:40px;border-radius:50%;background:var(--red);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.13s;flex-shrink:0}
 .send-btn:hover,.send-btn:active{background:var(--red-dk)}
 .send-btn svg{width:16px;height:16px;fill:#fff}
-
-/* TYPING */
 .typing-row{display:flex;align-items:flex-end;gap:7px}
 .typing-bub{background:var(--white);border:1px solid var(--gl);border-radius:15px 15px 15px 3px;padding:11px 14px;display:flex;gap:4px;align-items:center}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gm);animation:bounce 1.2s infinite}
 .dot:nth-child(2){animation-delay:0.2s}.dot:nth-child(3){animation-delay:0.4s}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
-
-/* ── GEMINI AI BADGE ── */
-.gemini-badge{
-  background:rgba(245,158,11,0.12);
-  border:1px solid rgba(245,158,11,0.35);
-  border-left:3px solid var(--yellow);
-  border-radius:7px;
-  padding:8px 11px;
-  font-size:11px;
-  font-weight:700;
-  color:#78350F;
-  margin-bottom:10px;
-  line-height:1.4;
-  letter-spacing:0.01em;
-}
+.gemini-badge{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35);border-left:3px solid var(--yellow);border-radius:7px;padding:8px 11px;font-size:11px;font-weight:700;color:#78350F;margin-bottom:10px;line-height:1.4}
 .gemini-badge strong{color:#92400E}
 .gemini-typing-label{font-size:11px;color:var(--gm);font-style:italic;margin-left:4px}
 </style>
 </head>
 <body>
 
-<div class="chat-hdr">
-  <div class="ch-left">
-    <div class="ch-av">🤖</div>
-    <div class="ch-info">LCI Consultor<small>Assistente de Vendas Consultiva</small></div>
+<!-- CATÁLOGO -->
+<div class="catalog-wrap">
+  <div class="catalog-hdr">
+    <h1>🔴 LCI Telecom — Catálogo de Planos</h1>
+    <p>Fibra Óptica · Chip Móvel · Soluções Empresariais · Maio 2026</p>
   </div>
-  <div class="ch-online"><div class="online-dot"></div>Online</div>
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="showCat('res',this)">🏠 Residencial</button>
+    <button class="cat-tab" onclick="showCat('chip',this)">📱 Chip Móvel</button>
+    <button class="cat-tab" onclick="showCat('emp',this)">🏢 Empresarial</button>
+  </div>
+
+  <!-- RESIDENCIAL -->
+  <div id="cat-res" class="cat-pane">
+    <div class="pl-grid">
+      <div class="pl-card"><div class="pl-badge">300 Mega</div><div class="pl-name">Combo Start</div><div class="pl-price">R$119,90<sub>/mês</sub></div><div class="pl-speed">↓ 300M · ↑ 100M</div><ul class="pl-feats"><li>1 Ubook Go incluso</li><li>Suporte Premium</li><li>Instalação grátis</li></ul></div>
+      <div class="pl-card dest"><div class="pl-badge">500 Mega · Mais Vendido</div><div class="pl-name">Combo Conecta</div><div class="pl-price">R$149,90<sub>/mês</sub></div><div class="pl-speed">↓ 500M · ↑ 200M</div><ul class="pl-feats"><li>Combo Livros (Ubook)</li><li>Suporte Premium</li><li>Instalação grátis</li></ul></div>
+      <div class="pl-card"><div class="pl-badge">600 Mega</div><div class="pl-name">Combo Entretenimento</div><div class="pl-price">R$179,90<sub>/mês</sub></div><div class="pl-speed">↓ 600M · ↑ 200M</div><ul class="pl-feats"><li>Livro + 1 App Plus</li><li>Suporte Premium</li><li>Instalação grátis</li></ul></div>
+      <div class="pl-card"><div class="pl-badge">600 Mega · SCM</div><div class="pl-name">Plano Modelo</div><div class="pl-price">R$179,90<sub>/mês</sub></div><div class="pl-speed">↓ 600M · ↑ 300M</div><ul class="pl-feats"><li>Fibra pura sem app</li><li>Instalação grátis</li></ul></div>
+      <div class="pl-card"><div class="pl-badge">800 Mega · Gamer</div><div class="pl-name">Combo Gamer Plus</div><div class="pl-price">R$209,90<sub>/mês</sub></div><div class="pl-speed">↓ 800M · ↑ 400M</div><ul class="pl-feats"><li>ExitLag integrado</li><li>IP Público incluso</li><li>Suporte Premium</li></ul></div>
+      <div class="pl-card"><div class="pl-badge">800 Mega · SCM</div><div class="pl-name">Plano Default</div><div class="pl-price">R$219,90<sub>/mês</sub></div><div class="pl-speed">↓ 800M · ↑ 300M</div><ul class="pl-feats"><li>Fibra pura sem app</li><li>Upload robusto</li><li>Instalação grátis</li></ul></div>
+      <div class="pl-card"><div class="pl-badge">1000 Mega · Premium</div><div class="pl-name">Combo Nitro</div><div class="pl-price">R$249,90<sub>/mês</sub></div><div class="pl-speed">↓ 1000M · ↑ 300M</div><ul class="pl-feats"><li>Livros + 1 App Plus</li><li>Suporte Premium</li><li>Instalação grátis</li></ul></div>
+    </div>
+  </div>
+
+  <!-- CHIP -->
+  <div id="cat-chip" class="cat-pane" style="display:none">
+    <table class="chip-table">
+      <thead><tr>
+        <th>Plano</th>
+        <th>Avulso</th>
+        <th>Entr<br><span style="font-weight:400;opacity:.7;font-size:9px">-R$10</span></th>
+        <th>Nitro<br><span style="font-weight:400;opacity:.7;font-size:9px">-R$15</span></th>
+        <th>Gamer<br><span style="font-weight:400;opacity:.7;font-size:9px">-R$25</span></th>
+      </tr></thead>
+      <tbody>
+        <tr class="new-row"><td>🆕 5 GB</td><td>R$38,99</td><td colspan="3" style="text-align:center;color:var(--gm);font-size:10px;font-style:italic">sem desconto</td></tr>
+        <tr class="new-row"><td>🆕 10 GB</td><td>R$47,99</td><td colspan="3" style="text-align:center;color:var(--gm);font-size:10px;font-style:italic">sem desconto</td></tr>
+        <tr><td>15 GB</td><td>R$54,99</td><td class="chip-disc-a">R$44,99</td><td class="chip-disc-n">R$39,99</td><td style="color:var(--blue);font-weight:700">R$29,99</td></tr>
+        <tr><td>20 GB</td><td>R$59,99</td><td class="chip-disc-a">R$49,99</td><td class="chip-disc-n">R$44,99</td><td style="color:var(--blue);font-weight:700">R$34,99</td></tr>
+        <tr><td>30 GB</td><td>R$72,99</td><td class="chip-disc-a">R$62,99</td><td class="chip-disc-n">R$57,99</td><td style="color:var(--blue);font-weight:700">R$47,99</td></tr>
+        <tr><td>50 GB</td><td>R$89,99</td><td class="chip-disc-a">R$79,99</td><td class="chip-disc-n">R$74,99</td><td style="color:var(--blue);font-weight:700">R$64,99</td></tr>
+      </tbody>
+    </table>
+    <div class="chip-note">📞 1.000 min · Dupla conectividade Vivo + TIM · Dados cumulativos<br>🆕 5GB e 10GB: avulso apenas (sem desconto por combo) · 15GB–50GB: Entr -R$10 · Nitro -R$15 · <strong>Gamer -R$25</strong></div>
+  </div>
+
+  <!-- EMPRESARIAL -->
+  <div id="cat-emp" class="cat-pane" style="display:none">
+    <table class="emp-table">
+      <thead><tr><th>Plano</th><th>Velocidade</th><th>Preço/mês</th><th>Inclui</th></tr></thead>
+      <tbody>
+        <tr><td><div class="emp-nm">Combo MEI</div></td><td><div class="emp-speed">↓400M · ↑150M</div></td><td><div class="emp-price">R$169,90</div></td><td><div class="emp-feats">Kaspersky 3 lic. · Locação IP · Suporte Emp.</div></td></tr>
+        <tr><td><div class="emp-nm">Combo ME</div></td><td><div class="emp-speed">↓500M · ↑200M</div></td><td><div class="emp-price">R$229,90</div></td><td><div class="emp-feats">Kaspersky 3 lic. · Locação IP · Suporte Emp.</div></td></tr>
+        <tr><td><div class="emp-nm">Combo EPP</div></td><td><div class="emp-speed">↓600M · ↑250M</div></td><td><div class="emp-price">R$249,90</div></td><td><div class="emp-feats">Kaspersky 3 lic. · Suporte Emp. · Livros Gestão</div></td></tr>
+        <tr><td><div class="emp-nm">Combo EMP</div></td><td><div class="emp-speed">↓800M · ↑300M</div></td><td><div class="emp-price">R$379,90</div></td><td><div class="emp-feats">Kaspersky 3 lic. · Locação IP · Suporte + Livros</div></td></tr>
+        <tr class="emp-dest"><td><div class="emp-nm">Combo EGP</div></td><td><div class="emp-speed">↓1000M · ↑500M</div></td><td><div class="emp-price">R$599,90</div></td><td><div class="emp-feats">Acronis 30GB · Kaspersky · Locação IP · Livros</div></td></tr>
+        <tr><td><div class="emp-nm">IP Dedicado</div></td><td><div class="emp-speed">50–1000M simétrico</div></td><td><div class="emp-price">A partir de R$450</div></td><td><div class="emp-feats">Anti-DDoS · /30 IPv4+/48 IPv6 · SLA</div></td></tr>
+      </tbody>
+    </table>
+    <div class="chip-note" style="margin-top:10px">Todos os planos incluem instalação grátis · Suporte seg–sex até meia-noite<br>Adicionais: Backup na Nuvem · Clear Channel · Colocation · Hospedagem e E-mail</div>
+  </div>
 </div>
 
-<div class="pip-bar" id="pipBar">
-  <span class="pip-label">Pipeline →</span>
+<!-- DIVISOR -->
+<div class="sec-divider">
+  <div class="sd-inner">
+    <div class="sd-row"><div class="sd-line"></div><span class="sd-title">💬 Assistente de Vendas LCI</span><div class="sd-line"></div></div>
+    <span class="sd-sub">Tire dúvidas sobre planos, objeções e técnicas de venda em tempo real</span>
+  </div>
 </div>
 
-<div class="chat-area" id="chatArea"></div>
-
-<div class="qr-bar" id="qrBar"></div>
-
-<div class="input-bar">
-  <input type="text" id="chatInput" placeholder="Pergunte sobre planos, objeções, técnicas de venda..." autocomplete="off">
-  <button class="send-btn" onclick="sendMessage()">
-    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-  </button>
+<!-- CHAT -->
+<div class="chat-wrap">
+  <div class="chat-hdr">
+    <div class="ch-left">
+      <div class="ch-av">🤖</div>
+      <div class="ch-info">LCI Consultor<small>Assistente de Vendas Consultiva</small></div>
+    </div>
+    <div class="ch-online"><div class="online-dot"></div>Online</div>
+  </div>
+  <div class="pip-bar" id="pipBar"><span class="pip-label">Pipeline →</span></div>
+  <div class="chat-area" id="chatArea"></div>
+  <div class="qr-bar" id="qrBar"></div>
+  <div class="input-bar">
+    <input type="text" id="chatInput" placeholder="Pergunte sobre planos, objeções, técnicas de venda..." autocomplete="off">
+    <button class="send-btn" onclick="sendMessage()"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
 </div>
 
 <script>
-// ── PIPELINE BAR ──
-const STAGES=[
-  {n:1,e:'🎯',nm:'Prospecção'},{n:2,e:'🤝',nm:'Abordagem'},
-  {n:3,e:'🔍',nm:'Sondagem'},{n:4,e:'💡',nm:'Conscientização'},
-  {n:5,e:'📦',nm:'Apresentação'},{n:6,e:'🛡️',nm:'Objeções'},
-  {n:7,e:'🏆',nm:'Fechamento'},{n:8,e:'⭐',nm:'Pós-venda'},
-];
-STAGES.forEach(s=>{
-  const b=document.createElement('div');
-  b.className='pip-step';
-  b.innerHTML=`<span class="ps-n">${s.n}</span><span class="pip-em">${s.e}</span> <span class="pip-nm">${s.nm}</span>`;
-  b.onclick=()=>sendChip(`Etapa ${s.n}: ${s.nm}`);
-  document.getElementById('pipBar').appendChild(b);
-});
+function showCat(id,el){document.querySelectorAll('.cat-pane').forEach(p=>p.style.display='none');document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));document.getElementById('cat-'+id).style.display='block';el.classList.add('active');}
 
-// ── HELPERS ──
+const STAGES=[{n:1,e:'🎯',nm:'Prospecção'},{n:2,e:'🤝',nm:'Abordagem'},{n:3,e:'🔍',nm:'Sondagem'},{n:4,e:'💡',nm:'Conscientização'},{n:5,e:'📦',nm:'Apresentação'},{n:6,e:'🛡️',nm:'Objeções'},{n:7,e:'🏆',nm:'Fechamento'},{n:8,e:'⭐',nm:'Pós-venda'}];
+STAGES.forEach(s=>{const b=document.createElement('div');b.className='pip-step';b.innerHTML=`<span class="ps-n">${s.n}</span><span class="pip-em">${s.e}</span> <span class="pip-nm">${s.nm}</span>`;b.onclick=()=>sendChip(`Etapa ${s.n}: ${s.nm}`);document.getElementById('pipBar').appendChild(b);});
+function sendChip(text){const i=document.getElementById('chatInput');i.value=text;sendMessage();}
+
 const T=()=>new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 function S(t){return `<span class="script-box"><span class="sl">💬 Diga isso</span>${t}</span>`;}
 function AV(t){return `<span class="avoid-box"><span class="al">❌ Evite</span>${t}</span>`;}
 function TIP(i,t){return `<div class="tip-box"><span class="tic">${i}</span><div>${t}</div></div>`;}
 function INFO(t){return `<div class="info-box">${t}</div>`;}
-function PL(n,p,f,u,tg,dest=false){
-  return `<div class="plan-mini${dest?' dest':''}">
-    <div class="pm-n">${n}</div>
-    <div class="pm-p">${p}<span style="font-size:10px;color:var(--gm);font-weight:600"> /mês</span></div>
-    <div class="pm-f">${f}</div>
-    <div class="pm-u">👤 ${u}</div>
-    <span class="pm-tag">${tg}</span>
-  </div>`;}
+function PL(n,p,f,u,tg,dest=false){return `<div class="plan-mini${dest?' dest':''}"><div class="pm-n">${n}</div><div class="pm-p">${p}<span style="font-size:10px;color:var(--gm);font-weight:600"> /mês</span></div><div class="pm-f">${f}</div><div class="pm-u">👤 ${u}</div><span class="pm-tag">${tg}</span></div>`;}
 
-// ── KNOWLEDGE BASE ──
-const R = {};
-
-// ── COMANDOS E RESPOSTAS SOCIAIS ──
-R.oi = {
-html:`<p class="r-p">Oi! 👋 Pronto e por aqui.</p>
-<p class="r-p">Me conta — você tá em qual etapa da conversa com o cliente agora? É só digitar ou escolher um tópico.</p>`,
-chips:['📋 Pipeline completo','🛡️ Objeções','📦 Planos','🔍 SPIN Selling','📊 Follow-up']
-};
-
-R.obrigado = {
-html:`<p class="r-p">Boa! 🎯 Fico feliz que tenha ajudado.</p>
-<p class="r-p">Se surgir mais alguma dúvida durante a negociação — objeção, plano, follow-up, o que for — é só chamar. Tô aqui!</p>`,
-chips:['🏆 Técnica de fechamento','📊 Follow-up','🛡️ Objeções','📋 Pipeline']
-};
-
-R.tchau = {
-html:`<p class="r-p">Boa sorte na negociação! 🏆</p>
-<p class="r-p">Se precisar de apoio em algum momento — mesmo durante a ligação — é só voltar aqui. Vai com tudo!</p>`,
-chips:['🏆 Técnica de fechamento','📊 Follow-up']
-};
-
-R.welcome = {
-html:`<div class="r-t">Oi! Sou o LCI Consultor 🤝</div>
-<p class="r-p">Tô aqui pra te ajudar em tempo real — seja durante uma abordagem, na hora de contornar uma objeção ou pra escolher o plano certo pro cliente.</p>
-<ul class="r-list">
-  <li>Pipeline completo: da Prospecção ao Pós-venda</li>
-  <li>Objeções: preço, concorrente, fidelidade e mais 15 outras</li>
-  <li>Indicação de plano por perfil do cliente</li>
-  <li>Técnicas SPIN, Feel-Felt-Found, ACE, JOLT</li>
-  <li>Cadência de follow-up e templates de WhatsApp</li>
-  <li>Dúvidas técnicas de Wi-Fi, IP e Mesh</li>
-</ul>
-${TIP('🎯','<strong>Dica:</strong> manda o texto exato que o cliente falou — adapto a melhor resposta pro contexto real dele!')}`,
-chips:['📋 Pipeline completo','🛡️ Objeções','📦 Planos residenciais','📱 Chips/Móvel','🔍 Sondagem SPIN']
-};
-
-R.pipeline_overview = {
-html:`<div class="r-t">Pipeline de Venda Consultiva — 8 Etapas 🗺️</div>
-<p class="r-p">Cada etapa constrói a percepção de valor. Pule uma — qualquer uma — e o cliente vai decidir pelo preço em vez de pelo que você tem de diferente.</p>
-<ul class="r-list">
-  <li><strong>1. Prospecção</strong> — Defina o ICP antes de abordar</li>
-  <li><strong>2. Abordagem</strong> — Regra dos 4×20, rapport</li>
-  <li><strong>3. Sondagem</strong> — SPIN Selling: mapeie a dor real</li>
-  <li><strong>4. Conscientização</strong> — Valor percebido antes do preço</li>
-  <li><strong>5. Apresentação</strong> — 1 plano certo + 1 alternativa</li>
-  <li><strong>6. Objeções</strong> — Conduza, não force</li>
-  <li><strong>7. Fechamento</strong> — Assuma o sim, pergunte o próximo passo</li>
-  <li><strong>8. Pós-venda</strong> — Fidelização e indicação</li>
-</ul>
-${TIP('⚡','<strong>Lei de Ouro:</strong> cada etapa constrói a percepção de valor que justifica o preço. Nenhuma é opcional.')}`,
-chips:['1️⃣ Prospecção','3️⃣ Sondagem SPIN','6️⃣ Objeções','7️⃣ Fechamento']
-};
-
-R.prospeccao = {
-html:`<div class="r-t">🎯 Etapa 1 — Prospecção / ICP</div>
-<p class="r-s">Prospectar sem ICP é atirar pra todo lado. Defina quem é o cliente ideal <em>antes</em> de abordar.</p>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">🏠 Residencial</span>
-    <ul class="col-list">
-      <li>Família com crianças em casa</li>
-      <li>Home office recorrente</li>
-      <li>Gamer competitivo</li>
-      <li>Cinéfilo / multi-streaming</li>
-      <li>Idosos com comunicação digital</li>
-    </ul>
-  </div>
-  <div class="col-g">
-    <span class="col-lbl">🏢 Empresarial</span>
-    <ul class="col-list">
-      <li>MEI e escritório pequeno</li>
-      <li>Câmeras de segurança IP</li>
-      <li>ERP e backup em nuvem</li>
-      <li>Equipe de campo (chip móvel)</li>
-      <li>Hospitais e clínicas</li>
-    </ul>
-  </div>
-</div>
-${TIP('💡','O ICP é construído a partir dos seus <strong>melhores clientes ativos</strong> — quem nunca cancelou, indicou outros e paga em dia. Esse é o perfil que você replica.')}
-<div class="fonte">Ref: ICP — Salesforce / meetime.com.br</div>`,
-chips:['🤝 Etapa 2: Abordagem','🔍 Etapa 3: Sondagem','📦 Planos residenciais','🏢 Planos empresariais']
-};
-
-R.abordagem = {
-html:`<div class="r-t">🤝 Etapa 2 — Abordagem e Rapport</div>
-<p class="r-p">Você tem 20 segundos. Os primeiros 20 gestos, 20 cm de distância, 20 palavras — tudo isso define se o cliente vai ouvir ou fechar a porta.</p>
-<div class="avoid-box"><span class="al">❌ Evite</span>"Olá, somos a LCI Telecom e temos os melhores planos do mercado, posso apresentar?"</div>
-<div class="script-box"><span class="sl">✅ Use isso</span>"<em>[Nome], você mora no bairro [X]? Nossa rede é a que tem maior cobertura ali agora. Como tem sido a experiência com o provedor atual?</em>"</div>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">✅ Faça</span>
-    <ul class="col-list">
-      <li>Comece pela dor do cliente</li>
-      <li>Use prova social local</li>
-      <li>Faça uma pergunta aberta</li>
-      <li>Demonstre que conhece o contexto</li>
-    </ul>
-  </div>
-  <div class="col-r">
-    <span class="col-lbl">❌ Evite</span>
-    <ul class="col-list">
-      <li>Falar de preço no 1º contato</li>
-      <li>Listar vantagens antes de entender</li>
-      <li>"Posso apresentar a empresa?"</li>
-      <li>Pitch longo nos primeiros segundos</li>
-    </ul>
-  </div>
-</div>
-${TIP('🧠','Rapport não é simpatia forçada — é construção de confiança. A decisão de "ouvir ou fechar" ocorre nos primeiros 20 segundos.')}`,
-chips:['🔍 Etapa 3: Sondagem','🛡️ Objeção apareceu','📦 Planos residenciais']
-};
-
-R.sondagem = {
-html:`<div class="r-t">🔍 Etapa 3 — Sondagem SPIN</div>
-<p class="r-p">Quem faz as perguntas certas controla a conversa — sem parecer controlador. O cliente que verbaliza a própria necessidade se convence sozinho. Isso foi validado em 35.000 vendas reais.</p>
-<div class="spin-grid">
-  <div class="sb sb-s"><span class="sb-l">S — Situação</span><ul>
-    <li>"Quantas pessoas usam a internet?"</li>
-    <li>"Trabalha de casa com frequência?"</li>
-    <li>"Qual provedor usa hoje?"</li>
-  </ul></div>
-  <div class="sb sb-p"><span class="sb-l">P — Problema</span><ul>
-    <li>"A internet já travou em reunião?"</li>
-    <li>"Sinal chega bem em todos os cômodos?"</li>
-    <li>"Netflix já ficou com carregando?"</li>
-  </ul></div>
-  <div class="sb sb-i"><span class="sb-l">I — Implicação</span><ul>
-    <li>"Quando trava, o que acontece com o cliente?"</li>
-    <li>"Quanto isso já custou em produtividade?"</li>
-    <li>"Seu filho estuda online — e quando cai?"</li>
-  </ul></div>
-  <div class="sb sb-n"><span class="sb-l">N — Necessidade</span><ul>
-    <li>"Se resolver, o que muda no seu dia?"</li>
-    <li>"O que seria ideal no plano perfeito?"</li>
-    <li>"Estabilidade ou velocidade é mais crítico?"</li>
-  </ul></div>
-</div>
-${TIP('🧠','<strong>Regra:</strong> máx. 2 perguntas seguidas antes de comentar algo. Não é interrogatório — é diagnóstico. Quem ouve mais, fecha mais.')}
-<div class="fonte">Ref: Neil Rackham — SPIN Selling (1988), 35.000 vendas, 23 países</div>`,
-chips:['💡 Etapa 4: Conscientização','📦 Etapa 5: Apresentação','🛡️ Objeção apareceu']
-};
-
-R.conscientizacao = {
-html:`<div class="r-t">💡 Etapa 4 — Conscientização</div>
-<p class="r-p">Apresentar o plano antes dessa etapa é o erro mais caro da venda. O cliente precisa sentir a dor antes de ver a solução — senão qualquer preço vai parecer alto.</p>
-<div class="info-box"><strong>Fórmula de Kotler:</strong><br>Valor Percebido = Benefícios Percebidos − Custos Percebidos<br>Se o cliente não vê os benefícios antes do preço, qualquer número parece caro.</div>
-<div class="r-p">🗣️ <em>Cliente:</em> "Minha internet é ok... só cai de vez em quando."</div>
-<div class="script-box"><span class="sl">✅ Responda com implicação</span>"Ok. Mas você me disse que a reunião travou semana passada e o Netflix trava à noite. 'De vez em quando' tá custando quanto de estresse e produtividade?"</div>
-<div class="r-p" style="margin-top:4px">🗣️ <em>Cliente:</em> "Pois é... quando você coloca assim..."</div>
-${TIP('⚠️','<strong>Nunca pule essa etapa.</strong> Sem conscientização, o cliente compara preço com concorrente — não valor com o problema dele.')}
-<div class="fonte">Ref: Philip Kotler (Princípios do Marketing) · JOLT Effect, Matt Dixon 2022</div>`,
-chips:['📦 Etapa 5: Apresentação','🛡️ Objeção apareceu','📦 Planos residenciais']
-};
-
-R.apresentacao = {
-html:`<div class="r-t">📦 Etapa 5 — Apresentação</div>
-<p class="r-p">Mais de 3 opções paralisa a decisão. Apresente <strong>1 plano certo</strong> baseado na sondagem + <strong>1 alternativa</strong> — nunca o catálogo inteiro.</p>
-<div class="script-box"><span class="sl">✅ Modelo de apresentação</span>"Com base no que você me contou — home office, 2 filhos no Netflix e você jogando online — o plano certo é o <strong>Combo Nitro 1000 Mega a R$ 249,90</strong>. Ele comporta todo mundo sem degradar."</div>
-<div class="r-p">Se pedir algo mais em conta:</div>
-<div class="script-box"><span class="sl">✅ Alternativa com âncora</span>"O Combo Entretenimento 600 Mega a R$ 179,90 funciona — mas em horário de pico com todo mundo online você vai sentir. O Nitro foi feito pra esse perfil."</div>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">✅ Faça</span>
-    <ul class="col-list">
-      <li>Conecte cada vantagem à dor da sondagem</li>
-      <li>1 plano certo + 1 alternativa apenas</li>
-      <li>Linguagem do cliente, não técnica</li>
-    </ul>
-  </div>
-  <div class="col-r">
-    <span class="col-lbl">❌ Evite</span>
-    <ul class="col-list">
-      <li>Listar todos os planos disponíveis</li>
-      <li>Revelar preço antes de mostrar valor</li>
-      <li>Falar velocidade sem contextualizar uso</li>
-    </ul>
-  </div>
-</div>
-${TIP('📌','Indique sempre o plano que resolve a necessidade descoberta na sondagem — não o mais caro. Cliente no plano certo vira indicação e upgrade futuro.')}`,
-chips:['🛡️ Objeções','7️⃣ Fechamento','📦 Planos residenciais','🏢 Planos empresariais']
-};
-
-R.objecoes = {
-html:`<div class="r-t">🛡️ Etapa 6 — Contorno de Objeções</div>
-<p class="r-s">Objeção não é rejeição — é pedido de segurança. 56% das perdas vêm de medo de errar (FOMU), não de preferência pelo concorrente.</p>
-<ul class="r-list">
-  <li><strong>💸 "Tá caro"</strong> — ACE + reframe do custo real</li>
-  <li><strong>⏳ "Vou pensar"</strong> — JOLT: reduza o FOMU</li>
-  <li><strong>🔄 "Já uso concorrente"</strong> — Descubra a dor oculta</li>
-  <li><strong>🔄 "Concorrente é mais barato"</strong> — Diferenciais LCI</li>
-  <li><strong>📋 "Não quero contrato/fidelidade"</strong> — Compromisso mútuo</li>
-  <li><strong>✅ "Estou satisfeito"</strong> — SPIN de implicação</li>
-  <li><strong>❌ "Não estou interessado"</strong> — Uma pergunta antes de desligar</li>
-  <li><strong>🏃 "Estou ocupado"</strong> — Agende com duas opções</li>
-  <li><strong>📧 "Manda por e-mail"</strong> — Qualifique antes de enviar</li>
-  <li><strong>📅 "Ligue no próximo trimestre"</strong> — Descubra o motivo real</li>
-  <li><strong>💰 "Sem orçamento"</strong> — ROI + janela de revisão</li>
-  <li><strong>📊 "Não vejo retorno"</strong> — Calcule o custo oculto</li>
-  <li><strong>⭐ "Vi reclamação"</strong> — Responda com transparência</li>
-  <li><strong>📵 "Bip bip bip"</strong> — WhatsApp inteligente pós-desligada</li>
-</ul>
-${TIP('🛡️','<strong>Contorno ≠ Convencimento.</strong> Objeção persistente = etapas 3 ou 4 foram puladas. Volte ao diagnóstico.')}
-${TIP('🎯','Manda aqui o texto exato que o cliente falou — adapto a melhor resposta pro contexto real!')}
-<div class="fonte">Ref: The JOLT Effect, Matt Dixon (2022) — 2,5 milhões de calls analisadas</div>`,
-chips:['💸 "Tá caro"','⏳ "Vou pensar"','🔄 Já usa concorrente','❌ "Não me interessa"','🏃 "Estou ocupado"','📧 "Manda por e-mail"','🏆 7 Passos para objeções']
-};
-
-R.obj_preco = {
-html:`<div class="r-t">💸 "Tá caro" — a mais clássica</div>
-<p class="r-p">Quase sempre não é sobre preço — é porque o valor ainda não ficou claro. Antes de rebater, identifique o que ele está comparando.</p>
-${S('"Entendo, preço é um fator importante. Mas me diz — caro comparado com o quê? Com o que você paga hoje somando o plano atual mais os extras quando estoura?"')}
-${S('"Muitos clientes <strong>sentiram</strong> o mesmo no início. Quando compararam o total — plano + chip + o custo das quedas — <strong>descobriram</strong> que a LCI saía igual ou abaixo do que pagavam antes."')}
-${S('"Quanto custa quando a internet cai durante uma reunião importante? Esse é o custo real que a gente tá eliminando."')}
-${AV('"Mas a LCI oferece qualidade!" — Argumentar direto no preço sem perguntar o que ele está comparando é um erro que piora a situação.')}
-${TIP('🧠','Se o cliente não passou pela Conscientização (etapa 4), qualquer preço vai parecer caro. <strong>Volte ao diagnóstico</strong> antes de justificar o valor.')}
-<div class="fonte">Ref: ACE Framework (saleshive.com) · Feel-Felt-Found (changingminds.org)</div>`,
-chips:['⏳ "Vou pensar"','📦 Ver planos em conta','🔄 Concorrente mais barato','💡 Voltar à conscientização']
-};
-
-R.obj_pensar = {
-html:`<div class="r-t">⏳ "Vou pensar" — medo disfarçado de reflexão</div>
-<p class="r-p">56% das perdas por "vou pensar" são por FOMU — medo de errar a decisão, não por preferência do concorrente. Não aumente a pressão — reduza o risco percebido.</p>
-<div class="script-box"><span class="sl">✅ Identifique o medo real</span>"Claro, sem problema. Me diz: o que falta pra você se sentir seguro pra decidir hoje?"</div>
-<div class="script-box"><span class="sl">✅ Reduza a percepção de risco</span>"A instalação é grátis, o Clube de Benefícios entra no primeiro mês e nosso suporte funciona até meia-noite. Você não assume nenhum risco."</div>
-<div class="script-box"><span class="sl">✅ Urgência real (não forçada)</span>"Só um detalhe: os slots de instalação no seu bairro essa semana estão acabando. Garantindo hoje, agendamos amanhã."</div>
-<div class="avoid-box"><span class="al">❌ Evite</span>"Me avisa quando decidir." — Perde urgência e entrega o controle para o cliente.</div>
-${TIP('🛡️','56% das perdas por "vou pensar" são por FOMU — medo de fazer a escolha errada. Reduza o risco percebido, não aumente a pressão.')}
-<div class="fonte">Ref: The JOLT Effect, Matt Dixon (2022)</div>`,
-chips:['💸 "Tá caro"','🔄 Concorrente mais barato','🏆 Técnica de fechamento','📊 Follow-up: cliente sumiu']
-};
-
-R.obj_concorrente = {
-html:`<div class="r-t">🔄 "Concorrente é mais barato" — muda o terreno</div>
-<p class="r-p">Não discuta preço — você perde nesse campo. Mude o critério da comparação pro que realmente importa no dia a dia: suporte, estabilidade, rede própria.</p>
-<div class="script-box"><span class="sl">✅ Reframe: custo x qualidade</span>"Pode ser. Mas barato que cai não é barato. Você me disse que a reunião travou semana passada — qual é o custo real de cada interrupção?"</div>
-<div class="script-box"><span class="sl">✅ Diferenciais LCI</span>"A LCI tem rede própria, suporte local até meia-noite e Clube de Benefícios. Outros provedores terceirizam a manutenção — quando cai, a fila de espera é longa."</div>
-<div class="script-box"><span class="sl">✅ Feel-Felt-Found</span>"Muitos clientes <strong>sentiram</strong> o mesmo. Foram pro concorrente, <strong>sentiram</strong> as quedas e o suporte demorado e <strong>descobriram</strong> que economizaram no plano mas perderam muito mais."</div>
-${TIP('💡','Nunca fale mal do concorrente diretamente. Deixe o cliente chegar à conclusão sozinho com perguntas de implicação.')}`,
-chips:['💸 "Tá caro"','📦 Planos residenciais','🏆 Fechamento']
-};
-
-R.obj_fidelidade = {
-html:`<div class="r-t">📋 "Não quero fidelidade" — autonomia, não objeção</div>
-<p class="r-p">O cliente quer sentir que está no controle. Mostre que a fidelidade existe por ele, não contra ele.</p>
-<div class="script-box"><span class="sl">✅ Resposta direta e transparente</span>"Entendo o receio. A fidelidade existe porque a gente banca a <strong>instalação grátis</strong> e o <strong>Clube de Benefícios</strong> com desconto desde o primeiro mês. É compromisso mútuo — garantimos que você fica satisfeito."</div>
-<div class="script-box"><span class="sl">✅ O que o cliente ganha</span>"No período de fidelidade você tem: instalação grátis, suporte premium, benefícios do Clube LCI e upgrade de velocidade ao final. Não é prisão — é parceria."</div>
-<div class="script-box"><span class="sl">✅ Reduza o medo com garantia</span>"Se em qualquer momento você tiver um problema de qualidade que a gente não consiga resolver, a gente não vai te segurar. Nosso compromisso é com a experiência."</div>
-${TIP('🧠','Se o cliente ainda resistir, pergunte: "O que especificamente te preocupa na fidelidade?" — a resposta revela o medo real por trás da objeção.')}`,
-chips:['💸 "Tá caro"','🏆 Fechamento','📊 Follow-up']
-};
-
-R.obj_satisfeito = {
-html:`<div class="r-t">✅ "Estou satisfeito" — ou será que não?</div>
-<p class="r-p">Satisfação declarada raramente é satisfação real. 95% dos insatisfeitos não reclamam — simplesmente vão embora um dia. Use o SPIN pra revelar a dor que ele normalizou.</p>
-<div class="script-box"><span class="sl">✅ Problema: plante a dúvida</span>"Que bom! Mas me conta — tem alguma hora do dia que a velocidade cai, ou algum cômodo que o sinal não chega direito?"</div>
-<div class="script-box"><span class="sl">✅ Implicação: amplifique</span>"E quando cai em horário de pico — tipo à noite com todo mundo em casa — o que costuma acontecer?"</div>
-<div class="script-box"><span class="sl">✅ Necessidade: faça verbalizar</span>"Se você tivesse uma internet que não cai nunca, com suporte local quando precisar, o que mudaria no dia a dia da sua família?"</div>
-${TIP('💡','<strong>Satisfação implícita ≠ ausência de dor.</strong> Kotler: 95% dos insatisfeitos não reclamam — apenas vão embora. Use o SPIN para revelar a dor que o cliente normalizou.')}
-<div class="fonte">Ref: Philip Kotler — Princípios do Marketing</div>`,
-chips:['🔍 SPIN Selling completo','💡 Conscientização','📦 Planos residenciais']
-};
-
-R.fechamento = {
-html:`<div class="r-t">🏆 Etapa 7 — Fechamento</div>
-<p class="r-p">Fechamento é a consequência natural de um ciclo bem executado — nunca de pressão. Se chegou aqui com diagnóstico e valor construídos, o "sim" já está no caminho.</p>
-<div class="script-box"><span class="sl">✅ Fechamento Alternativo (pressupõe o sim)</span>"Confirma o endereço — prefere instalação de manhã ou à tarde?"</div>
-<div class="script-box"><span class="sl">✅ Fechamento com Concessão</span>"Fechando hoje, isento a taxa de instalação e te coloco na agenda de amanhã."</div>
-<div class="script-box"><span class="sl">✅ Assumir o avanço</span>"Vou gerar a proposta agora — você consegue confirmar até o fim do dia?"</div>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">✅ Faça</span>
-    <ul class="col-list">
-      <li>Assuma o sim, pergunte o próximo passo</li>
-      <li>Duas opções que conduzem ao sim</li>
-      <li>Mostre urgência real, não fabricada</li>
-    </ul>
-  </div>
-  <div class="col-r">
-    <span class="col-lbl">❌ Evite</span>
-    <ul class="col-list">
-      <li>"E aí, vai fechar?" — abre espaço pro não</li>
-      <li>"Me avisa quando decidir" — perde urgência</li>
-      <li>"O que você acha?" — devolve a dúvida</li>
-    </ul>
-  </div>
-</div>
-${TIP('🏆','<strong>Fechamento alternativo:</strong> "Manhã ou tarde?" — ambas pressupõem o fechamento. O cliente sente autonomia, não pressão.')}
-<div class="fonte">Ref: Exact Sales — 30% conversão consultiva vs. 6% média nacional</div>`,
-chips:['⭐ Pós-venda','📊 Follow-up','🛡️ Ainda tem objeção']
-};
-
-R.posvenda = {
-html:`<div class="r-t">⭐ Etapa 8 — Pós-venda</div>
-<p class="r-p">O pós-venda bem feito gera o próximo ciclo de vendas automaticamente. Uma indicação converte 3× mais que prospecção fria — e custa quase zero.</p>
-<div class="script-box"><span class="sl">📅 Dia da instalação</span>"Oi [Nome]! Tudo certinho com a instalação? Qualquer dúvida sobre o roteador ou os apps, pode me chamar aqui 😊"</div>
-<div class="script-box"><span class="sl">📅 30 dias após — check-in real</span>"[Nome], faz um mês que você tá com a LCI — como tá sendo a experiência? Alguma coisa que posso ajudar a ajustar?"</div>
-<div class="script-box"><span class="sl">🤝 Abertura para indicação (no check-in)</span>"Você conhece alguém que paga caro por uma internet que cai direto? Tenho um benefício especial pra indicações do seu bairro."</div>
-<div class="script-box"><span class="sl">♻️ Reativação de cliente perdido</span>"[Nome], vi que você foi pra outro provedor. Sei que não foi o ideal. Se algum dia quiser retornar, tenho uma condição especial esperando. Sem pressão 🙂"</div>
-${TIP('💡','Kotler: 95% dos insatisfeitos não reclamam — vão embora e contaminam 13 outros. Reativar custa 5–7× menos que conquistar novo.')}`,
-chips:['📊 Cadência de follow-up','🎯 Prospecção','📦 Upgrade de plano']
-};
-
-// ── PLANS ──
-R.planos_residencial = {
-html:`<div class="r-t">🏠 Planos Residenciais — Combos Fibra</div>
-<p class="r-s">Indique com base no diagnóstico da sondagem, não pelo preço.</p>
-${PL('Combo Start — 300 Mega','R$ 119,90','100 Mega Upload · Ubook Go incluso','Uso simples, mora sozinho, terceira idade','Econômico')}
-${PL('Combo Conecta — 500 Mega','R$ 149,90','200 Mega Upload · Ubook (Livros) incluso','Casal, home office leve, streaming casual','Mais Vendido',true)}
-${PL('Combo Entretenimento — 600 Mega','R$ 179,90','200 Mega Upload · 1 App Plus à escolha','Multi-streaming, filmes/séries, família pequena','Streaming')}
-${PL('Combo Gamer Plus — 800 Mega','R$ 209,90','400 Mega Upload · ExitLag · IP Público incluso','Gamer competitivo, streamer, e-sports','Gamer')}
-${PL('Combo Nitro — 1000 Mega','R$ 249,90','300 Mega Upload · Ubook + 1 App Plus','Família grande, home office exigente, máxima velocidade','Premium')}
-${TIP('📌','<strong>Planos SCM (sem apps):</strong> Plano Modelo 600M (R$179,90) e Plano Default 800M (R$219,90) para quem quer fibra pura sem serviços adicionais.')}`,
-chips:['🎮 Plano Gamer','📺 Plano Entretenimento','🏢 Planos empresariais','📱 Chips/Móvel']
-};
-
-R.plano_gamer = {
-html:`<div class="r-t">🎮 Plano para Gamer — Combo Gamer Plus</div>
-${PL('Combo Gamer Plus — 800 Mega','R$ 209,90','400 Mega Upload · ExitLag integrado · IP Público incluso · Suporte Premium','Gamer competitivo, streamer, e-sports, baixo ping','Gamer',true)}
-<div class="r-sec">
-  <div class="r-t" style="font-size:13px;margin-top:8px">🔍 Perguntas SPIN para gamer</div>
-  <div class="spin-grid">
-    <div class="sb sb-s"><span class="sb-l">S — Situação</span><ul>
-      <li>"Joga online ou offline?"</li>
-      <li>"Joga em competitivo ou casual?"</li>
-      <li>"Streama enquanto joga?"</li>
-    </ul></div>
-    <div class="sb sb-p"><span class="sb-l">P — Problema</span><ul>
-      <li>"Já sofreu lag no momento decisivo?"</li>
-      <li>"IP já caiu banimento por lag?"</li>
-      <li>"Spike de ping no horário de pico?"</li>
-    </ul></div>
-  </div>
-</div>
-<div class="script-box"><span class="sl">✅ Apresentação para gamer</span>"Pelo que você me contou, o Combo Gamer Plus é exatamente pra você: <strong>ExitLag integrado</strong> para reduzir o ping, <strong>IP Público</strong> para servidores dedicados e 400 Mega de upload para stream sem travar."</div>
-${TIP('🎮','ExitLag otimiza rotas de rede para os principais jogos competitivos. IP Público permite servidores dedicados e acesso remoto.')}`,
-chips:['📦 Todos os planos residenciais','🏢 Planos empresariais','📱 Chip para gamer mobile','🛡️ Objeção de preço']
-};
-
-R.plano_entretenimento = {
-html:`<div class="r-t">📺 Plano para Entretenimento / Streaming</div>
-${PL('Combo Entretenimento — 600 Mega','R$ 179,90','200 Mega Upload · 1 App Plus à escolha · Suporte Premium','Multi-streaming, filmes, séries, família pequena','Streaming',true)}
-${PL('Combo Nitro — 1000 Mega','R$ 249,90','300 Mega Upload · Ubook + 1 App Plus à escolha','Família grande, várias TVs/dispositivos simultâneos','Premium')}
-<div class="info-box" style="margin-top:8px">
-  <strong>Apps Plus incluídos (à escolha):</strong> HBO MAX, Amazon Prime, Telecine, Globoplay, Apple TV, Sky+, Docway
-</div>
-<div class="script-box"><span class="sl">✅ Apresentação para cinéfilo/família</span>"Você me disse que tem 3 pessoas em casa cada uma em uma plataforma diferente. O Combo Entretenimento 600 Mega garante <strong>streaming em 4K simultâneo</strong> com 1 App Plus sem pagar extra."</div>
-${TIP('📺','Para famílias com 4+ dispositivos simultâneos, o Nitro 1000 Mega é mais adequado que o Entretenimento 600.')}`,
-chips:['📦 Todos os planos residenciais','🎮 Plano Gamer','📱 Chips/Móvel','🛡️ Objeção de preço']
-};
-
-R.plano_nitro = {
-html:`<div class="r-t">⚡ Combo Nitro — 1000 Mega</div>
-${PL('Combo Nitro — 1000 Mega','R$ 249,90','300 Mega Upload · Ubook (Livros) · 1 App Plus à escolha · Suporte Premium','Família grande, home office exigente, máxima velocidade','Premium',true)}
-<div class="r-sec">
-  <div class="r-p">Indique o Nitro quando o cliente tiver:</div>
-  <ul class="r-list">
-    <li>4 ou mais dispositivos simultâneos</li>
-    <li>Home office pesado + lazer da família</li>
-    <li>Reuniões em 4K ou gravações em nuvem</li>
-    <li>Quer o desconto máximo no Chip (R$ 15 off)</li>
-  </ul>
-</div>
-<div class="script-box"><span class="sl">✅ Âncora de valor</span>"O Nitro sai R$ 249,90 — mas inclui 1 App Plus (que vale R$ 26,90 avulso) + Ubook + suporte premium. Efetivamente você paga R$ 222 pela fibra pura."</div>
-${TIP('💡','Cliente com Chip: no Combo Nitro, todos os planos de chip têm desconto adicional de R$ 5 sobre o desconto base. Use isso como argumento de fechamento.')}`,
-chips:['📦 Todos os planos','📱 Chips com desconto Nitro','🏢 Empresarial','🏆 Fechamento']
-};
-
-R.planos_empresarial = {
-html:`<div class="r-t">🏢 Planos Empresariais — LCI Business</div>
-${PL('Combo MEI — 400 Mega','R$ 229,90','200 Mega Upload · Kaspersky 3 lic. · Suporte empresarial','MEI, autônomo, escritório pequeno, acesso remoto','MEI')}
-${PL('Combo EPP — 500 Mega','R$ 299,90','250 Mega Upload · Kaspersky 3 lic. · Suporte dedicado','Comércio, sistemas, equipe até 15 pessoas','EPP')}
-${PL('Combo ME — 600 Mega','R$ 379,90','300 Mega Upload · Kaspersky 3 lic. · Alta performance contínua','Médio porte, operações 24h, câmeras de segurança','Corporativo')}
-${PL('Combo SA — 1000 Mega','R$ 599,90','500 Mega Upload · Acronis Backup 30GB · Suporte premium','Grandes operações, servidores, múltiplas filiais','Operações Críticas',true)}
-${PL('IP Dedicado','Sob consulta','Simétrico dedicado · Anti-DDoS · Bloco /30 IPv4 + /48 IPv6 · SLA garantido','Missão crítica, link exclusivo, latência garantida','Dedicado')}
-${TIP('🏢','Para empresa que precisa de câmeras remotas ou servidor: recomende <strong>IP Fixo</strong> como upsell. Pergunte: "Você precisa acessar as câmeras de fora do estabelecimento?"')}
-${INFO('<strong>📦 Serviços adicionais disponíveis para empresas:</strong> Backup na Nuvem · Clear Channel (Lan to Lan) · Colocation · Hospedagem e E-mail. Pergunte sobre cada um para detalhes.')}`,
-chips:['🔌 IP Fixo vs Dinâmico','📱 Chips para equipe de campo','🛡️ Objeção de preço empresarial','🔍 SPIN para empresas']
-};
-
-// ── SERVIÇOS EMPRESARIAIS ADICIONAIS ──
-
-R.servicos_empresariais = {
-html:`<div class="r-t">📦 Soluções Empresariais LCI — Portfólio Completo</div>
-<p class="r-p">Além dos planos de conectividade, a LCI oferece serviços gerenciados para suportar toda a operação da empresa:</p>
-<ul class="r-list">
-  <li>☁️ <strong>Backup na Nuvem</strong> — Backup de servidores e dispositivos para a nuvem via parceiro líder mundial</li>
-  <li>🔗 <strong>Clear Channel (Lan to Lan)</strong> — Interligação de filiais em rede privativa usando a infraestrutura de fibra da LCI</li>
-  <li>🏗️ <strong>Colocation</strong> — Hospedagem de ativos de rede em DC com SLA ≥ 99,8% e conexão ao IX de Cuiabá-MT e SP</li>
-  <li>🌐 <strong>Hospedagem e E-mail</strong> — Hospedagem de sites e contas de e-mail corporativo</li>
-  <li>⚙️ <strong>Modo Bridge</strong> — O cliente gerencia a própria rede; suporte configura após ativação do plano</li>
-</ul>
-${TIP('💡','Use o portfólio completo como diferencial de vendas: <strong>"A LCI não vende só internet — resolve toda a infraestrutura digital da sua empresa em um único fornecedor."</strong>')}
-${S('"Além do link de fibra, a LCI oferece backup na nuvem, interligação de unidades, hospedagem e colocation — tudo com suporte próprio. Posso detalhar qual desses faz mais sentido pro seu cenário?"')}`,
-chips:[]
-};
-
-R.backup_nuvem = {
-html:`<div class="r-t">☁️ Backup na Nuvem — LCI Business</div>
-<p class="r-p">Serviço de backup gerenciado para servidores e dispositivos corporativos, operado via <strong>parceiro líder mundial</strong> neste segmento.</p>
-${INFO('<strong>O que está incluído:</strong><br>• Backup automático de servidores físicos e virtuais<br>• Backup de dispositivos (notebooks, desktops)<br>• Armazenamento seguro em nuvem<br>• Recuperação de dados (disaster recovery)')}
-${TIP('🎯','Gatilho de venda: pergunte <em>"Sua empresa já passou por perda de dados?"</em> ou <em>"Se o servidor falhar amanhã, quanto tempo leva pra restaurar tudo?"</em>. O medo de downtime e perda de dados fecha essa conversa.')}
-${S('"A LCI oferece backup na nuvem com um dos maiores provedores do mundo — seus servidores e computadores ficam protegidos automaticamente. Se o HD queimar ou o sistema travar, você recupera tudo em horas, não em dias. Faz sentido pra vocês?"')}
-${AV('"Vocês nunca precisaram de backup até hoje." — Não minimize o risco. Use a estatística: mais de 60% das empresas que perdem dados críticos fecham em 6 meses.')}`,
-chips:[]
-};
-
-R.clear_channel = {
-html:`<div class="r-t">🔗 Clear Channel — Lan to Lan (Rede Privativa)</div>
-<p class="r-p">Interligação de unidades empresariais em <strong>rede privativa</strong> usando a infraestrutura de fibra óptica própria da LCI — sem passar pela internet pública.</p>
-${INFO('<strong>Como funciona:</strong><br>• Conecta filiais, depósitos e unidades como se fossem uma só rede local<br>• Tráfego circula pela infraestrutura privada da LCI (não pela internet)<br>• Menor latência e maior segurança que VPN sobre internet<br>• Ideal para ERP compartilhado, câmeras entre unidades, PABX centralizado')}
-${TIP('🏢','Perguntas qualificadoras: <em>"Vocês têm mais de uma unidade?"</em> / <em>"As filiais acessam o mesmo sistema ou servidor?"</em> / <em>"Hoje como os sistemas são sincronizados entre as unidades?"</em>')}
-${S('"Se a empresa tem mais de uma unidade, a LCI consegue interligar tudo em rede privativa — é como se todas as filiais estivessem no mesmo escritório, mas cada uma na sua cidade. Mais rápido, mais seguro e mais barato que contratar VPN de terceiros."')}`,
-chips:[]
-};
-
-R.colocation = {
-html:`<div class="r-t">🏗️ Colocation — Data Center LCI</div>
-<p class="r-p">Hospedagem de ativos de rede (servidores, switches, storages) dentro da infraestrutura de <strong>Data Center da LCI</strong>.</p>
-${INFO('<strong>Diferenciais técnicos:</strong><br>• SLA ≥ <strong>99,8%</strong> de disponibilidade<br>• Múltiplos upstream (redundância de conexão)<br>• Conectividade ao <strong>IX Cuiabá-MT</strong> e ao <strong>IX São Paulo-SP</strong><br>• Ambiente físico controlado (energia, refrigeração, segurança)')}
-<div class="r-sec">
-  <div class="plan-mini dest">
-    <div class="pm-n">🌐 IX — Internet Exchange</div>
-    <div class="pm-f">Ponto de troca de tráfego que conecta diretamente provedores e grandes empresas, reduzindo latência e custo de tráfego. Clientes no DC da LCI se beneficiam dessa conexão direta.</div>
-  </div>
-</div>
-${TIP('🎯','Perfil ideal: empresas com infraestrutura própria de TI que precisam de espaço físico seguro, link redundante e acesso ao IX. Pergunte: <em>"Vocês têm servidores próprios? Onde estão hospedados hoje?"</em>')}
-${S('"A LCI tem Data Center próprio com SLA de 99,8% e conexão direta ao Internet Exchange — isso significa latência menor para acessar os maiores sites e serviços do Brasil. Para quem tem servidor próprio, é muito melhor que manter on-premise."')}`,
-chips:[]
-};
-
-R.hospedagem_email = {
-html:`<div class="r-t">🌐 Hospedagem de Sites e E-mail Corporativo</div>
-<p class="r-p">Serviços de hospedagem web e e-mail profissional para empresas que precisam de presença digital com suporte local.</p>
-${INFO('<strong>Serviços disponíveis:</strong><br>• Hospedagem de sites (domínios, painéis de controle)<br>• Contas de e-mail corporativo (ex: contato@suaempresa.com.br)<br>• Indicado para pequenas e médias empresas que querem centralizar fornecedores')}
-${TIP('💡','Ótimo para upsell em clientes MEI e EPP que ainda usam Gmail ou Hotmail para comunicações empresariais. Pergunte: <em>"Vocês têm e-mail com o domínio da empresa ou usam Gmail?"</em>. Um e-mail @nomedarempresa passa muito mais credibilidade para os clientes deles.')}
-${S('"A LCI também oferece hospedagem de site e e-mail com o nome da empresa — sai de contato@gmail.com para contato@suaempresa.com.br. Para quem está formalizando o negócio, faz muita diferença na percepção dos clientes."')}`,
-chips:[]
-};
-
-R.modo_bridge = {
-html:`<div class="r-t">⚙️ Modo Bridge — Gerenciamento Próprio da Rede</div>
-<p class="r-p">No <strong>Modo Bridge</strong>, o equipamento da LCI passa a funcionar como modem puro — o cliente usa o próprio roteador e gerencia toda a configuração da rede.</p>
-${INFO('<strong>Como solicitar:</strong><br>1. O plano precisa estar <strong>ativo</strong><br>2. O cliente entra em contato pelo e-mail: <strong>gruposuporte@lcitelecom.com.br</strong><br>3. O suporte configura o modo bridge remotamente<br><br><strong>Importante:</strong> Após a configuração, o suporte de rede passa a ser de responsabilidade do cliente — a LCI garante o link, não a configuração interna.')}
-${TIP('🏢','Perfil que solicita bridge: empresas com equipe de TI própria, MSPs (provedores de serviço gerenciado), clientes que usam firewall Mikrotik, Fortinet, Cisco ou pfSense. É um sinal de cliente técnico avançado — trate como tal.')}
-${S('"Se você tem roteador próprio e quer gerenciar a rede, a LCI configura o equipamento em modo bridge sem custo extra. Só precisa acionar pelo gruposuporte@lcitelecom.com.br após a instalação — o link fica com a gente, a rede interna fica com você."')}
-${AV('"Ah, é fácil, você mesmo pode fazer." — Não oriente o cliente a alterar configurações sem passar pelo suporte. Pode derrubar o link e gerar chamado desnecessário.')}`,
-chips:[]
-};
-
-R.planos_movel = {
-html:`<div class="r-t">📱 Chips / Telefonia Móvel LCI</div>
-<p class="r-s">Cobertura dupla Vivo + TIM · 1.000 minutos em ligações · Descontos para clientes de fibra.</p>
-<table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0">
-  <thead><tr style="background:var(--black);color:#fff">
-    <th style="padding:6px 8px;text-align:left;border-radius:6px 0 0 0">Plano</th>
-    <th style="padding:6px 8px;text-align:center">Avulso</th>
-    <th style="padding:6px 8px;text-align:center">Entr/Gamer</th>
-    <th style="padding:6px 8px;text-align:center;border-radius:0 6px 0 0">Nitro</th>
-  </tr></thead>
-  <tbody>
-    <tr style="border-bottom:1px solid var(--gl)"><td style="padding:6px 8px">Chip 15 GB</td><td style="padding:6px 8px;text-align:center">R$ 54,99</td><td style="padding:6px 8px;text-align:center;color:var(--green);font-weight:700">R$ 44,99</td><td style="padding:6px 8px;text-align:center;color:var(--red);font-weight:700">R$ 39,99</td></tr>
-    <tr style="border-bottom:1px solid var(--gl);background:var(--off)"><td style="padding:6px 8px">Chip 20 GB</td><td style="padding:6px 8px;text-align:center">R$ 59,99</td><td style="padding:6px 8px;text-align:center;color:var(--green);font-weight:700">R$ 49,99</td><td style="padding:6px 8px;text-align:center;color:var(--red);font-weight:700">R$ 44,99</td></tr>
-    <tr style="border-bottom:1px solid var(--gl)"><td style="padding:6px 8px">Chip 30 GB</td><td style="padding:6px 8px;text-align:center">R$ 72,99</td><td style="padding:6px 8px;text-align:center;color:var(--green);font-weight:700">R$ 62,99</td><td style="padding:6px 8px;text-align:center;color:var(--red);font-weight:700">R$ 57,99</td></tr>
-    <tr><td style="padding:6px 8px">Chip 50 GB</td><td style="padding:6px 8px;text-align:center">R$ 89,99</td><td style="padding:6px 8px;text-align:center;color:var(--green);font-weight:700">R$ 79,99</td><td style="padding:6px 8px;text-align:center;color:var(--red);font-weight:700">R$ 74,99</td></tr>
-  </tbody>
-</table>
-<div class="script-box"><span class="sl">✅ Cross-sell natural</span>"Você também usa celular no trabalho? No Combo Nitro o Chip 20GB sai por apenas R$ 44,99 — a cobertura é dupla Vivo + TIM, nunca fica sem sinal."</div>
-${TIP('📱','Use o desconto do Chip como argumento de <strong>upgrade de plano</strong>: "No Nitro você economiza R$ 15/mês no chip e ainda tem 400 Mega a mais."')}`,
-chips:['📦 Planos residenciais','🏢 Empresarial + Chip','🏆 Fechamento com cross-sell']
-};
-
-R.followup = {
-html:`<div class="r-t">📊 Follow-up — Cadência de 7 dias</div>
-<p class="r-s">80% das vendas acontecem após 3–5 follow-ups. 44% dos vendedores desistem no 1º.</p>
-<table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0">
-  <tr style="background:var(--off)"><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 1 · H+0</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">📞 Ligação · Abordagem e sondagem inicial</td></tr>
-  <tr><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 1 · H+2</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">💬 WhatsApp · "Te liguei sobre a fibra da LCI no seu bairro. Me chama quando puder 🙂"</td></tr>
-  <tr style="background:var(--off)"><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 2</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">💬 WhatsApp · Mensagem educativa — dado sobre velocidade, não cobrança</td></tr>
-  <tr><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 3</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">📞 Ligação · 2ª tentativa. Se atender: recomece pela sondagem, nunca pela proposta</td></tr>
-  <tr style="background:var(--off)"><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 5</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">💬 WhatsApp · "A instalação no seu bairro essa semana ainda tem slot. Semana que vem a agenda já tá comprometida."</td></tr>
-  <tr><td style="padding:5px 8px;font-weight:700;font-family:var(--fh)">Dia 7</td><td style="padding:5px 8px">📞 Ligação · Final com concessão: "Fechando hoje, isento instalação e agenda amanhã."</td></tr>
-</table>
-${TIP('⚠️','<strong>Regra de ouro:</strong> nunca faça cobrança ("você decidiu?"). Cada contato deve trazer algo <em>novo</em>: dado, facilidade, prova social ou urgência real.')}
-<div class="fonte">Ref: HubSpot Research · The Marketing Donut · Ramper.com.br</div>`,
-chips:['⏳ "Vou pensar"','🏆 Fechamento','📞 Template WhatsApp']
-};
-
-R.wifi = {
-html:`<div class="r-t">📡 Wi-Fi — Geração vs Frequência</div>
-<p class="r-s">Dois conceitos distintos que sempre causam confusão no cliente.</p>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">Geração — O Motor</span>
-    <ul class="col-list">
-      <li><strong>Wi-Fi 5 (802.11ac)</strong> — 1 aparelho eficiente por vez</li>
-      <li><strong>Wi-Fi 6 (802.11ax)</strong> — OFDMA: vários ao mesmo tempo</li>
-      <li><strong>Wi-Fi 7 (802.11be)</strong> — MLO: usa as 3 faixas juntas</li>
-    </ul>
-  </div>
-  <div class="col-g">
-    <span class="col-lbl">Frequência — A Estrada</span>
-    <ul class="col-list">
-      <li><strong>2.4 GHz</strong> — Alcance longo, penetra paredes, lento</li>
-      <li><strong>5 GHz</strong> — Alta velocidade, pouca interferência</li>
-      <li><strong>6 GHz</strong> — Espectro limpo, latência mínima (Wi-Fi 6E/7)</li>
-    </ul>
-  </div>
-</div>
-<div class="script-box"><span class="sl">✅ Analogia para cliente</span>"2.4 GHz é a estrada de terra — vai longe mas com solavancos. 5 GHz é a rodovia asfaltada — rápida mas não faz curvas. 6 GHz é a pista VIP — só entra carro de luxo (Wi-Fi 6E/7)."</div>
-<div class="script-box"><span class="sl">✅ "Por que o Wi-Fi não chega no quarto?"</span>"O 5 GHz é rápido mas não atravessa paredes. Conectar no 2.4 GHz vai mais longe — ou podemos avaliar um roteador Mesh Premium para eliminar os pontos cegos."</div>
-${TIP('💡','Para clientes em prédio/condomínio: 2.4 GHz fica saturado (apenas 3 canais sem sobreposição). Recomendar 5 GHz ou equipamento dual-band.')}`,
-chips:['🔌 IP Fixo vs Dinâmico','🛜 Quando recomendar Mesh','📦 Planos residenciais']
-};
-
-R.ip = {
-html:`<div class="r-t">🔌 IP Dinâmico vs IP Fixo</div>
-<div class="r-cols">
-  <div class="col-g">
-    <span class="col-lbl">IP Dinâmico</span>
-    <ul class="col-list">
-      <li>Endereço muda periodicamente</li>
-      <li>Ideal para uso residencial comum</li>
-      <li>Segurança aprimorada pela variação</li>
-      <li><strong>Não permite</strong> acesso remoto estável</li>
-    </ul>
-  </div>
-  <div class="col-g">
-    <span class="col-lbl">IP Fixo (Público)</span>
-    <ul class="col-list">
-      <li>Endereço permanente e imutável</li>
-      <li>Ideal para câmeras, servidores, ERP</li>
-      <li>Incluso no Combo Gamer Plus</li>
-      <li>Planos empresariais com IP dedicado</li>
-    </ul>
-  </div>
-</div>
-<div class="script-box"><span class="sl">✅ Analogia para cliente</span>"IP Dinâmico é como quarto de hotel — número muda a cada vez. IP Fixo é ter sede própria — endereço que nunca muda, todo mundo sabe onde te encontrar."</div>
-<div class="r-t" style="font-size:13px;margin-top:8px">Blocos de IP (para empresas)</div>
-<div class="r-cols">
-  <div class="col-g"><span class="col-lbl">Bloco /30</span><ul class="col-list"><li>4 IPs totais · 2 endereçáveis</li><li>1 IP utilizável pelo cliente</li><li>"Lote com 4 vagas — sobra 1 livre"</li></ul></div>
-  <div class="col-g"><span class="col-lbl">Bloco /29</span><ul class="col-list"><li>8 IPs totais · 6 endereçáveis</li><li>5 IPs utilizáveis pelo cliente</li><li>Ideal para múltiplos servidores/câmeras</li></ul></div>
-</div>`,
-chips:['🏢 Planos empresariais com IP','📡 Wi-Fi e frequências','🔍 SPIN para empresas']
-};
-
-R.mesh = {
-html:`<div class="r-t">🛜 Quando Recomendar Roteador Mesh</div>
-${PL('Locação Roteador Mesh Premium','R$ 49,99','Sistema multi-roteador · Malha Wi-Fi unificada · Elimina pontos cegos · Wi-Fi 6','Casas grandes, plantas irregulares, múltiplos andares','Hardware')}
-<div class="r-p" style="margin-top:8px">Indique Mesh quando o cliente relatar:</div>
-<ul class="r-list">
-  <li>Wi-Fi não chega em parte da casa</li>
-  <li>Sinal fraco no quarto/quintal/garagem</li>
-  <li>Casa com 2+ andares ou planta irregular</li>
-  <li>Muitos dispositivos IoT espalhados</li>
-</ul>
-<div class="script-box"><span class="sl">✅ Apresentação do Mesh</span>"Ao invés de um roteador único, o Mesh coloca vários pontos que formam uma rede unificada. Seu celular passa de um ponto para o outro automaticamente — sem travar, sem desconectar."</div>
-${TIP('💡','Mesh é um excelente upsell para clientes com planos de 600 Mega ou mais — eles têm velocidade contratada, mas perdem no Wi-Fi.')}`,
-chips:['📡 Wi-Fi Frequências','📦 Planos residenciais','🛡️ Objeção de preço do Mesh']
-};
-
-R.psicologia_preco = {
-html:`<div class="r-t">🧠 Psicologia do Preço — Por que o cliente age assim</div>
-<div class="info-box"><strong>Fórmula de Kotler:</strong> Valor Percebido = Benefícios Percebidos − Custos Percebidos<br>O cliente não compra preço — compra a diferença entre o que recebe e o que paga.</div>
-<div class="r-cols" style="margin-top:8px">
-  <div class="col-r"><span class="col-lbl">😤 Sem Sondagem</span><ul class="col-list"><li>Não se viu no produto</li><li>Saiu pra comparar preço</li><li>"Vou ver na concorrência"</li></ul></div>
-  <div class="col-r"><span class="col-lbl">😐 Sem Conscientização</span><ul class="col-list"><li>Dor foi encontrada mas não amplificada</li><li>Acha que é "normal" sofrer</li><li>"Tô acostumado assim mesmo"</li></ul></div>
-</div>
-<div class="col-g" style="border-radius:7px;padding:8px 10px;border:1px solid rgba(27,154,89,0.22);background:var(--glt);margin-top:5px">
-  <span class="col-lbl" style="color:var(--green)">😊 Com o Ciclo Completo</span>
-  <ul class="col-list"><li>Verbalizou a dor</li><li>Entendeu o impacto real</li><li>Viu a solução conectada à realidade</li><li>"Faz sentido pagar mais por isso."</li></ul>
-</div>
-${TIP('🧠','Todo cliente sabe inconscientemente que o melhor é mais caro. Seu trabalho é <strong>tornar o valor visível antes de revelar o número</strong>.')}`,
-chips:['💡 Conscientização','🛡️ Objeção de preço','🔍 Sondagem SPIN']
-};
-
-R.spin_detail = {
-html:`<div class="r-t">🔍 SPIN Selling Completo — Com Exemplos LCI</div>
-<p class="r-s">Neil Rackham, 1988 — 35.000 vendas analisadas em 23 países.</p>
-<div class="spin-grid">
-  <div class="sb sb-s"><span class="sb-l">S — Situação: mapeie o contexto</span><ul>
-    <li>"Quantas pessoas usam a internet?"</li>
-    <li>"Qual provedor usa hoje e paga quanto?"</li>
-    <li>"Trabalha de casa com frequência?"</li>
-    <li>"Tem câmeras ou dispositivos IoT?"</li>
-  </ul></div>
-  <div class="sb sb-p"><span class="sb-l">P — Problema: descubra a dor</span><ul>
-    <li>"A internet já travou em reunião?"</li>
-    <li>"Netflix trava no horário de pico?"</li>
-    <li>"O sinal chega no quarto?"</li>
-    <li>"O upload é suficiente pra nuvem?"</li>
-  </ul></div>
-  <div class="sb sb-i"><span class="sb-l">I — Implicação: amplifique o peso</span><ul>
-    <li>"O que acontece quando cai com cliente?"</li>
-    <li>"Quanto custou em produtividade?"</li>
-    <li>"Seu filho estuda online — e quando cai?"</li>
-    <li>"Câmera sem IP fixo: como monitora de fora?"</li>
-  </ul></div>
-  <div class="sb sb-n"><span class="sb-l">N — Necessidade: faça verbalizar</span><ul>
-    <li>"Se resolver, o que muda no dia a dia?"</li>
-    <li>"O que seria o plano ideal pra você?"</li>
-    <li>"Estabilidade ou velocidade é mais crítico?"</li>
-    <li>"Tem planos de trabalho remoto em breve?"</li>
-  </ul></div>
-</div>
-${TIP('🧠','Quem faz perguntas de <strong>Implicação e Necessidade</strong> fecha significativamente mais. Não apresente solução antes de ter as respostas N.')}
-<div class="fonte">Ref: Neil Rackham — SPIN Selling (1988) · leads2b.com/blog/spin-selling</div>`,
-chips:['💡 Conscientização','📦 Etapa 5: Apresentação','🛡️ Objeções']
-};
-
-R.feel_felt_found = {
-html:`<div class="r-t">🫱 Técnica Feel-Felt-Found</div>
-<p class="r-s">Validação empática + prova social + solução. Funciona para qualquer objeção emocional.</p>
-<div class="info-box">
-  <strong>Feel</strong> — Valide o sentimento: "Entendo como você <strong>se sente</strong>..."<br>
-  <strong>Felt</strong> — Relate outro cliente: "Outros clientes <strong>sentiram</strong> o mesmo..."<br>
-  <strong>Found</strong> — Posicione a solução: "...e <strong>descobriram</strong> que..."
-</div>
-<div class="script-box"><span class="sl">✅ Aplicado à objeção de preço LCI</span>"Entendo como você <strong>se sente</strong> — preço é um fator importante. Muitos clientes <strong>sentiram</strong> o mesmo quando viram os planos pela primeira vez. Depois que compararam o total — fibra + chip + ausência de quedas — <strong>descobriram</strong> que a LCI saía igual ou abaixo do que pagavam antes."</div>
-<div class="script-box"><span class="sl">✅ Aplicado à objeção de fidelidade</span>"Entendo que você <strong>sente</strong> que fidelidade é uma prisão. Outros clientes <strong>sentiram</strong> o mesmo — mas <strong>descobriram</strong> que o período existe para bancar a instalação grátis e os benefícios do Clube LCI. É compromisso mútuo."</div>
-${TIP('💡','Feel-Felt-Found funciona porque <strong>não contradiz</strong> o cliente — cria empatia e abre espaço para a virada.')}`,
-chips:['💸 Objeção de preço','📋 Objeção de fidelidade','🔷 ACE Framework','⚡ JOLT Effect']
-};
-
-R.ace_framework = {
-html:`<div class="r-t">🔷 ACE Framework — Contorno de Objeções</div>
-<p class="r-s">Acknowledge · Clarify · Engage — 3 passos para transformar objeção em conversa.</p>
-<div class="script-box"><span class="sl">A — Acknowledge (Reconheça)</span>Valide a objeção sem concordar ou contrariar.<br>"<em>Entendo, preço é sempre um fator importante a considerar.</em>"</div>
-<div class="script-box"><span class="sl">C — Clarify (Clarifique)</span>Identifique a objeção real — ela raramente é o que foi dito.<br>"<em>Caro comparado com o quê? Com o que você paga hoje, somando plano + extras quando estoura?</em>"</div>
-<div class="script-box"><span class="sl">E — Engage (Engaje)</span>Responda com contexto, dados ou prova social.<br>"<em>Outros clientes no mesmo perfil perceberam que a LCI saía igual ou abaixo — com fibra dedicada e sem surpresas na fatura.</em>"</div>
-${TIP('🔷','ACE mantém a conversa fluindo sem respostas prontas ou scripts engessados. O C (Clarify) é o mais poderoso — descubra a objeção real antes de responder.')}
-<div class="fonte">Ref: saleshive.com/blog/sales-objection-handling · yoodli.ai/blog/objection-handling</div>`,
-chips:['🫱 Feel-Felt-Found','⚡ JOLT Effect','💸 Objeção de preço','⏳ "Vou pensar"']
-};
-
-R.jolt = {
-html:`<div class="r-t">⚡ JOLT Effect — Vencendo a Indecisão</div>
-<p class="r-s">Matt Dixon, 2022 — 2,5 milhões de calls analisadas. 56% das perdas vêm de FOMU, não de preferência pelo concorrente.</p>
-<div class="info-box">
-  <strong>FOMU = Fear of Messing Up (Medo de Errar)</strong><br>
-  O cliente não fecha porque tem medo de tomar a decisão errada, não porque preferiu o concorrente.
-</div>
-<ul class="r-list">
-  <li><strong>J — Judge the indecision:</strong> identifique se é FOMU ou preferência real</li>
-  <li><strong>O — Offer a recommendation:</strong> reduza opções, ofereça a escolha certa</li>
-  <li><strong>L — Limit the exploration:</strong> não deixe o cliente "pesquisar mais"</li>
-  <li><strong>T — Take risk off the table:</strong> ofereça garantias e reduza o risco percebido</li>
-</ul>
-<div class="script-box"><span class="sl">✅ Aplicado na LCI</span>"Percebo que você ainda está avaliando. Me diz — o que falta pra você se sentir seguro nessa decisão?" [Depois:] "A instalação é grátis, o suporte funciona até meia-noite e você tem o Clube de Benefícios desde o 1º mês. O risco é zero da sua parte."</div>
-${TIP('🧠','Aumentar urgência com FOMU piora a situação. A chave é <strong>reduzir a percepção de risco</strong>, não pressionar mais.')}
-<div class="fonte">Ref: Matt Dixon — The JOLT Effect (2022) · thesaasbarometer.substack.com</div>`,
-chips:['⏳ "Vou pensar"','🔷 ACE Framework','🫱 Feel-Felt-Found','🏆 Fechamento']
-};
-
-// ── COMPORTAMENTO CONTEXT-FIRST ──
-R.obj_vaga = {
-html:`<div class="r-t">📋 Manda o texto exato do cliente! 🎯</div>
-<p class="r-p">Pra te dar uma resposta bem adaptada, preciso saber exatamente o que o cliente disse. Cola aqui a mensagem ou frase dele — quanto mais precisa, melhor a orientação.</p>
-${TIP('💡','Resposta genérica raramente convence. Com a frase real, consigo reformular no tom certo pro contexto específico do cliente.')}
-<p class="r-p" style="margin-top:6px">Ou selecione a objeção mais parecida com o que ele falou:</p>`,
-chips:['💸 "Tá caro"','⏳ "Vou pensar"','🔄 Já usa concorrente','🏃 "Estou ocupado"','📧 "Manda por e-mail"','❌ "Não me interessa"','📋 Ver pipeline de objeções']
-};
-
-// ── 7 PASSOS ──
-R.sete_passos = {
-html:`<div class="r-t">🏆 7 Passos para Superar Objeções</div>
-<p class="r-s">Processo estruturado — funciona pra qualquer resistência.</p>
-<ul class="r-list">
-  <li><strong>1. Ouça com atenção total</strong> — Deixe o cliente terminar. Quem interrompe perde informação e quebra o rapport.</li>
-  <li><strong>2. Valide sem concordar</strong> — "Entendo o que você quer dizer..." — validar ≠ concordar. Cria segurança psicológica.</li>
-  <li><strong>3. Identifique a objeção real</strong> — "Tá caro" raramente é sobre preço. Pergunte: "Caro em relação ao quê?"</li>
-  <li><strong>4. Responda com contexto</strong> — Use dados, prova social e diferenciais LCI conectados à dor real da sondagem.</li>
-  <li><strong>5. Confirme a resolução</strong> — "Isso esclarece o que você precisava?" Não assuma que a objeção sumiu.</li>
-  <li><strong>6. Redirecione pro fechamento</strong> — "O problema era X, resolvemos. O que falta pra confirmar?"</li>
-  <li><strong>7. Se persistir, volte ao diagnóstico</strong> — Objeção em cascata = valor não foi construído. Volte ao SPIN, não empurre mais argumentos.</li>
-</ul>
-${TIP('🧠','<strong>Sinal de alerta:</strong> quando surgem 3 objeções seguidas, geralmente significa que as etapas 3 (Sondagem) ou 4 (Conscientização) foram puladas.')}
-<div class="fonte">Ref: Tutorial Venda Consultiva LCI · SPIN Selling · JOLT Effect</div>`,
-chips:['🔷 ACE Framework','⚡ JOLT Effect','🫱 Feel-Felt-Found','🔍 SPIN Selling']
-};
-
-// ── OBJEÇÕES NOVAS ──
-R.obj_contrato_longo = {
-html:`<div class="r-t">📋 Objeção: "Não quero contrato longo"</div>
-<p class="r-p">Essa objeção é sobre <strong>autonomia</strong> — o cliente quer sentir que está no controle.</p>
-${S('"Entendo — ninguém gosta de se sentir preso. O período de fidelidade existe porque a gente banca <strong>instalação grátis + Clube de Benefícios desde o primeiro mês</strong>. É compromisso mútuo, não prisão."')}
-${S('"Me diz: o que especificamente te preocupa nesse contrato? A preocupação real muitas vezes é diferente do que aparece."')}
-${S('"E se eu te mostrar que, dentro do período, você tem garantias que provedores sem fidelidade não oferecem — incluindo suporte prioritário e upgrade ao final?"')}
-${AV('"O contrato é obrigatório, não tem como." — Não fecha porta antes de entender o medo real.')}
-${TIP('💡','Pergunte o que o cliente faria se quisesse sair. Geralmente o medo real é de qualidade ruim sem saída — não o contrato em si.')}`,
-chips:['🏆 Fechamento','💸 "Tá caro"','⏳ "Vou pensar"','📦 Ver planos']
-};
-
-R.obj_usa_concorrente = {
-html:`<div class="r-t">🔄 Objeção: "Já somos clientes do [Concorrente]"</div>
-<p class="r-p">Isso não é uma recusa — é uma abertura. O cliente está dizendo <em>como</em> compra, não que não vai mudar.</p>
-${S('"Legal saber! Me conta — o que você mais gosta no serviço deles hoje?"')}
-${TIP('🧠','Deixe ele falar. Vai mencionar as partes boas — <em>e</em> as que deixam a desejar. Você precisa do segundo grupo.')}
-${S('"E tem alguma coisa que você mudaria se pudesse?"')}
-${S('"O que acontece com a estabilidade em horário de pico, por exemplo?"')}
-${S('"Interessante. A LCI tem rede própria e suporte local até meia-noite — sem terceirização, sem fila nacional quando cai."')}
-${AV('"O Concorrente X é horrível!" — Nunca fale mal da concorrência. Deixe o cliente chegar à conclusão sozinho.')}`,
-chips:['🔄 Concorrente mais barato','💡 Conscientização','🔍 SPIN Selling']
-};
-
-R.obj_sem_roi = {
-html:`<div class="r-t">📊 Objeção: "Não vejo retorno nisso"</div>
-<p class="r-p">Se o cliente não vê ROI, é porque ainda não conectamos o produto à dor real dele. Hora de voltar ao SPIN de Implicação.</p>
-${S('"Faz sentido querer entender o retorno. Me faz uma pergunta: quanto você <strong>perde hoje</strong> quando a internet cai durante uma reunião ou operação importante?"')}
-${S('"Imagina isso em número. Uma hora de downtime, quantas vezes por mês — o resultado é o custo que você já paga sem perceber. A LCI não é um custo novo — é a troca de um custo oculto e imprevisível por um custo previsível."')}
-${TIP('📊','Para empresas: construa o ROI <em>junto</em> com o cliente. Pergunte custo de downtime, horas paradas, clientes perdidos. O número que ele calcular tem muito mais força do que qualquer dado seu.')}
-<div class="fonte">Ref: Harvard Business Review — cliente que percebe próprio ROI fecha 68% mais</div>`,
-chips:['🔍 SPIN Selling completo','💡 Conscientização','🏢 Planos empresariais']
-};
-
-R.obj_nao_interessado = {
-html:`<div class="r-t">❌ Objeção: "Não estou interessado"</div>
-<p class="r-p">Na maioria das vezes, o cliente ainda nem sabe o que você vai oferecer. É reflexo automático de defesa.</p>
-${S('"Tudo bem! Posso te fazer só uma pergunta antes de desligar?"')}
-${TIP('🎯','Essa pergunta cria curiosidade e dá uma saída educada — ele pode dizer não, mas a maioria diz "pode".')}
-${S('"O que especificamente não te interessa? É o preço, o tipo de serviço ou simplesmente o momento não é bom?"')}
-${S('"Se a instabilidade da internet pudesse ser resolvida sem complicação, você abriria espaço pra uma conversa de 5 minutos?"')}
-${AV('"Mas você nem me ouviu ainda!" — Não confronte. Crie curiosidade, não pressão.')}
-${TIP('💡','Muitas vezes "não me interessa" significa "não quero mais telemarketing". Diferencie sua abordagem consultiva desde a primeira frase.')}`,
-chips:['🤝 Técnica de abordagem','🔍 Sondagem SPIN','⏳ "Vou pensar"']
-};
-
-R.obj_ocupado = {
-html:`<div class="r-t">🏃 Objeção: "Estou ocupado agora"</div>
-<p class="r-p">Respeite o tempo — e use isso a seu favor. Quem diz que está ocupado está te dizendo o valor que dá ao próprio tempo.</p>
-${S('"Sem problema! Leva menos de 2 minutos — o que tenho pode te economizar horas de interrupção de internet todo mês. Mas se preferir: quando fica melhor? Manhã ou tarde essa semana?"')}
-${S('"Perfeito, não te tomo mais tempo agora. [Nome], posso te ligar quinta às 10h ou sexta depois do almoço?"')}
-${TIP('📅','Sempre ofereça <strong>duas opções</strong> de horário — nunca deixe em aberto. "Quando você tiver tempo" equivale a nunca.')}
-${AV('"Quando você tiver um tempinho me liga." — Perde a iniciativa e o contato.')}
-${S('Ao confirmar: "<strong>Ótimo! Te mando um lembrete no WhatsApp amanhã. Até [dia]! 😊</strong>"')}`,
-chips:['📊 Cadência de follow-up','🏆 Fechamento','⏳ "Vou pensar"']
-};
-
-R.obj_como_obteve = {
-html:`<div class="r-t">🔍 Objeção: "Como você conseguiu meu contato?"</div>
-<p class="r-p">Seja direto e transparente. Esconder a fonte gera desconfiança — explicar cria abertura.</p>
-${S('"Boa pergunta! Seu contato chegou até nós porque nossa rede cobre o bairro [X] e estamos expandindo ali. Não é mala direta aleatória — foi uma seleção de moradores da região."')}
-${S('"Se preferir que a gente não entre em contato mais, é só falar e te removo agora. Mas antes — posso te fazer uma pergunta rápida sobre a internet que você usa hoje?"')}
-${AV('"Não posso revelar de onde viemos." — Pior resposta possível. Gera desconfiança imediata.')}
-${TIP('💡','A transparência aqui é sua maior ferramenta. Clientes que recebem essa resposta honesta frequentemente ficam com a guarda mais baixa e ouvem a proposta.')}`,
-chips:['🤝 Abordagem e rapport','🔍 Sondagem SPIN','📊 Cadência de follow-up']
-};
-
-R.obj_nunca_ouvi = {
-html:`<div class="r-t">🌐 Objeção: "Nunca ouvi falar da LCI"</div>
-<p class="r-p">Ótima abertura pra construir credibilidade local — e rápido.</p>
-${S('"Faz sentido — a LCI é um provedor regional, então nossa força é o <strong>atendimento local e a rede própria</strong>. Não terceirizamos infraestrutura nem suporte."')}
-${S('"Já temos clientes no bairro [X]. Se quiser, posso te mostrar o mapa de cobertura ou passar o contato de um cliente próximo que pode contar como foi a experiência."')}
-${S('"Provedores grandes: quando cai, você entra em fila nacional. Aqui, o suporte é local e funciona até meia-noite."')}
-${TIP('🌐','Prova social local é muito mais eficaz que prêmios nacionais. Se tiver um cliente próximo como referência, use!')}
-<div class="fonte">Ref: Nielsen — prova social local tem 4× mais influência em decisão de compra regional</div>`,
-chips:['🤝 Técnica de abordagem','📦 Ver planos','🛡️ Mais objeções']
-};
-
-R.obj_complicado = {
-html:`<div class="r-t">🔧 Objeção: "Parece muito complicado"</div>
-<p class="r-p">Essa objeção é sobre <strong>esforço percebido</strong>, não sobre o produto. O cliente está pesando o custo da mudança.</p>
-${S('"Entendo totalmente — ninguém quer parar a vida pra trocar de internet. Com a LCI é muito mais simples do que parece: a gente cuida de tudo. Você não precisa desconectar nada antes."')}
-${S('"A instalação é feita por um técnico nosso, no horário que você escolher — manhã, tarde ou sábado. O processo inteiro leva uns 40 minutos."')}
-${S('"Tem alguma coisa específica que te parece complicada? Às vezes resolve com uma explicação de 2 minutos."')}
-${AV('"Não é complicado nenhum!" — Nega a percepção do cliente. Valide antes de explicar.')}
-${TIP('💡','Para clientes empresariais: ofereça acompanhamento técnico pós-instalação. Reduz muito a percepção de risco na mudança.')}`,
-chips:['📡 Wi-Fi e instalação','💸 "Tá caro"','📦 Ver planos','🏆 Fechamento']
-};
-
-R.obj_orcamento = {
-html:`<div class="r-t">💰 Objeção: "Orçamento está comprometido"</div>
-<p class="r-p">Pode ser real — ou pode ser uma forma educada de dizer que ainda não viu valor. Descubra qual é antes de responder.</p>
-${S('"Faz sentido priorizar. Me pergunto — a internet entra como custo ou como investimento pra vocês? Quando a internet é crítica pra operação, uma queda custa mais do que um plano melhor."')}
-${S('"Quando vocês revisam o orçamento normalmente? Posso programar um contato pro momento certo — sem pressão."')}
-${S('"Olhando os planos — o Combo MEI começa em R$229,90. Comparando com o que você paga hoje mais os custos de instabilidade, às vezes já tem espaço."')}
-${TIP('📅','Orçamento comprometido = janela de oportunidade. Pergunte quando abre a nova janela e marque uma data firme — isso é agenda de negócio, não follow-up genérico.')}`,
-chips:['📊 Follow-up','💸 "Tá caro"','🏢 Planos empresariais','⏳ "Vou pensar"']
-};
-
-R.obj_proximo_trimestre = {
-html:`<div class="r-t">📅 Objeção: "Ligue no próximo trimestre"</div>
-<p class="r-p">Pode ser legítimo — mas muitas vezes é uma forma de encerrar sem dizer não. Descubra qual é antes de aceitar o prazo.</p>
-${S('"Claro! Me ajuda a entender: o que muda no próximo trimestre que torna esse momento melhor?"')}
-${TIP('🧠','A resposta revela tudo. "Tem verba nova" = legítimo, anote e ligue. "Não sei..." = está evitando. Trate de forma diferente.')}
-${S('"Anotei pra ligar em [data]. Posso te mandar um WhatsApp antes pra confirmar? E se mudar antes, pode me chamar."')}
-${S('Se for legítimo: "<strong>Perfeito. [Dia] de [mês] te ligo. Anota meu contato — se precisar antes, me chama. 😊</strong>"')}
-${AV('"Tudo bem, ligo em [mês]." — Sem confirmar a data e o motivo, você vira mais uma ligação perdida na agenda.')}`,
-chips:['📊 Cadência de follow-up','⏳ "Vou pensar"','🏆 Fechamento']
-};
-
-R.obj_sem_recurso = {
-html:`<div class="r-t">🔧 Objeção: "Vocês não têm [recurso que preciso]"</div>
-<p class="r-p">Primeiro entenda se o recurso é crítico ou apenas desejado. Muita objeção de "falta X" se resolve com uma conversa.</p>
-${S('"Me conta mais sobre esse [recurso] — como você usa hoje e qual seria o impacto se não tiver?"')}
-${TIP('💡','Se for crítico e realmente não temos: seja honesto. Clientes que percebem honestidade confiam mais. Se não for crítico, mostre como o que temos resolve o mesmo objetivo de outro jeito.')}
-${S('"Não temos o [recurso X] exatamente assim, mas o que temos — [solução equivalente] — resolve o mesmo objetivo. Quer que eu explique como funciona na prática?"')}
-${S('"Esse ponto é válido. Posso verificar com a equipe técnica se temos algo customizado pro seu caso — posso te ligar amanhã com uma resposta concreta?"')}
-${AV('"Ah, mas todo mundo tem isso aí." — Minimiza a preocupação do cliente.')}`,
-chips:['🏢 Planos empresariais','🔌 IP Fixo vs Dinâmico','📡 Wi-Fi técnico']
-};
-
-R.obj_cotacao = {
-html:`<div class="r-t">🔄 Objeção: "Vou pedir outros orçamentos"</div>
-<p class="r-p">Ótimo sinal — significa que o cliente está em processo de compra. Sua missão é estar bem posicionado quando ele comparar.</p>
-${S('"Faz todo sentido comparar! Te ajudo com isso: ao pesquisar outros provedores, pergunta especificamente sobre <strong>SLA de atendimento, tempo médio de reparo e se o suporte é local ou central</strong>."')}
-${S('"Esses são os pontos onde a diferença aparece no dia a dia — não no preço do plano."')}
-${S('"Enquanto você pesquisa, posso te mandar um comparativo rápido por WhatsApp? Incluo os principais diferenciais da LCI pra você ter em mãos na comparação."')}
-${TIP('🎯','Ajudar o cliente a comparar <em>bem</em> é a melhor forma de ganhar a comparação. Você define os critérios — e os critérios favorecem você.')}
-${AV('"Mas a LCI é a melhor!" — Afirmação vazia que todo concorrente também faz.')}`,
-chips:['🔄 Concorrente mais barato','💡 Conscientização','🏆 Fechamento']
-};
-
-R.obj_equipe_pequena = {
-html:`<div class="r-t">👥 Objeção: "Não temos equipe pra gerenciar isso"</div>
-<p class="r-p">Geralmente uma objeção empresarial. O cliente pensa que internet precisa de gestão contínua — mostre que não.</p>
-${S('"Faz sentido querer simplificar — exatamente por isso a LCI funciona diferente. Você não precisa de TI pra gerenciar o link: manutenção, monitoramento e suporte são <strong>100% nossos</strong>."')}
-${S('"Se cair algo, a gente detecta antes de você ligar. Suporte local até meia-noite. Você gerencia o seu negócio — a gente cuida da internet."')}
-${S('"Me conta: quando a internet tem problema hoje, o que vocês fazem? Alguém da equipe vai resolver ou ligam pro provedor e esperam?"')}
-${TIP('🏢','Para empresas: posicione a LCI como serviço gerenciado, não como infraestrutura que eles precisam manter. Isso remove o custo oculto de gestão.')}`,
-chips:['🏢 Planos empresariais','🔌 IP Fixo / dedicado','💸 "Tá caro"']
-};
-
-R.obj_desligou = {
-html:`<div class="r-t">📵 Cliente desligou / "Bip bip bip"</div>
-<p class="r-p">Acontece. Não ligue de volta imediatamente — isso aumenta a resistência. Use o WhatsApp com inteligência.</p>
-${S('Template WhatsApp (enviar em até 10 min):<br>"Oi [Nome]! Tentei te ligar agora há pouco — parece que a ligação caiu. Não quero te incomodar, mas tenho uma informação sobre a cobertura da LCI no seu bairro que pode ser útil. Quando for bom pra você, me responde aqui 😊"')}
-${TIP('📅','Não mencione que ele desligou. Dê uma saída honrosa — isso aumenta muito a chance de resposta.')}
-${S('Se não responder em 24h:<br>"Oi [Nome]! Passando pra deixar meu contato. Se precisar de fibra no [bairro] em algum momento, pode me chamar — sem compromisso 🙂"')}
-${AV('Ligar de volta imediatamente ou mandar "Você me desligou?". Isso gera atrito e destrói as chances de reconversão.')}`,
-chips:['📊 Cadência de follow-up','📞 Caiu na caixa postal','🏆 Fechamento']
-};
-
-R.obj_email = {
-html:`<div class="r-t">📧 Objeção: "Manda por e-mail / WhatsApp"</div>
-<p class="r-p">Esse é o assassino silencioso de vendas. Geralmente significa "não quero continuar essa conversa agora" — mas pode ser trabalhado.</p>
-${S('"Claro, posso mandar! Mas pra não te sobrecarregar com informação genérica — me diz: o que mais te interessa? Velocidade? Preço? Streaming? Assim mando algo que realmente faz sentido pro seu caso."')}
-${TIP('🎯','Essa pergunta de qualificação mantém o cliente engajado E garante que o material seja relevante — aumentando muito a chance de resposta.')}
-${S('Ao enviar: "Mandei! Tem um comparativo de velocidade em horário de pico que costuma surpreender. Me fala o que achou quando ler?"')}
-${AV('"Claro, te mando agora!" — Sem qualificação, você vira mais um material ignorado na caixa de entrada.')}`,
-chips:['📊 Cadência de follow-up','⏳ "Vou pensar"','🏆 Fechamento']
-};
-
-R.obj_avaliacao_negativa = {
-html:`<div class="r-t">⭐ Objeção: "Vi uma reclamação sobre vocês"</div>
-<p class="r-p">Não seja defensivo. Agradeça a transparência — e mostre que você trata isso com seriedade.</p>
-${S('"Obrigado por mencionar — é uma preocupação totalmente legítima. Pode me contar o que você leu? Assim consigo te dar um contexto real, não só uma resposta genérica."')}
-${S('"Todo provedor tem reclamações — o que diferencia é como resolve. Nosso suporte é local, funciona até meia-noite, e o tempo de resposta é bem diferente dos grandes provedores."')}
-${S('"Se quiser, posso te conectar com um cliente próximo que teve problema e como a gente resolveu. Às vezes ouvir de quem viveu convence mais que qualquer número."')}
-${AV('"Essas reclamações são mentira / são de clientes difíceis." — Invalidar a preocupação é a pior resposta possível.')}
-${TIP('🌐','Tenha casos de resolução de problema na manga. Uma boa história de como o suporte salvou um cliente é mais persuasiva que qualquer NPS.')}`,
-chips:['📦 Ver planos','🔍 SPIN Selling','🏆 Fechamento']
-};
-
-// ── CLUBE DE BENEFÍCIOS ──
-R.clube_beneficios = {
-html:`<div class="r-t">🎁 Clube de Benefícios LCI</div>
-<p class="r-p">Ao contratar com a LCI, o cliente entra automaticamente no programa — vantagens que crescem com o tempo de fidelidade.</p>
-<div class="r-sec">
-  <div class="info-box" style="margin-bottom:8px">
-    <strong>🎰 Sorteios Trimestrais</strong><br>
-    Realizados a cada 3 meses. Participação automática quando o cliente tiver <strong>≥ 3 meses de contrato ativo</strong>, mensalidades em dia e fidelidade vigente.
-  </div>
-  <div class="plan-mini" style="border-left-color:var(--blue)">
-    <div class="pm-n">📺 Com 6 meses de contrato</div>
-    <div class="pm-f">3 meses <strong>grátis</strong> de app premium à escolha: <strong>Disney+, Sky+ ou MAX</strong></div>
-  </div>
-  <div class="plan-mini dest" style="margin-top:5px">
-    <div class="pm-n">⚡ Com 1 ano + Refidelização</div>
-    <div class="pm-f"><strong>Upgrade de velocidade grátis</strong> por 12 meses consecutivos<br>
-    Já no plano máximo? → 12 meses de <strong>Disney+ ou MAX</strong> grátis<br>
-    Plano empresarial? → <strong>Backup em dobro</strong> no lugar dos apps</div>
-  </div>
-</div>
-${TIP('⚠️','<strong>Condições importantes:</strong> o benefício é por 12 meses contínuos, sem pausa ou extensão. Downgrade de velocidade ou nova refidelização durante o período = perde o benefício imediatamente.')}
-${S('"Ao contratar, você já entra nos sorteios trimestrais. Com 6 meses ganha 3 meses grátis de streaming. Ao renovar a fidelidade com 1 ano, sobe de velocidade sem pagar nada a mais — por 12 meses inteiros."')}`
-};
-
-// ── VANTAGENS LCI ──
-R.vantagens_lci = {
-html:`<div class="r-t">⭐ Por que escolher a LCI Telecom?</div>
-<p class="r-p">Aqui estão os diferenciais concretos pra usar com o cliente — cada um com prova real:</p>
-<ul class="r-list">
-  <li>🔌 <strong>Instalação gratuita</strong> — equipamentos fornecidos em comodato, sem custo de entrada</li>
-  <li>🌐 <strong>Rede própria monitorada 24h</strong> — maior cobertura nas cidades que atua, sem terceirização de infraestrutura</li>
-  <li>🛠️ <strong>Suporte humano até meia-noite</strong> — seg a sex, atendimento remoto real, sem robô</li>
-  <li>🎁 <strong>Clube de Benefícios exclusivo</strong> — sorteios trimestrais, 3 meses de streaming grátis (6 meses de contrato), upgrade de velocidade ao refidelizar</li>
-  <li>👥 <strong>Indique e Ganhe</strong> — 1 indicação que assina = 50% na fatura; 2 indicações no mesmo mês = fatura <strong>zerada</strong></li>
-  <li>🏆 <strong>20 anos premiado</strong> pelo melhorplano.net — reconhecimento contínuo de qualidade</li>
-</ul>
-${TIP('💬','Use esses diferenciais em ordem: primeiro resolva a dor do cliente (Sondagem), depois apresente os benefícios conectados à dor dele — não todos de uma vez.')}
-${S('"A LCI tem rede própria monitorada 24h, suporte humano até meia-noite e um Clube de Benefícios que nenhum provedor da região oferece — sorteios, streaming grátis e upgrade de velocidade ao renovar."')}`
-};
-
-R.obj_caixa_postal = {
-html:`<div class="r-t">📞 Caiu na caixa postal / Não atendeu</div>
-<p class="r-p">Não deixe mensagem genérica — e não ligue de volta imediatamente. Siga a cadência.</p>
-${S('Mensagem de voz (se deixar):<br>"<strong>Oi [Nome], aqui é [seu nome] da LCI Telecom. Não vou tomar seu tempo agora — tenho uma informação sobre a cobertura de fibra no seu bairro que pode te interessar. Quando tiver um momento, me retorna no [número]. Valeu!</strong>"')}
-${TIP('📅','Mensagem de voz curta + WhatsApp logo em seguida = combo mais eficaz. Caixa postal sem mensagem = zero recall.')}
-${S('WhatsApp após caixa postal:<br>"Oi [Nome]! Te liguei agora sobre a fibra LCI no seu bairro. Não precisa ligar de volta — quando for bom pra você, me responde aqui 😊"')}
-<p class="r-p" style="margin-top:6px">Na cadência, varie o horário: <strong>9h–11h e 16h–18h</strong> têm as maiores taxas de atendimento.</p>`,
-chips:['📊 Cadência de follow-up 7 dias','🏃 "Estou ocupado"','📵 Cliente desligou']
-};
-
-R.fallback = {
-html:`<div class="r-t">Hmm, não captei bem 🤔</div>
-<p class="r-p">Reformula pra mim ou escolhe um tópico abaixo — tô por aqui!</p>
-<ul class="r-list">
-  <li>Pipeline de vendas (Prospecção ao Pós-venda)</li>
-  <li>Objeções: "tá caro", "vou pensar", "manda por e-mail" e mais 15 tipos</li>
-  <li>Planos: residencial, empresarial, chip/móvel, gamer</li>
-  <li>Técnicas: SPIN, Feel-Felt-Found, ACE, JOLT</li>
-  <li>Follow-up, cadência e templates de WhatsApp</li>
-  <li>Wi-Fi, frequências, IP Fixo vs Dinâmico</li>
-</ul>
-${TIP('🎯','Pra objeções: manda o texto exato que o cliente falou que eu adapto uma resposta pro contexto real.')}`,
-chips:['📋 Pipeline completo','🛡️ Objeções','📦 Planos','🔍 SPIN Selling','📊 Follow-up']
-};
+const R={};
+R.oi={html:`<p class="r-p">Oi! 👋 Pronto e por aqui. Me conta — você tá em qual etapa com o cliente?</p>`};
+R.obrigado={html:`<p class="r-p">Boa! 🎯 Fico feliz que tenha ajudado. Qualquer dúvida, é só chamar!</p>`};
+R.tchau={html:`<p class="r-p">Boa sorte na negociação! 🏆 Vai com tudo!</p>`};
+R.welcome={html:`<div class="r-t">Oi! Sou o LCI Consultor 🤝</div><p class="r-p">Tô aqui pra te ajudar em tempo real — objeções, planos, técnicas e dúvidas técnicas.</p><ul class="r-list"><li>Pipeline completo: Prospecção ao Pós-venda</li><li>Objeções: preço, concorrente, fidelidade e +15 tipos</li><li>Indicação de plano por perfil do cliente</li><li>Técnicas SPIN, Feel-Felt-Found, ACE, JOLT</li><li>Cadência de follow-up e templates de WhatsApp</li></ul>${TIP('🎯','Manda o texto exato que o cliente falou — adapto a melhor resposta!')}`};
+R.pipeline_overview={html:`<div class="r-t">Pipeline de Venda Consultiva — 8 Etapas 🗺️</div><ul class="r-list"><li><strong>1. Prospecção</strong> — Defina o ICP antes de abordar</li><li><strong>2. Abordagem</strong> — Regra dos 4×20, rapport</li><li><strong>3. Sondagem</strong> — SPIN Selling: mapeie a dor real</li><li><strong>4. Conscientização</strong> — Valor percebido antes do preço</li><li><strong>5. Apresentação</strong> — 1 plano certo + 1 alternativa</li><li><strong>6. Objeções</strong> — Conduza, não force</li><li><strong>7. Fechamento</strong> — Assuma o sim, pergunte o próximo passo</li><li><strong>8. Pós-venda</strong> — Fidelização e indicação</li></ul>${TIP('⚡','<strong>Lei de Ouro:</strong> cada etapa constrói a percepção de valor que justifica o preço.')}`};
+R.prospeccao={html:`<div class="r-t">🎯 Etapa 1 — Prospecção / ICP</div><div class="r-cols"><div class="col-g"><span class="col-lbl">🏠 Residencial</span><ul class="col-list"><li>Família com crianças</li><li>Home office recorrente</li><li>Gamer competitivo</li><li>Multi-streaming</li></ul></div><div class="col-g"><span class="col-lbl">🏢 Empresarial</span><ul class="col-list"><li>MEI e escritório pequeno</li><li>Câmeras de segurança IP</li><li>ERP e backup em nuvem</li><li>Equipe de campo</li></ul></div></div>${TIP('💡','O ICP é construído a partir dos seus <strong>melhores clientes ativos</strong>.')}`};
+R.abordagem={html:`<div class="r-t">🤝 Etapa 2 — Abordagem e Rapport</div>${AV('"Olá, somos a LCI e temos os melhores planos..."')}${S('"[Nome], você mora no bairro [X]? Nossa rede tem maior cobertura ali. Como tá sendo a experiência com o provedor atual?"')}${TIP('🧠','A decisão de "ouvir ou fechar" ocorre nos primeiros 20 segundos.')}`};
+R.sondagem={html:`<div class="r-t">🔍 Etapa 3 — Sondagem SPIN</div><div class="spin-grid"><div class="sb sb-s"><span class="sb-l">S — Situação</span><ul><li>"Quantas pessoas usam?"</li><li>"Trabalha de casa?"</li><li>"Qual provedor usa hoje?"</li></ul></div><div class="sb sb-p"><span class="sb-l">P — Problema</span><ul><li>"Já travou em reunião?"</li><li>"Sinal chega em todos os cômodos?"</li></ul></div><div class="sb sb-i"><span class="sb-l">I — Implicação</span><ul><li>"Quando trava, o que acontece?"</li><li>"Quanto custou em produtividade?"</li></ul></div><div class="sb sb-n"><span class="sb-l">N — Necessidade</span><ul><li>"Se resolver, o que muda?"</li><li>"O que seria o plano ideal?"</li></ul></div></div>${TIP('🧠','Validado em 35.000 vendas reais. Quem pergunta mais, fecha mais.')}`};
+R.conscientizacao={html:`<div class="r-t">💡 Etapa 4 — Conscientização</div>${INFO('<strong>Kotler:</strong> Valor Percebido = Benefícios Percebidos − Custos Percebidos')}${S('"Você me disse que a reunião travou semana passada. \'De vez em quando\' tá custando quanto?"')}${TIP('⚠️','<strong>Nunca pule essa etapa.</strong> Sem conscientização, o cliente compara preço com concorrente.')}`};
+R.apresentacao={html:`<div class="r-t">📦 Etapa 5 — Apresentação</div>${S('"Com base no que você me contou, o plano certo é o <strong>Combo Nitro 1000 Mega a R$249,90</strong>."')}${S('"O Combo Entretenimento 600 Mega a R$179,90 funciona — mas em horário de pico você vai sentir. O Nitro foi feito pra esse perfil."')}${TIP('📌','1 plano certo + 1 alternativa. Mais de 3 opções paralisa a decisão.')}`};
+R.objecoes={html:`<div class="r-t">🛡️ Etapa 6 — Contorno de Objeções</div><ul class="r-list"><li><strong>💸 "Tá caro"</strong> — ACE + reframe do custo real</li><li><strong>⏳ "Vou pensar"</strong> — JOLT: reduza o FOMU</li><li><strong>🔄 "Já uso concorrente"</strong> — Descubra a dor oculta</li><li><strong>📋 "Não quero contrato"</strong> — Compromisso mútuo</li><li><strong>❌ "Não estou interessado"</strong> — Uma pergunta antes de desligar</li><li><strong>📧 "Manda por e-mail"</strong> — Qualifique antes de enviar</li></ul>${TIP('🎯','Manda o texto exato que o cliente falou — adapto a melhor resposta!')}`};
+R.fechamento={html:`<div class="r-t">🏆 Etapa 7 — Fechamento</div>${S('"Confirma o endereço — prefere instalação de manhã ou à tarde?"')}${S('"Fechando hoje, isento a instalação e te coloco na agenda de amanhã."')}${TIP('🏆','"Manhã ou tarde?" — ambas pressupõem o fechamento. O cliente sente autonomia, não pressão.')}`};
+R.posvenda={html:`<div class="r-t">⭐ Etapa 8 — Pós-venda</div>${S('Dia da instalação: "Oi [Nome]! Tudo certinho? Qualquer dúvida, pode me chamar 😊"')}${S('30 dias após: "[Nome], faz um mês — como tá sendo a experiência?"')}${S('Indicação: "Você conhece alguém que paga caro por uma internet que cai? Tenho um benefício especial."')}${TIP('💡','Reativar custa 5–7× menos que conquistar novo cliente.')}`};
+R.planos_residencial={html:`<div class="r-t">🏠 Planos Residenciais</div>${PL('Combo Start — 300 Mega','R$ 119,90','100M Upload · Ubook Go','Uso simples, terceira idade','Econômico')}${PL('Combo Conecta — 500 Mega','R$ 149,90','200M Upload · Ubook Livros','Casal, home office leve','Mais Vendido',true)}${PL('Combo Entretenimento — 600 Mega','R$ 179,90','200M Upload · 1 App Plus','Multi-streaming, família pequena','Streaming')}${PL('Combo Gamer Plus — 800 Mega','R$ 209,90','400M Upload · ExitLag · IP Público','Gamer competitivo, streamer','Gamer')}${PL('Combo Nitro — 1000 Mega','R$ 249,90','300M Upload · Ubook + 1 App Plus','Família grande, home office exigente','Premium')}${TIP('📌','<strong>SCM:</strong> Plano Modelo 600M (R$179,90) e Plano Default 800M (R$219,90) — fibra pura sem apps.')}`};
+R.plano_gamer={html:`<div class="r-t">🎮 Combo Gamer Plus</div>${PL('Combo Gamer Plus — 800 Mega','R$ 209,90','400M Upload · ExitLag · IP Público · Suporte Premium','Gamer competitivo, streamer, baixo ping','Gamer',true)}${S('"ExitLag integrado para reduzir o ping, IP Público para servidores dedicados e 400M de upload para stream sem travar."')}${TIP('🎮','ExitLag otimiza rotas para os principais jogos. IP Público permite servidores dedicados.')}`};
+R.plano_entretenimento={html:`<div class="r-t">📺 Combo Entretenimento</div>${PL('Combo Entretenimento — 600 Mega','R$ 179,90','200M Upload · 1 App Plus · Suporte Premium','Multi-streaming, filmes, séries','Streaming',true)}${PL('Combo Nitro — 1000 Mega','R$ 249,90','300M Upload · Ubook + 1 App Plus','Família grande, múltiplos dispositivos','Premium')}${INFO('<strong>Apps Plus:</strong> HBO MAX, Amazon Prime, Telecine, Globoplay, Apple TV, Sky+, Docway')}`};
+R.plano_nitro={html:`<div class="r-t">⚡ Combo Nitro — 1000 Mega</div>${PL('Combo Nitro','R$ 249,90','300M Upload · Ubook + 1 App Plus · Suporte Premium','Família grande, home office exigente','Premium',true)}${S('"O Nitro sai R$249,90 — mas inclui 1 App Plus (R$26,90 avulso) + Ubook + suporte. Efetivamente R$222 pela fibra pura."')}`};
+R.planos_empresarial={html:`<div class="r-t">🏢 Planos Empresariais</div>${PL('Combo MEI — 400 Mega','R$ 169,90','150M Upload · Kaspersky 3 lic. · Locação IP · Suporte Emp.','MEI, autônomo, escritório pequeno','MEI')}${PL('Combo ME — 500 Mega','R$ 229,90','200M Upload · Kaspersky 3 lic. · Locação IP · Suporte Emp.','Comércio, escritório médio','ME')}${PL('Combo EPP — 600 Mega','R$ 249,90','250M Upload · Kaspersky 3 lic. · Suporte Emp. · Livros Gestão','EPP, equipe até 30 pessoas','EPP')}${PL('Combo EMP — 800 Mega','R$ 379,90','300M Upload · Kaspersky · Locação IP · Suporte + Livros','Médio porte, câmeras remotas','EMP')}${PL('Combo EGP — 1000 Mega','R$ 599,90','500M Upload · Acronis 30GB · Kaspersky · Locação IP · Livros','Grandes operações, servidores','Operações Críticas',true)}${PL('IP Dedicado','A partir de R$ 450,00','50–1.000 Mbits simétrico · Anti-DDoS · /30 IPv4+/48 IPv6','Missão crítica, link exclusivo','Dedicado')}${INFO('<strong>Adicionais:</strong> Backup na Nuvem · Clear Channel (Lan to Lan) · Colocation · Hospedagem e E-mail')}`};
+R.servicos_empresariais={html:`<div class="r-t">📦 Soluções Empresariais</div><ul class="r-list"><li>☁️ <strong>Backup na Nuvem</strong> — parceiro líder mundial</li><li>🔗 <strong>Clear Channel (Lan to Lan)</strong> — rede privativa entre filiais</li><li>🏗️ <strong>Colocation</strong> — DC com SLA ≥99,8% e IX Cuiabá-MT e SP</li><li>🌐 <strong>Hospedagem e E-mail</strong> — sites e e-mail corporativo</li><li>⚙️ <strong>Modo Bridge</strong> — gruposuporte@lcitelecom.com.br</li></ul>${S('"A LCI não vende só internet — resolve toda a infraestrutura digital em um único fornecedor."')}`};
+R.backup_nuvem={html:`<div class="r-t">☁️ Backup na Nuvem</div>${INFO('Backup de servidores físicos e virtuais · Dispositivos · Armazenamento seguro · Disaster recovery')}${TIP('🎯','"Se o servidor falhar amanhã, quanto tempo leva pra restaurar tudo?"')}${S('"A LCI oferece backup na nuvem — se o HD queimar, você recupera tudo em horas, não em dias."')}`};
+R.clear_channel={html:`<div class="r-t">🔗 Clear Channel — Lan to Lan</div>${INFO('Conecta filiais em rede privativa · Sem passar pela internet pública · Menor latência que VPN · ERP, câmeras, PABX')}${S('"A LCI interliga todas as filiais em rede privativa — como se estivessem no mesmo escritório."')}`};
+R.colocation={html:`<div class="r-t">🏗️ Colocation — Data Center LCI</div>${INFO('SLA ≥ 99,8% · Múltiplos upstream · IX Cuiabá-MT e SP · Ambiente controlado')}${S('"DC próprio com SLA de 99,8% e conexão ao Internet Exchange — latência menor para os maiores sites do Brasil."')}`};
+R.hospedagem_email={html:`<div class="r-t">🌐 Hospedagem e E-mail Corporativo</div>${INFO('Hospedagem de sites · E-mail @suaempresa.com.br · Suporte local')}${TIP('💡','Upsell para MEI/EPP que ainda usam Gmail: "Sai de contato@gmail.com para contato@suaempresa.com.br."')}`};
+R.modo_bridge={html:`<div class="r-t">⚙️ Modo Bridge</div>${INFO('<strong>Como solicitar:</strong> 1. Plano ativo · 2. E-mail: gruposuporte@lcitelecom.com.br · 3. Suporte configura remotamente')}${TIP('🏢','Perfil: empresas com TI própria, Mikrotik, Fortinet, pfSense.')}`};
+R.planos_movel={html:`<div class="r-t">📱 Chips / Telefonia Móvel LCI</div><p class="r-s">Cobertura dupla Vivo + TIM · 1.000 min · Dados cumulativos</p><table style="width:100%;border-collapse:collapse;font-size:11px;margin:8px 0"><thead><tr style="background:var(--black);color:#fff"><th style="padding:5px 6px;text-align:left">Plano</th><th style="padding:5px 6px;text-align:center">Avulso</th><th style="padding:5px 6px;text-align:center">Entr<br><span style="font-weight:400;opacity:.7">-R$10</span></th><th style="padding:5px 6px;text-align:center">Nitro<br><span style="font-weight:400;opacity:.7">-R$15</span></th><th style="padding:5px 6px;text-align:center">Gamer<br><span style="font-weight:400;opacity:.7">-R$25</span></th></tr></thead><tbody><tr style="background:rgba(21,101,192,.07)"><td style="padding:5px 6px"><strong>🆕 5 GB</strong></td><td style="padding:5px 6px;text-align:center">R$38,99</td><td colspan="3" style="padding:5px 6px;text-align:center;color:var(--gm);font-size:10px;font-style:italic">sem desconto</td></tr><tr style="background:rgba(21,101,192,.07)"><td style="padding:5px 6px"><strong>🆕 10 GB</strong></td><td style="padding:5px 6px;text-align:center">R$47,99</td><td colspan="3" style="padding:5px 6px;text-align:center;color:var(--gm);font-size:10px;font-style:italic">sem desconto</td></tr><tr style="border-bottom:1px solid var(--gl)"><td style="padding:5px 6px">15 GB</td><td style="padding:5px 6px;text-align:center">R$54,99</td><td style="padding:5px 6px;text-align:center;color:var(--green);font-weight:700">R$44,99</td><td style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700">R$39,99</td><td style="padding:5px 6px;text-align:center;color:var(--blue);font-weight:700">R$29,99</td></tr><tr style="background:var(--off)"><td style="padding:5px 6px">20 GB</td><td style="padding:5px 6px;text-align:center">R$59,99</td><td style="padding:5px 6px;text-align:center;color:var(--green);font-weight:700">R$49,99</td><td style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700">R$44,99</td><td style="padding:5px 6px;text-align:center;color:var(--blue);font-weight:700">R$34,99</td></tr><tr><td style="padding:5px 6px">30 GB</td><td style="padding:5px 6px;text-align:center">R$72,99</td><td style="padding:5px 6px;text-align:center;color:var(--green);font-weight:700">R$62,99</td><td style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700">R$57,99</td><td style="padding:5px 6px;text-align:center;color:var(--blue);font-weight:700">R$47,99</td></tr><tr><td style="padding:5px 6px">50 GB</td><td style="padding:5px 6px;text-align:center">R$89,99</td><td style="padding:5px 6px;text-align:center;color:var(--green);font-weight:700">R$79,99</td><td style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700">R$74,99</td><td style="padding:5px 6px;text-align:center;color:var(--blue);font-weight:700">R$64,99</td></tr></tbody></table>${TIP('📱','5GB e 10GB: avulso apenas (sem desconto). 15–50GB: <strong>Gamer -R$25</strong> · Nitro -R$15 · Entr -R$10')}`};
+R.followup={html:`<div class="r-t">📊 Follow-up — Cadência de 7 dias</div><table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0"><tr style="background:var(--off)"><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 1 · H+0</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">📞 Ligação · Sondagem inicial</td></tr><tr><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 1 · H+2</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">💬 WhatsApp · "Te liguei sobre a fibra LCI no seu bairro 🙂"</td></tr><tr style="background:var(--off)"><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 3</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">📞 2ª ligação. Se atender: recomece pela sondagem</td></tr><tr><td style="padding:5px 8px;border-bottom:1px solid var(--gl);font-weight:700;font-family:var(--fh)">Dia 5</td><td style="padding:5px 8px;border-bottom:1px solid var(--gl)">💬 "A instalação no seu bairro ainda tem slot essa semana."</td></tr><tr style="background:var(--off)"><td style="padding:5px 8px;font-weight:700;font-family:var(--fh)">Dia 7</td><td style="padding:5px 8px">📞 Final com concessão: "Fechando hoje, isento instalação."</td></tr></table>${TIP('⚠️','Nunca faça cobrança. Cada contato deve trazer algo novo: dado, facilidade ou urgência real.')}`};
+R.wifi={html:`<div class="r-t">📡 Wi-Fi — Geração vs Frequência</div><div class="r-cols"><div class="col-g"><span class="col-lbl">Geração</span><ul class="col-list"><li><strong>Wi-Fi 5</strong> — 1 aparelho eficiente por vez</li><li><strong>Wi-Fi 6</strong> — OFDMA: vários simultâneos</li><li><strong>Wi-Fi 7</strong> — MLO: usa 3 faixas juntas</li></ul></div><div class="col-g"><span class="col-lbl">Frequência</span><ul class="col-list"><li><strong>2.4 GHz</strong> — Alcance longo, penetra paredes</li><li><strong>5 GHz</strong> — Alta velocidade, pouca interferência</li><li><strong>6 GHz</strong> — Espectro limpo, Wi-Fi 6E/7</li></ul></div></div>${S('"2.4 GHz é a estrada de terra — vai longe mas devagar. 5 GHz é a rodovia — rápida mas não faz curvas."')}`};
+R.ip={html:`<div class="r-t">🔌 IP Dinâmico vs IP Fixo</div><div class="r-cols"><div class="col-g"><span class="col-lbl">IP Dinâmico</span><ul class="col-list"><li>Endereço muda periodicamente</li><li>Ideal para residencial comum</li><li>Não permite acesso remoto estável</li></ul></div><div class="col-g"><span class="col-lbl">IP Fixo</span><ul class="col-list"><li>Endereço permanente</li><li>Ideal para câmeras e servidores</li><li>Incluso no Combo Gamer Plus</li></ul></div></div>${S('"IP Dinâmico é quarto de hotel. IP Fixo é sede própria — endereço que nunca muda."')}`};
+R.mesh={html:`<div class="r-t">🛜 Quando Recomendar Mesh</div>${PL('Locação Roteador Mesh Premium','R$ 49,99','Sistema multi-roteador · Wi-Fi unificado · Elimina pontos cegos · Wi-Fi 6','Casas grandes, múltiplos andares','Hardware')}${S('"O Mesh coloca vários pontos que formam uma rede unificada. Seu celular passa de um para o outro automaticamente."')}${TIP('💡','Ótimo upsell para clientes com 600M ou mais — têm velocidade contratada, mas perdem no Wi-Fi.')}`};
+R.psicologia_preco={html:`<div class="r-t">🧠 Psicologia do Preço</div>${INFO('<strong>Kotler:</strong> Valor Percebido = Benefícios Percebidos − Custos Percebidos')}${TIP('🧠','Todo cliente sabe que o melhor é mais caro. <strong>Torne o valor visível antes de revelar o número.</strong>')}`};
+R.spin_detail={html:`<div class="r-t">🔍 SPIN Selling Completo</div><div class="spin-grid"><div class="sb sb-s"><span class="sb-l">S — Situação</span><ul><li>"Quantas pessoas usam?"</li><li>"Qual provedor e paga quanto?"</li></ul></div><div class="sb sb-p"><span class="sb-l">P — Problema</span><ul><li>"Já travou em reunião?"</li><li>"Sinal chega no quarto?"</li></ul></div><div class="sb sb-i"><span class="sb-l">I — Implicação</span><ul><li>"Quando cai, o que acontece?"</li><li>"Quanto custou?"</li></ul></div><div class="sb sb-n"><span class="sb-l">N — Necessidade</span><ul><li>"Se resolver, o que muda?"</li><li>"Plano ideal seria?"</li></ul></div></div>`};
+R.feel_felt_found={html:`<div class="r-t">🫱 Técnica Feel-Felt-Found</div>${INFO('<strong>Feel</strong> — "Entendo como você se sente..."<br><strong>Felt</strong> — "Outros clientes sentiram o mesmo..."<br><strong>Found</strong> — "...e descobriram que..."')}${S('"Entendo como você <strong>se sente</strong>. Muitos <strong>sentiram</strong> o mesmo. Depois de comparar o total, <strong>descobriram</strong> que a LCI saía igual ou abaixo."')}`};
+R.ace_framework={html:`<div class="r-t">🔷 ACE Framework</div>${S('<strong>A — Acknowledge:</strong> "Entendo, preço é sempre um fator importante."')}${S('<strong>C — Clarify:</strong> "Caro comparado com o quê? Com o total que paga hoje?"')}${S('<strong>E — Engage:</strong> "Outros clientes no mesmo perfil perceberam que a LCI saía igual ou abaixo."')}`};
+R.jolt={html:`<div class="r-t">⚡ JOLT Effect</div>${INFO('<strong>FOMU = Fear of Messing Up</strong> — 56% das perdas são por medo de errar (Matt Dixon, 2022)')}${S('"O que falta pra você se sentir seguro? A instalação é grátis, suporte até meia-noite — o risco é zero."')}`};
+R.obj_vaga={html:`<div class="r-t">📋 Manda o texto exato do cliente! 🎯</div><p class="r-p">Pra te dar uma resposta adaptada, preciso saber exatamente o que o cliente disse. Cola aqui a mensagem ou frase dele.</p>${TIP('💡','Com a frase real, consigo reformular no tom certo pro contexto específico.')}`};
+R.sete_passos={html:`<div class="r-t">🏆 7 Passos para Superar Objeções</div><ul class="r-list"><li><strong>1. Ouça com atenção total</strong></li><li><strong>2. Valide sem concordar</strong> — "Entendo o que você quer dizer..."</li><li><strong>3. Identifique a objeção real</strong> — "Caro em relação ao quê?"</li><li><strong>4. Responda com contexto</strong> — dados e prova social</li><li><strong>5. Confirme a resolução</strong> — "Isso esclarece?"</li><li><strong>6. Redirecione pro fechamento</strong> — "O que falta?"</li><li><strong>7. Objeção persistente → volte ao diagnóstico</strong></li></ul>`};
+R.obj_preco={html:`<div class="r-t">💸 "Tá caro"</div>${S('"Caro comparado com o quê? Com o que você paga hoje somando o plano + os extras?"')}${S('"Muitos clientes <strong>sentiram</strong> o mesmo. Quando compararam o total, <strong>descobriram</strong> que a LCI saía igual ou abaixo."')}${S('"Quanto custa quando a internet cai durante uma reunião? Esse é o custo real."')}${AV('"Mas a LCI oferece qualidade!" — Argumentar direto no preço sem perguntar o que compara.')}`};
+R.obj_pensar={html:`<div class="r-t">⏳ "Vou pensar"</div>${S('"Claro! O que falta pra você se sentir seguro pra decidir hoje?"')}${S('"A instalação é grátis, Clube de Benefícios no primeiro mês e suporte até meia-noite. O risco é zero."')}${S('"Os slots de instalação no seu bairro essa semana estão acabando. Garantindo hoje, agendamos amanhã."')}${TIP('🛡️','56% das perdas por "vou pensar" são FOMU. Reduza o risco, não aumente a pressão.')}`};
+R.obj_concorrente={html:`<div class="r-t">🔄 "Concorrente é mais barato"</div>${S('"Barato que cai não é barato. Você me disse que a reunião travou — qual é o custo real de cada interrupção?"')}${S('"A LCI tem rede própria, suporte local até meia-noite. Outros terceirizam — quando cai, a fila é longa."')}${S('"Muitos foram pro concorrente e <strong>descobriram</strong> que economizaram no plano mas perderam muito mais."')}`};
+R.obj_fidelidade={html:`<div class="r-t">📋 "Não quero fidelidade"</div>${S('"A fidelidade existe porque bancamos <strong>instalação grátis + Clube de Benefícios</strong>. É compromisso mútuo."')}${S('"No período: instalação grátis, suporte premium, benefícios do Clube e upgrade ao final. Não é prisão — é parceria."')}`};
+R.obj_contrato_longo={html:`<div class="r-t">📋 "Não quero contrato longo"</div>${S('"O período existe porque bancamos <strong>instalação grátis + Clube de Benefícios desde o primeiro mês</strong>."')}${S('"Me diz: o que especificamente te preocupa? A preocupação real é diferente do que aparece."')}`};
+R.obj_satisfeito={html:`<div class="r-t">✅ "Estou satisfeito"</div>${S('"Que bom! Mas tem alguma hora que a velocidade cai, ou algum cômodo que o sinal não chega?"')}${S('"Quando cai em horário de pico — o que costuma acontecer?"')}${S('"Se você tivesse uma internet que não cai nunca, o que mudaria no dia a dia?"')}${TIP('💡','95% dos insatisfeitos não reclamam — apenas vão embora. (Kotler)')}`};
+R.obj_nao_interessado={html:`<div class="r-t">❌ "Não estou interessado"</div>${S('"Tudo bem! Posso te fazer só uma pergunta antes de desligar?"')}${S('"O que especificamente não te interessa? É o preço, o serviço ou o momento não é bom?"')}${AV('"Mas você nem me ouviu ainda!" — Não confronte. Crie curiosidade.')}`};
+R.obj_ocupado={html:`<div class="r-t">🏃 "Estou ocupado agora"</div>${S('"Sem problema! Quando fica melhor — manhã ou tarde essa semana?"')}${TIP('📅','Sempre ofereça <strong>duas opções</strong>. "Quando tiver tempo" equivale a nunca.')}`};
+R.obj_como_obteve={html:`<div class="r-t">🔍 "Como você conseguiu meu contato?"</div>${S('"Seu contato chegou até nós porque nossa rede cobre o bairro [X]. Não é mala direta — foi seleção de moradores da região."')}${AV('"Não posso revelar." — Pior resposta. Gera desconfiança imediata.')}`};
+R.obj_nunca_ouvi={html:`<div class="r-t">🌐 "Nunca ouvi falar da LCI"</div>${S('"A LCI é provedor regional — nossa força é o <strong>atendimento local e a rede própria</strong>. Não terceirizamos suporte."')}${S('"Provedores grandes: fila nacional quando cai. Aqui: suporte local até meia-noite."')}`};
+R.obj_complicado={html:`<div class="r-t">🔧 "Parece muito complicado"</div>${S('"Com a LCI você não precisa fazer nada. Técnico nosso instala no horário que você escolher — ~40 minutos."')}${AV('"Não é complicado nenhum!" — Nega a percepção do cliente.')}`};
+R.obj_orcamento={html:`<div class="r-t">💰 "Orçamento comprometido"</div>${S('"Quando vocês revisam o orçamento? Posso programar um contato pro momento certo."')}${S('"O Combo MEI começa em R$169,90. Comparando com o que paga hoje + custos de instabilidade, às vezes já tem espaço."')}`};
+R.obj_proximo_trimestre={html:`<div class="r-t">📅 "Ligue no próximo trimestre"</div>${S('"O que muda no próximo trimestre que torna esse momento melhor?"')}${TIP('🧠','A resposta revela tudo. "Tem verba nova" = legítimo. "Não sei..." = evitando.')}`};
+R.obj_sem_recurso={html:`<div class="r-t">🔧 "Vocês não têm [recurso]"</div>${S('"Me conta mais — como você usa hoje e qual seria o impacto se não tiver?"')}${S('"Posso verificar com a equipe técnica — te ligo amanhã com uma resposta concreta?"')}`};
+R.obj_cotacao={html:`<div class="r-t">🔄 "Vou pedir outros orçamentos"</div>${S('"Ao pesquisar, perguntas sobre <strong>SLA de atendimento, tempo de reparo e se o suporte é local ou central</strong>."')}${TIP('🎯','Ajudar a comparar bem é a melhor forma de ganhar a comparação.')}`};
+R.obj_equipe_pequena={html:`<div class="r-t">👥 "Não temos equipe pra gerenciar"</div>${S('"Com a LCI você não precisa de TI: manutenção, monitoramento e suporte são <strong>100% nossos</strong>."')}`};
+R.obj_desligou={html:`<div class="r-t">📵 Cliente desligou</div>${S('WhatsApp (até 10 min): "Oi [Nome]! Tentei te ligar. Tenho uma informação sobre a cobertura LCI no seu bairro. Quando for bom, me responde 😊"')}${TIP('📅','Não mencione que ele desligou. Dê uma saída honrosa.')}`};
+R.obj_email={html:`<div class="r-t">📧 "Manda por e-mail"</div>${S('"O que mais te interessa? Velocidade? Preço? Streaming? Assim mando algo que realmente faz sentido."')}${AV('"Claro, te mando agora!" — Sem qualificação, você vira mais um material ignorado.')}`};
+R.obj_avaliacao_negativa={html:`<div class="r-t">⭐ "Vi uma reclamação sobre vocês"</div>${S('"Pode me contar o que você leu? Assim consigo te dar um contexto real."')}${S('"Todo provedor tem reclamações — o que diferencia é como resolve. Suporte local até meia-noite."')}${AV('"Essas reclamações são mentira." — Pior resposta.')}`};
+R.obj_sem_roi={html:`<div class="r-t">📊 "Não vejo retorno nisso"</div>${S('"Quanto você <strong>perde hoje</strong> quando a internet cai durante uma operação?"')}${S('"A LCI é a troca de um custo oculto e imprevisível por um custo previsível."')}${TIP('📊','Para empresas: construa o ROI junto com o cliente. O número que ele calcular tem mais força.')}`};
+R.obj_usa_concorrente={html:`<div class="r-t">🔄 "Já somos clientes do Concorrente"</div>${S('"Legal! Me conta — o que você mais gosta no serviço deles hoje?"')}${TIP('🧠','Deixe ele falar. Vai mencionar as partes boas — e as que deixam a desejar.')}${S('"E tem alguma coisa que você mudaria?"')}${S('"A LCI tem rede própria e suporte local até meia-noite — sem fila quando cai."')}${AV('"O Concorrente X é horrível!" — Nunca fale mal da concorrência.')}`};
+R.clube_beneficios={html:`<div class="r-t">🎁 Clube de Benefícios LCI</div>${INFO('<strong>🎰 Sorteios Trimestrais</strong> — Participação automática com ≥ 3 meses de contrato ativo, mensalidades em dia.')}<div class="plan-mini" style="border-left-color:var(--blue)"><div class="pm-n">📺 Com 6 meses</div><div class="pm-f">3 meses <strong>grátis</strong> de app: Disney+, Sky+ ou MAX</div></div><div class="plan-mini dest" style="margin-top:5px"><div class="pm-n">⚡ Com 1 ano + Refidelização</div><div class="pm-f"><strong>Upgrade de velocidade grátis</strong> por 12 meses · Plano máximo? → Disney+ ou MAX grátis</div></div>${S('"Ao contratar, você entra nos sorteios. Com 6 meses ganha streaming grátis. Com 1 ano sobe de velocidade sem pagar a mais."')}`};
+R.vantagens_lci={html:`<div class="r-t">⭐ Por que escolher a LCI?</div><ul class="r-list"><li>🔌 <strong>Instalação gratuita</strong> — equipamentos em comodato</li><li>🌐 <strong>Rede própria 24h</strong> — sem terceirização</li><li>🛠️ <strong>Suporte humano até meia-noite</strong> — seg a sex</li><li>🎁 <strong>Clube de Benefícios</strong> — sorteios, streaming grátis, upgrade</li><li>👥 <strong>Indique e Ganhe</strong> — 1 indicação = 50% desconto; 2 = fatura zerada</li><li>🏆 <strong>20 anos premiado</strong> pelo melhorplano.net</li></ul>${S('"Rede própria 24h, suporte humano até meia-noite e Clube de Benefícios que nenhum provedor regional oferece."')}`};
+R.obj_caixa_postal={html:`<div class="r-t">📞 Caixa postal / Não atendeu</div>${S('Voz: "Oi [Nome], aqui é [nome] da LCI. Tenho uma informação sobre a cobertura no seu bairro. Me retorna quando puder. Valeu!"')}${S('WhatsApp: "Oi [Nome]! Te liguei sobre a fibra LCI. Quando for bom, me responde aqui 😊"')}${TIP('📅','Voz curta + WhatsApp = combo mais eficaz. Horários: 9–11h e 16–18h.')}`};
+R.fallback={html:`<div class="r-t">Hmm, não captei bem 🤔</div><p class="r-p">Reformula pra mim ou escolhe um tópico:</p><ul class="r-list"><li>Pipeline de vendas (Prospecção ao Pós-venda)</li><li>Objeções: "tá caro", "vou pensar" e mais 15 tipos</li><li>Planos: residencial, empresarial, chip/móvel</li><li>Técnicas: SPIN, Feel-Felt-Found, ACE, JOLT</li></ul>${TIP('🎯','Pra objeções: manda o texto exato que o cliente falou.')}`};
 
 // ── INTENT DETECTION ──
-function detect(msg) {
-  const t = msg.toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g,'');
-  const has = (...ws) => ws.some(w => t.includes(w));
-  const exact = t.trim();
-
-  // ── Comandos básicos (prioridade máxima) ──
-  if(has('voltar ao inicio','voltar pro inicio','comecar de novo','recomecar tudo','ir pro menu','tela inicial','pagina inicial')) return 'welcome';
-  if(exact==='inicio'||exact==='menu'||exact==='recomecar'||exact==='comecar'||exact==='home'||exact==='reiniciar') return 'welcome';
-
-  // ── Saudações ──
+function detect(msg){
+  const t=msg.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  const has=(...ws)=>ws.some(w=>t.includes(w));
+  const exact=t.trim();
+  if(has('voltar ao inicio','voltar pro inicio','comecar de novo','recomecar tudo','ir pro menu')) return 'welcome';
+  if(exact==='inicio'||exact==='menu'||exact==='recomecar'||exact==='comecar'||exact==='home') return 'welcome';
   if(exact==='oi'||exact==='ola'||exact==='ei'||exact==='e ai'||exact==='iae'||exact==='opa') return 'oi';
-  if(has('bom dia','boa tarde','boa noite','tudo bem','tudo certo','como voce vai','como vc vai','oi tudo','ola tudo','oi, tudo')) return 'oi';
-
-  // ── Agradecimentos e confirmações ──
-  if(has('obrigado','obrigada','muito obrigado','muito obrigada','agradeco','agradecida')) return 'obrigado';
-  if((exact==='valeu'||exact==='otimo'||exact==='perfeito'||exact==='show'||exact==='legal'||exact==='massa'||exact==='incrivel'||exact==='excelente'||exact==='entendi'||exact==='ok')) return 'obrigado';
-  if(exact.length<20 && has('valeu demais','foi otimo','foi util','me ajudou','top demais','gostei muito')) return 'obrigado';
-
-  // ── Despedidas ──
-  if(has('tchau','ate mais','ate logo','xau','bye','de nada ate')) return 'tchau';
-
-  // ── Perguntas vagas sobre objeções → pede o texto do cliente primeiro ──
-  // Requer palavras interrogativas/vagas (não captura chips como "🛡️ Objeções")
-  if(has('como lidar com','como tratar objecao','como responder objecao','o que falo quando','o que fazer quando','tenho uma objecao','o cliente tem objecao','me ajuda com objecao','dica de objecao','preciso contornar','como contornar essa')) return 'obj_vaga';
-
-  // ── Objeções específicas (antes do pipeline geral) ──
-  if(has('ta caro','esta caro','muito caro','valor alto','caro demais','sai caro','preco alto','nao tenho dinheiro','custa muito','ficou caro','achou caro','achou muito caro')) return 'obj_preco';
-  if(has('vou pensar','preciso pensar','deixa eu ver','depois eu','nao sei ainda','vou decidir','pensar um pouco','preciso avaliar','deixa pensar','me da um tempo','pensar melhor','dar uma pensada')) return 'obj_pensar';
-  if(has('desligou','bip bip','chamada encerrada','ele desligou','ela desligou','caiu a chamada','desligaram','cortou a ligacao')) return 'obj_desligou';
-  if(has('caixa postal','nao atendeu','nao pegou telefone','nao respondeu o telefone','voicemail','nao atendem o telefone')) return 'obj_caixa_postal';
-  if(has('ja uso o','ja sou cliente','ja somos clientes','somos clientes de','ja tenho contrato com','cliente do concorrente','ja assinou com outro','ja usa concorrente','ja usa o concorrente')) return 'obj_usa_concorrente';
-  if(has('concorrente','outro provedor','vivo fibra','claro fibra','net fibra','oi fibra','mais barato la','la e mais barato','a concorrencia cobrou','o concorrente cobrou')) return 'obj_concorrente';
-  if(has('nao quero fidelidade','sem fidelidade','odio fidelidade','nao gosto de fidelidade','nao quero me prender em')) return 'obj_fidelidade';
+  if(has('bom dia','boa tarde','boa noite','tudo bem','tudo certo','como voce vai')) return 'oi';
+  if(has('obrigado','obrigada','agradeco')) return 'obrigado';
+  if(exact==='valeu'||exact==='otimo'||exact==='perfeito'||exact==='show'||exact==='legal'||exact==='entendi'||exact==='ok') return 'obrigado';
+  if(has('tchau','ate mais','ate logo','xau','bye')) return 'tchau';
+  if(has('como lidar com','como tratar objecao','como responder objecao','tenho uma objecao','me ajuda com objecao')) return 'obj_vaga';
+  if(has('ta caro','esta caro','muito caro','caro demais','sai caro','preco alto','nao tenho dinheiro','custa muito')) return 'obj_preco';
+  if(has('vou pensar','preciso pensar','deixa eu ver','nao sei ainda','vou decidir','preciso avaliar')) return 'obj_pensar';
+  if(has('desligou','bip bip','chamada encerrada','ele desligou','ela desligou')) return 'obj_desligou';
+  if(has('caixa postal','nao atendeu','nao pegou telefone','voicemail')) return 'obj_caixa_postal';
+  if(has('ja uso o','ja sou cliente','ja somos clientes','cliente do concorrente','ja assinou com outro','ja usa concorrente')) return 'obj_usa_concorrente';
+  if(has('concorrente','outro provedor','vivo fibra','claro fibra','net fibra','oi fibra','mais barato la')) return 'obj_concorrente';
+  if(has('nao quero fidelidade','sem fidelidade','odio fidelidade','nao gosto de fidelidade')) return 'obj_fidelidade';
   if(has('contrato longo','nao quero contrato','periodo longo','fidelizacao')) return 'obj_contrato_longo';
   if(has('fidelidade','multa rescisao','preso no contrato')) return 'obj_fidelidade';
-  if(has('estou satisfeito','estou bem com','funciona bem','nao preciso mudar','to satisfeito','ta bom pra mim','nao tenho reclamacao')) return 'obj_satisfeito';
+  if(has('estou satisfeito','funciona bem','nao preciso mudar','to satisfeito')) return 'obj_satisfeito';
   if(has('ja tenho internet','ja uso internet')) return 'obj_satisfeito';
-  if(has('nao estou interessado','nao tenho interesse','nao me interessa','sem interesse','nao tenho necessidade de')) return 'obj_nao_interessado';
-  if(has('estou ocupado','to ocupado','sem tempo agora','ocupado agora','nao posso falar agora','momento ruim pra falar')) return 'obj_ocupado';
-  if(has('como voce conseguiu meu','como obteve meu contato','de onde tirou meu numero','de onde veio meu contato','quem passou meu numero')) return 'obj_como_obteve';
-  if(has('nunca ouvi falar','nao conheco essa empresa','nao sei quem e a lci','primeira vez que ouvo','quem e a lci','nao conheco a lci')) return 'obj_nunca_ouvi';
-  if(has('parece complicado','muito complicado','complexo demais','da trabalho mudar','dor de cabeca mudar','vai complicar','trabalhoso mudar')) return 'obj_complicado';
-  if(has('orcamento comprometido','sem orcamento','orcamento em outra','sem verba','nao tem verba','verba comprometida')) return 'obj_orcamento';
-  if(has('proximo trimestre','ligue depois','ligue no proximo','depois de dezembro','começo do ano','inicio do ano','mais pra frente','outro momento melhor','apos as ferias')) return 'obj_proximo_trimestre';
-  if(has('voces nao tem','voces nao oferecem','nao tem esse recurso','falta o recurso','nao oferece isso')) return 'obj_sem_recurso';
-  if(has('vou pesquisar mais','pedir orcamentos','outros orcamentos','comparar precos','ver outras opcoes','pesquisar outros fornecedores','ver outros provedores')) return 'obj_cotacao';
-  if(has('nao temos equipe','equipe pequena demais','sem equipe de ti','nao tem departamento de ti','empresa nao tem equipe')) return 'obj_equipe_pequena';
-  if(has('manda por email','manda por e-mail','manda email','pode enviar email','manda no whatsapp','manda mais informacao','manda o material','pode mandar o catalogo','manda pdf')) return 'obj_email';
-  if(has('reclamacao','avaliacao negativa','reclame aqui','falaram mal da lci','ouvi falar mal','vi comentario negativo','vi review ruim','pesquisei e vi')) return 'obj_avaliacao_negativa';
-  if(has('roi','retorno sobre investimento','nao vejo valor','nao vejo retorno','qual o retorno nisso','vale a pena mesmo','custo beneficio')) return 'obj_sem_roi';
-  if(has('sete passos','7 passos','como superar objecao','processo de objecao','metodo para objecao','passos pra contornar')) return 'sete_passos';
-  if(has('clube de beneficio','clube beneficio','programa de beneficio','sorteio','sorteios','app gratis','streaming gratis','upgrade de velocidade','degustacao','refidelizar','vantagem de fidelidade','beneficios lci','premio lci','premio trimestral')) return 'clube_beneficios';
-  if(has('vantagem da lci','vantagens da lci','vantagem lci','por que lci','por que escolher lci','por que a lci','diferencial lci','diferenciais lci','indique e ganhe','indica e ganha','zerar fatura','indicar e ganhar','20 anos lci','melhorplano','rede propria lci','suporte lci','instalacao gratis lci','por que contratar lci')) return 'vantagens_lci';
-
-  // ── Planos ──
-  if(has('gamer','exitlag','ping baixo','streamer','e-sport','esport','ip publico residencial')) return 'plano_gamer';
-  if(has('nitro','1000 mega','mil mega','mais veloz','mais rapido','plano top','melhor plano')) return 'plano_nitro';
+  if(has('nao estou interessado','nao tenho interesse','nao me interessa','sem interesse')) return 'obj_nao_interessado';
+  if(has('estou ocupado','to ocupado','sem tempo agora','nao posso falar agora')) return 'obj_ocupado';
+  if(has('como voce conseguiu meu','como obteve meu contato','de onde tirou meu numero')) return 'obj_como_obteve';
+  if(has('nunca ouvi falar','nao conheco essa empresa','quem e a lci','nao conheco a lci')) return 'obj_nunca_ouvi';
+  if(has('parece complicado','muito complicado','complexo demais','da trabalho mudar')) return 'obj_complicado';
+  if(has('orcamento comprometido','sem orcamento','sem verba','nao tem verba')) return 'obj_orcamento';
+  if(has('proximo trimestre','ligue depois','mais pra frente','outro momento melhor')) return 'obj_proximo_trimestre';
+  if(has('voces nao tem','voces nao oferecem','nao tem esse recurso')) return 'obj_sem_recurso';
+  if(has('vou pesquisar mais','pedir orcamentos','outros orcamentos','comparar precos','ver outras opcoes')) return 'obj_cotacao';
+  if(has('nao temos equipe','equipe pequena demais','sem equipe de ti')) return 'obj_equipe_pequena';
+  if(has('manda por email','manda por e-mail','manda email','pode enviar email','manda no whatsapp')) return 'obj_email';
+  if(has('reclamacao','avaliacao negativa','reclame aqui','falaram mal da lci','vi comentario negativo')) return 'obj_avaliacao_negativa';
+  if(has('roi','retorno sobre investimento','nao vejo valor','nao vejo retorno','custo beneficio')) return 'obj_sem_roi';
+  if(has('sete passos','7 passos','como superar objecao','processo de objecao')) return 'sete_passos';
+  if(has('clube de beneficio','clube beneficio','sorteio','sorteios','streaming gratis','upgrade de velocidade','refidelizar','beneficios lci')) return 'clube_beneficios';
+  if(has('vantagem da lci','vantagens da lci','por que lci','diferencial lci','indique e ganhe','zerar fatura','20 anos lci','melhorplano')) return 'vantagens_lci';
+  if(has('gamer','exitlag','ping baixo','streamer','esport')) return 'plano_gamer';
+  if(has('nitro','1000 mega','mil mega','melhor plano')) return 'plano_nitro';
   if(has('entretenimento','streaming','netflix','disney','amazon prime','filmes','series')) return 'plano_entretenimento';
   if(has('chip','movel','celular','plano celular','dados moveis','telefonia','tim','gb')) return 'planos_movel';
-  // Serviços empresariais específicos — verificar ANTES do catch geral de empresa
-  if(has('backup nuvem','backup de servidor','backup servidor','backup dispositivo','backup automatico','backup corporativo','disaster recovery','recuperar dados','perda de dados')) return 'backup_nuvem';
-  if(has('clear channel','lan to lan','lan2lan','rede privativa','interligar filiais','interligar unidades','interligar lojas','rede entre filiais','rede entre unidades')) return 'clear_channel';
-  if(has('colocation','data center lci','datacenter lci','hospedar servidor','colocar servidor','servidor no dc','servidor no datacenter','ix cuiaba','internet exchange')) return 'colocation';
-  if(has('hospedagem de site','hospedagem site','hospedar site','hospedagem web','email corporativo','e-mail corporativo','email empresa','dominio empresa','@empresa','criar site')) return 'hospedagem_email';
-  if(has('modo bridge','mode bridge','bridge mode','gerenciar minha rede','roteador proprio','mikrotik','fortinet','pfsense','configurar bridge','gerenciamento da rede')) return 'modo_bridge';
-  if(has('solucoes empresariais','servicos empresariais','o que oferece para empresa','o que tem para empresa','servicos para empresa','portfolio empresarial','solucoes para empresa')) return 'servicos_empresariais';
-  // Catch geral de empresa → planos
+  if(has('backup nuvem','backup servidor','disaster recovery','recuperar dados')) return 'backup_nuvem';
+  if(has('clear channel','lan to lan','rede privativa','interligar filiais','interligar unidades')) return 'clear_channel';
+  if(has('colocation','data center lci','hospedar servidor','ix cuiaba','internet exchange')) return 'colocation';
+  if(has('hospedagem de site','hospedagem site','email corporativo','e-mail corporativo','dominio empresa')) return 'hospedagem_email';
+  if(has('modo bridge','bridge mode','roteador proprio','mikrotik','fortinet','pfsense')) return 'modo_bridge';
+  if(has('solucoes empresariais','servicos empresariais','o que oferece para empresa','portfolio empresarial')) return 'servicos_empresariais';
   if(has('empresarial','empresa','mei','epp','cnpj','kaspersky','negocio','comercio','escritorio','pj')) return 'planos_empresarial';
-  if(has('residencial','internet residencial','planos residencial','ver planos','todos planos','combo start','combo conecta')) return 'planos_residencial';
-
-  // ── Etapas do pipeline ──
-  if(has('etapa 1','prospeccao','prospectar','icp','perfil ideal','lista de lead','quem abordar')) return 'prospeccao';
-  if(has('etapa 2','abordagem','abordar','rapport','4x20','regra dos 20','primeiro contato','como chegar','como abrir')) return 'abordagem';
-  if(has('etapa 3','sondagem','sondar','perguntas','diagnostico','descobrir necessidade','entender o cliente')) return 'sondagem';
-  if(has('etapa 4','conscientizacao','valor percebido','kotler','amplificar dor','percepcao de valor','justificar preco')) return 'conscientizacao';
-  if(has('etapa 5','apresentacao','apresentar plano','mostrar plano','proposta','como apresentar','qual plano indicar')) return 'apresentacao';
-  if(has('etapa 6','contornar','resolver obj','tecnica de objec','objecoes','ver objec','lista de objec','todas as objec')) return 'objecoes';
-  if(has('etapa 7','fechamento','fechar','como fechar','tecnica de fecha','assinar','contratar','como fecha')) return 'fechamento';
-  if(has('etapa 8','pos-venda','pos venda','apos instalar','depois da venda','fidelizar','reativac','indicacao')) return 'posvenda';
-
-  // ── Técnicas ──
+  if(has('residencial','internet residencial','ver planos','todos planos','combo start','combo conecta')) return 'planos_residencial';
+  if(has('etapa 1','prospeccao','prospectar','icp','perfil ideal')) return 'prospeccao';
+  if(has('etapa 2','abordagem','abordar','rapport','4x20','primeiro contato')) return 'abordagem';
+  if(has('etapa 3','sondagem','sondar','diagnostico','descobrir necessidade')) return 'sondagem';
+  if(has('etapa 4','conscientizacao','valor percebido','kotler','amplificar dor')) return 'conscientizacao';
+  if(has('etapa 5','apresentacao','apresentar plano','mostrar plano','qual plano indicar')) return 'apresentacao';
+  if(has('etapa 6','contornar','objecoes','lista de objec','todas as objec')) return 'objecoes';
+  if(has('etapa 7','fechamento','fechar','como fechar','assinar','contratar')) return 'fechamento';
+  if(has('etapa 8','pos-venda','pos venda','fidelizar','indicacao')) return 'posvenda';
   if(has('spin selling','neil rackham','perguntas spin','metodologia spin')) return 'spin_detail';
-  if(has('feel felt found','felt found','tecnica feel','sentiu encontrou')) return 'feel_felt_found';
-  if(has('ace framework','framework ace','acknowledge clarify','tecnica ace')) return 'ace_framework';
-  if(has('jolt','fomu','medo de errar','fear of messing','matt dixon','indecisao do cliente')) return 'jolt';
-
-  // ── Follow-up ──
-  if(has('follow','followup','cadencia','cliente sumiu','nao responde','quando ligar','quantas tentativas','insistir')) return 'followup';
-
-  // ── Técnico ──
-  if(has('wifi','wi-fi','frequencia','2.4ghz','5ghz','6ghz','alcance','parede','lento','sinal fraco')) return 'wifi';
-  if(has('ip fixo','ip dinamico','camera ip','servidor','bloco /30','bloco /29','ip publico empresa')) return 'ip';
+  if(has('feel felt found','felt found','tecnica feel')) return 'feel_felt_found';
+  if(has('ace framework','acknowledge clarify','tecnica ace')) return 'ace_framework';
+  if(has('jolt','fomu','medo de errar','matt dixon','indecisao')) return 'jolt';
+  if(has('follow','followup','cadencia','cliente sumiu','nao responde','quando ligar')) return 'followup';
+  if(has('wifi','wi-fi','frequencia','2.4ghz','5ghz','6ghz','sinal fraco','alcance')) return 'wifi';
+  if(has('ip fixo','ip dinamico','camera ip','servidor','bloco /30','bloco /29')) return 'ip';
   if(has('mesh','roteador mesh','malha','ponto cego','sem sinal','cobertura ruim')) return 'mesh';
-  if(has('psicologia','por que compra','percepcao de valor','preco psicologia','por que nao fecha')) return 'psicologia_preco';
-
-  // ── Pipeline geral ──
-  if(has('pipeline','etapas','funil','processo de venda','ciclo de venda','lei de ouro')) return 'pipeline_overview';
-
-  // ── Pergunta genérica de como responder → pede o texto do cliente ──
+  if(has('psicologia','por que compra','percepcao de valor','preco psicologia')) return 'psicologia_preco';
+  if(has('pipeline','etapas','funil','processo de venda','ciclo de venda')) return 'pipeline_overview';
   if(has('como responder','o que falar','o que dizer','dica pra responder')) return 'obj_vaga';
-
   return 'fallback';
 }
+function getResponse(msg){const key=detect(msg);return R[key]||R.fallback;}
 
-function getResponse(msg) {
-  const key = detect(msg);
-  return R[key] || R.fallback;
-}
-
-// ── GEMINI AI ──
-// ⚠️ CHAVE EXPIROU? Gere uma nova grátis em: https://aistudio.google.com/apikey
-// Depois troque só o valor abaixo e salve o arquivo.
-const _GK = 'AIzaSyCrDwvyOj_OoHYVyZmXgP-bbJoMAinm_oQ';
-// Modelos disponíveis confirmados (v1beta, maio 2026)
-const _MODELS = ['gemini-2.5-flash','gemini-2.0-flash','gemini-2.0-flash-lite'];
-const _GBase = `https://generativelanguage.googleapis.com/v1beta/models/`;
-const _GSYS = `Você é um assistente especializado para consultores de vendas da LCI Telecom, provedor de internet fibra óptica com 20 anos de mercado.
-
-CONTEXTO LCI TELECOM:
-- Planos residenciais: 200Mbps a 1Gbps, faixa R$69–R$149/mês
-- Planos empresariais: MEI R$229,90 (400M) · EPP R$299,90 (500M) · ME R$379,90 (600M) · SA R$599,90 (1G) · IP Dedicado (sob consulta)
-- Serviços empresariais adicionais: Backup na Nuvem (parceiro líder mundial), Clear Channel/Lan to Lan (rede privativa entre filiais), Colocation (DC com SLA 99,8% e IX Cuiabá-MT e SP), Hospedagem de Sites e E-mail, Modo Bridge (gruposuporte@lcitelecom.com.br)
-- Clube de Benefícios: sorteios trimestrais, 3 meses de streaming grátis (6 meses de contrato), upgrade de velocidade ao refidelizar
-- Indique e Ganhe: 1 indicação = 50% desconto; 2 indicações = fatura zerada
-- Instalação e equipamentos gratuitos (comodato); suporte humano seg–sex até meia-noite; rede própria monitorada 24h
-
-COMO RESPONDER:
-1. Se a pergunta for vaga ou incompleta, peça ao vendedor que especifique melhor — ex: "Qual foi a frase exata do cliente?" ou "Você pode detalhar em qual etapa do pipeline isso acontece?"
-2. Se você não souber a resposta com certeza, diga claramente que não tem essa informação específica e sugira onde verificar
-3. Seja direto e prático — sem introduções, sem enrolação
-4. Use marcadores quando listar mais de 2 itens
-5. Máximo 150 palavras. Português brasileiro. Tom de colega de trabalho experiente.`;
-
-async function callGeminiModel(model, userMsg) {
-  const url = `${_GBase}${model}:generateContent?key=${_GK}`;
-  const body = {
-    contents:[{parts:[{text:`${_GSYS}\n\nPergunta do vendedor: ${userMsg}`}]}],
-    generationConfig:{maxOutputTokens:350,temperature:0.65}
-  };
+// ── GEMINI ──
+// ⚠️ CHAVE EXPIROU? Gere uma nova em: https://aistudio.google.com/apikey
+const _GK='AIzaSyCrDwvyOj_OoHYVyZmXgP-bbJoMAinm_oQ';
+const _MODELS=['gemini-2.5-flash','gemini-2.0-flash','gemini-2.0-flash-lite'];
+const _GBase='https://generativelanguage.googleapis.com/v1beta/models/';
+const _GSYS=`Você é assistente de vendas da LCI Telecom (fibra óptica, 20 anos).
+Planos: Start 300M R$119,90 · Conecta 500M R$149,90 · Entretenimento 600M R$179,90 · Gamer Plus 800M R$209,90 · Nitro 1G R$249,90 | MEI R$169,90 · ME R$229,90 · EPP R$249,90 · EMP R$379,90 · EGP R$599,90 · IP Ded. R$450+ | Chip 5GB R$38,99 · 10GB R$47,99 (sem desconto) · 15GB R$54,99 · 20GB R$59,99 · 30GB R$72,99 · 50GB R$89,99. Descontos chip (15–50GB): Gamer Plus -R$25, Nitro -R$15, Entretenimento -R$10.
+Regras: 1. Pergunta vaga → peça frase exata do cliente. 2. Sem certeza → diga que não sabe. 3. Direto, sem enrolação. 4. Máx 150 palavras. Português BR.`;
+async function callGeminiModel(model,msg){
+  const url=`${_GBase}${model}:generateContent?key=${_GK}`;
+  const body={contents:[{parts:[{text:`${_GSYS}\n\nPergunta: ${msg}`}]}],generationConfig:{maxOutputTokens:350,temperature:0.65}};
   let res;
-  try {
-    res = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'omit'});
-  } catch(netErr) {
-    throw new Error(`Falha de rede: ${netErr.message}`);
-  }
-  if(!res.ok) {
-    let detail = `HTTP ${res.status}`;
-    try { const e = await res.json(); detail += ` — ${e.error?.message||''}`; } catch(x){}
-    throw new Error(detail);
-  }
-  const data = await res.json();
-  const txt = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if(!txt) {
-    const blocked = data.promptFeedback?.blockReason;
-    throw new Error(blocked ? `Bloqueado pela API: ${blocked}` : 'Resposta vazia da API');
-  }
+  try{res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'omit'});}
+  catch(e){throw new Error(`Rede: ${e.message}`);}
+  if(!res.ok){let d=`HTTP ${res.status}`;try{const e=await res.json();d+=` — ${e.error?.message||''}`;}catch(x){}throw new Error(d);}
+  const data=await res.json();
+  const txt=data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if(!txt){throw new Error(data.promptFeedback?.blockReason||'Resposta vazia');}
   return txt;
 }
-
-async function callGemini(userMsg) {
-  // Tenta cada modelo em ordem até um funcionar
-  const erros = [];
-  for(const m of _MODELS){
-    try { return await callGeminiModel(m, userMsg); }
-    catch(e){ erros.push(`[${m}] ${e.message}`); }
-  }
+async function callGemini(msg){
+  const erros=[];
+  for(const m of _MODELS){try{return await callGeminiModel(m,msg);}catch(e){erros.push(`[${m}] ${e.message}`);}}
   throw new Error(erros.join(' | '));
 }
-
-function fmtGemini(text) {
-  // Converte markdown básico para HTML
-  let h = text
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g,'<em>$1</em>');
-  // Listas: linhas começando com - ou •
-  const lines = h.split('\n');
-  const out = []; let inList = false;
-  for(const ln of lines){
-    const li = ln.match(/^[-•]\s+(.+)/);
-    if(li){
-      if(!inList){out.push('<ul class="r-list">');inList=true;}
-      out.push(`<li>${li[1]}</li>`);
-    } else {
-      if(inList){out.push('</ul>');inList=false;}
-      if(ln.trim()) out.push(`<p class="r-p">${ln}</p>`);
-    }
-  }
-  if(inList) out.push('</ul>');
-  return `<div class="gemini-badge">🤖 <strong>Resposta gerada pelo Gemini AI</strong> — verifique em outras fontes antes de aplicar com o cliente</div>${out.join('')}`;
+function fmtGemini(text){
+  let h=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>');
+  const lines=h.split('\n'),out=[];let inList=false;
+  for(const ln of lines){const li=ln.match(/^[-•]\s+(.+)/);if(li){if(!inList){out.push('<ul class="r-list">');inList=true;}out.push(`<li>${li[1]}</li>`);}else{if(inList){out.push('</ul>');inList=false;}if(ln.trim())out.push(`<p class="r-p">${ln}</p>`);}}
+  if(inList)out.push('</ul>');
+  return `<div class="gemini-badge">🤖 <strong>Resposta via Gemini AI</strong> — verifique antes de aplicar com o cliente</div>${out.join('')}`;
 }
 
-// ── CHAT ENGINE ──
-function tstamp(){ return new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
-
-function renderMsg(role, html) {
-  const area = document.getElementById('chatArea');
-  const row = document.createElement('div');
-  row.className = 'msg-row' + (role === 'user' ? ' user' : '');
-
-  const av = document.createElement('div');
-  av.className = 'msg-av' + (role === 'bot' ? ' bot' : '');
-  av.textContent = role === 'bot' ? '🤖' : '👤';
-
-  const bub = document.createElement('div');
-  bub.className = 'msg-bub';
-  if (role === 'user') {
-    bub.textContent = html;
-    bub.innerHTML += `<span class="msg-time">${tstamp()}</span>`;
-  } else {
-    bub.innerHTML = html + `<span class="msg-time">${tstamp()}</span>`;
-  }
-
-  row.appendChild(av);
-  row.appendChild(bub);
-  area.appendChild(row);
-  area.scrollTop = area.scrollHeight;
+// ── ENGINE ──
+function tstamp(){return new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
+function renderMsg(role,html){
+  const area=document.getElementById('chatArea');
+  const row=document.createElement('div');row.className='msg-row'+(role==='user'?' user':'');
+  const av=document.createElement('div');av.className='msg-av'+(role==='bot'?' bot':'');av.textContent=role==='bot'?'🤖':'👤';
+  const bub=document.createElement('div');bub.className='msg-bub';
+  if(role==='user'){bub.textContent=html;bub.innerHTML+=`<span class="msg-time">${tstamp()}</span>`;}
+  else{bub.innerHTML=html+`<span class="msg-time">${tstamp()}</span>`;}
+  row.appendChild(av);row.appendChild(bub);area.appendChild(row);area.scrollTop=area.scrollHeight;
 }
-
-function showTyping(label) {
-  const area = document.getElementById('chatArea');
-  const row = document.createElement('div');
-  row.className = 'typing-row';
-  row.id = 'typingEl';
-  const lbl = label ? `<span class="gemini-typing-label">${label}</span>` : '';
-  row.innerHTML = `<div class="msg-av bot">🤖</div><div class="typing-bub"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>${lbl}`;
-  area.appendChild(row);
-  area.scrollTop = area.scrollHeight;
+function showTyping(label){
+  const area=document.getElementById('chatArea');
+  const row=document.createElement('div');row.className='typing-row';row.id='typingEl';
+  const lbl=label?`<span class="gemini-typing-label">${label}</span>`:'';
+  row.innerHTML=`<div class="msg-av bot">🤖</div><div class="typing-bub"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>${lbl}`;
+  area.appendChild(row);area.scrollTop=area.scrollHeight;
 }
-function hideTyping() { const el = document.getElementById('typingEl'); if(el) el.remove(); }
-
-async function sendMessage() {
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-
-  renderMsg('user', text);
-
-  const key = detect(text);
-
-  if (key !== 'fallback') {
-    // Caminho rápido: base de conhecimento local
+function hideTyping(){const el=document.getElementById('typingEl');if(el)el.remove();}
+async function sendMessage(){
+  const input=document.getElementById('chatInput');
+  const text=input.value.trim();if(!text)return;
+  input.value='';renderMsg('user',text);
+  const key=detect(text);
+  if(key!=='fallback'){
     showTyping();
-    setTimeout(() => {
-      hideTyping();
-      renderMsg('bot', (R[key] || R.fallback).html);
-    }, 500 + Math.random() * 350);
+    setTimeout(()=>{hideTyping();renderMsg('bot',(R[key]||R.fallback).html);},500+Math.random()*350);
   } else {
-    // Caminho Gemini: chamada assíncrona à API
     showTyping('consultando Gemini…');
-    try {
-      const geminiText = await callGemini(text);
+    try{const g=await callGemini(text);hideTyping();renderMsg('bot',fmtGemini(g));}
+    catch(err){
       hideTyping();
-      renderMsg('bot', fmtGemini(geminiText));
-    } catch(err) {
-      hideTyping();
-      const errHtml = `<div class="gemini-badge" style="border-left-color:#E60000;background:rgba(230,0,0,0.08);color:#7f1d1d">
-        ⚠️ <strong>Gemini indisponível</strong><br>
-        <span style="font-weight:400;font-size:10.5px">${err.message}</span>
-      </div>${R.fallback.html}`;
-      renderMsg('bot', errHtml);
+      renderMsg('bot',`<div class="gemini-badge" style="border-left-color:#E60000;background:rgba(230,0,0,0.08);color:#7f1d1d">⚠️ <strong>Gemini indisponível</strong><br><span style="font-weight:400;font-size:10.5px">${err.message}</span></div>${R.fallback.html}`);
     }
   }
 }
-
-document.getElementById('chatInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') sendMessage();
-});
-
-// ── INIT ──
-setTimeout(() => {
-  renderMsg('bot', R.welcome.html);
-}, 350);
+document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage();});
+setTimeout(()=>{renderMsg('bot',R.welcome.html);},350);
 </script>
 </body>
 </html>
